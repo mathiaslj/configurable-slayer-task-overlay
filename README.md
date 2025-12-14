@@ -1,6 +1,6 @@
-# Turael Skipping
+# Configurable slayer info
 
-A RuneLite plugin that helps you complete Turael and Aya Slayer tasks faster.
+A RuneLite plugin that lets you configure information to be shown when given slayer tasks.
 
 # Screenshots
 
