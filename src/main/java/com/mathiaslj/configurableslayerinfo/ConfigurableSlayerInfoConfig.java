@@ -167,7 +167,8 @@ public interface ConfigurableSlayerInfoConfig extends Config {
             keyName = "displayInfo",
             name = "Enable information box",
             description = "Whether to show an information box with information about the current task.",
-            section = generalSettings
+            section = generalSettings,
+            hidden = true
     )
     default boolean enableInformationBox() {
         return true;
@@ -211,7 +212,7 @@ public interface ConfigurableSlayerInfoConfig extends Config {
 
     // Highlight settings
     @ConfigSection(
-            position = 1,
+            position = 10000,
             name = "NPC Highlight settings",
             description = "Customize NPC highlight settings"
     )
@@ -222,10 +223,11 @@ public interface ConfigurableSlayerInfoConfig extends Config {
             keyName = "enableNpcHighlight",
             name = "Enable NPC highlight",
             description = "Whether you want to highlight the NPC's from your current slayer task.",
-            section = npcHighlightSettings
+            section = npcHighlightSettings,
+            hidden = true
     )
     default boolean enableNpcHighlight() {
-        return true;
+        return false;
     }
 
     @ConfigItem(
@@ -233,7 +235,8 @@ public interface ConfigurableSlayerInfoConfig extends Config {
             keyName = "npcHighlightMode",
             name = "NPC highlight mode",
             description = "Select how to highlight the NPC's.",
-            section = npcHighlightSettings
+            section = npcHighlightSettings,
+            hidden = true
     )
     default NpcHighlightMode getNpcHighlightMode() {
         return NpcHighlightMode.Tile;
@@ -244,7 +247,8 @@ public interface ConfigurableSlayerInfoConfig extends Config {
             keyName = "npcColour",
             name = "NPC highlight colour",
             description = "Select the colour of the highlighted NPC's.",
-            section = npcHighlightSettings
+            section = npcHighlightSettings,
+            hidden = true
     )
     default Color getNpcColour() {
         return Color.decode("#DDFF00");
@@ -254,7 +258,6 @@ public interface ConfigurableSlayerInfoConfig extends Config {
     @ConfigSection(
             position = 3,
             name = "Debugging",
-            closedByDefault = true,
             description = "Various debug settings"
     )
     String debugSettings = "debugSettings";
