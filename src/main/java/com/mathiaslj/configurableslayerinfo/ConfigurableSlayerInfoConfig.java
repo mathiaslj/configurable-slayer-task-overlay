@@ -37,7 +37,7 @@ public interface ConfigurableSlayerInfoConfig extends Config {
     String SLAYER_TOWER = "Slayer tower: Slayer ring - alternatively fairy ring (CKS)";
     String STRONGHOLD_SLAYER_CAVE = "Stronghold slayer cave (slayer ring OR spirit tree(2))";
     String MOUNT_KARUULM = "BRING: Boots of stone\nRada's blessing (Mount Karuulm)";
-    String MOS_LE_HARMLESS = "Minigame teleport (Trouble brewing)\nEctophial -> Run East to Bill Teach";
+    String MOS_LE_HARMLESS = "Minigame teleport (Trouble brewing) -> Run South\nEctophial -> Run East to Bill Teach -> Run East";
     String CHASM_OF_FIRE = "Fairy ring (DJR) -> Run North to Chasm of fire";
     String DORGESHKAAN_DUNGEON = "BRING: Light source\nFairy ring (AJQ)";
     String ASGARNIAN_DUNGEON = "Fairy ring (AIQ) -> Run North to Asgarnian Ice Dungeon";
