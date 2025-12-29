@@ -10,6 +10,8 @@ A RuneLite plugin that lets you configure information to be shown when given sla
 
 # Screenshots
 
+Examples of how default values are specified for Ankous and Cockatrices and how it looks in the overlay. You can freely change the values for any monsters and test it using the "Debugging".
+
 <p align="center">
   <img src="assets/ankous.PNG" width="45%" alt="Example Ankous"/>
   <img src="assets/cockatrice.PNG" width="45%" alt="Example Cockatrice"/>
