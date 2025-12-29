@@ -147,18 +147,18 @@ public class ConfigurableSlayerInfoPlugin extends Plugin {
         // Check if current widget is a slayer master
         if (chatBoxNpcName != null && chatBoxNpcText != null &&
                 (chatBoxNpcName.getText().equalsIgnoreCase("turael") ||
-                        chatBoxNpcName.getText().equals("aya") ||
-                        chatBoxNpcName.getText().equals("spria") ||
-                        chatBoxNpcName.getText().equals("krystilia") ||
-                        chatBoxNpcName.getText().equals("mazchna") ||
-                        chatBoxNpcName.getText().equals("achtryn") ||
-                        chatBoxNpcName.getText().equals("vannaka") ||
-                        chatBoxNpcName.getText().equals("chaeldar") ||
-                        chatBoxNpcName.getText().equals("konar quo maten") ||
-                        chatBoxNpcName.getText().equals("nieve") ||
-                        chatBoxNpcName.getText().equals("steve") ||
-                        chatBoxNpcName.getText().equals("duradel") ||
-                        chatBoxNpcName.getText().equals("kuradel")
+                        chatBoxNpcName.getText().equalsIgnoreCase("aya") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("spria") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("krystilia") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("mazchna") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("achtryn") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("vannaka") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("chaeldar") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("konar quo maten") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("nieve") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("steve") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("duradel") ||
+                        chatBoxNpcName.getText().equalsIgnoreCase("kuradel")
                         )
         ) {
             String npcText = Text.sanitizeMultilineText(chatBoxNpcText.getText());
