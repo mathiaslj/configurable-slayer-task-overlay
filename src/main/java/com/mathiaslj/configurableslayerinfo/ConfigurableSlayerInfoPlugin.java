@@ -144,7 +144,7 @@ public class ConfigurableSlayerInfoPlugin extends Plugin {
         Widget chatBoxNpcName = client.getWidget(InterfaceID.ChatLeft.NAME);
         Widget chatBoxNpcText = client.getWidget(InterfaceID.ChatLeft.TEXT);
 
-        // Check if current widget is either Turael or Aya
+        // Check if current widget is a slayer master
         if (chatBoxNpcName != null && chatBoxNpcText != null &&
                 (chatBoxNpcName.getText().equalsIgnoreCase("turael") ||
                         chatBoxNpcName.getText().equals("aya") ||

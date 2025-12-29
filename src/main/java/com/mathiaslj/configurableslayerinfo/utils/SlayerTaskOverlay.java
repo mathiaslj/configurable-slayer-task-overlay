@@ -45,9 +45,9 @@ public class SlayerTaskOverlay extends OverlayPanel {
     private final ConfigurableSlayerInfoConfig config;
 
     @Inject
-    public SlayerTaskOverlay(Client client, ConfigurableSlayerInfoPlugin turaelSlayerPlugin, ConfigurableSlayerInfoConfig config) {
+    public SlayerTaskOverlay(Client client, ConfigurableSlayerInfoPlugin ConfigurableSlayerInfoPlugin, ConfigurableSlayerInfoConfig config) {
         this.client = client;
-        this.plugin = turaelSlayerPlugin;
+        this.plugin = ConfigurableSlayerInfoPlugin;
         this.config = config;
 
         setPosition(OverlayPosition.ABOVE_CHATBOX_RIGHT);
