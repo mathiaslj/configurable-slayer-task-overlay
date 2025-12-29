@@ -29,11 +29,16 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 
-import java.awt.Color;
-
 @ConfigGroup(ConfigurableSlayerInfoConfig.CONFIG_GROUP_NAME)
 public interface ConfigurableSlayerInfoConfig extends Config {
     String CONFIG_GROUP_NAME = "Configurable Slayer Info";
+
+    String FREMENNIK_SLAYER_CAVE = "Fremennik slayer cave (slayer ring OR fairy ring AJR)";
+    String SLAYER_TOWER = "Slayer tower: Slayer ring - alternatively fairy ring (CKS)";
+    String STRONGHOLD_SLAYER_CAVE = "Stronghold slayer cave (slayer ring OR spirit tree(2))";
+    String MOUNT_KARUULM = "BRING: Boots of stone\nRada's blessing (Mount Karuulm)";
+    String MOS_LE_HARMLESS = "Minigame teleport (Trouble brewing)\nEctophial -> Run East to Bill Teach";
+    String CHASM_OF_FIRE = "Fairy ring (DJR) -> Run North to Chasm of fire";
 
     public static final int BASE = 100;
 
@@ -292,490 +297,490 @@ public interface ConfigurableSlayerInfoConfig extends Config {
     String aberrantSpectresSettings = "aberrantSpectres";
 
     @ConfigItem(keyName = "Aberrant Spectres", name = "Aberrant Spectres information", description = "Create individual bullet points in overlay, one per line", section = aberrantSpectresSettings, position = 0)
-    default String aberrantSpectresInfo() { return "Spirit tree (2) -> Run South West to Stronghold slayer cave -> Run South"; }
+    default String aberrantSpectresInfo() { return "BRING: Slayer helm (or nose peg)\n" + STRONGHOLD_SLAYER_CAVE; }
 
     // Abyssal Demons
     @ConfigSection(position = POSITION_ABYSSAL_DEMONS, name = "Abyssal Demons", closedByDefault = true, description = "Information to display for slayer task")
     String abyssalDemonsSettings = "abyssalDemons";
 
     @ConfigItem(keyName = "Abyssal Demons", name = "Abyssal Demons information", description = "Create individual bullet points in overlay, one per line", section = abyssalDemonsSettings, position = 0)
-    default String abyssalDemonsInfo() { return "Placeholder text"; }
+    default String abyssalDemonsInfo() { return "Catacombs of Kourend\n" + "Run North"; }
 
     // Ankous
     @ConfigSection(position = POSITION_ANKOUS, name = "Ankous", closedByDefault = true, description = "Information to display for slayer task")
     String ankousSettings = "ankous";
 
     @ConfigItem(keyName = "Ankous", name = "Ankous information", description = "Create individual bullet points in overlay, one per line", section = ankousSettings, position = 0)
-    default String ankousInfo() { return "Placeholder text"; }
+    default String ankousInfo() { return "Skull sceptre\n" + "4th floor\n" + "Run north"; }
 
     // Aquanites
     @ConfigSection(position = POSITION_AQUANITES, name = "Aquanites", closedByDefault = true, description = "Information to display for slayer task")
     String aquanitesSettings = "aquanites";
 
     @ConfigItem(keyName = "Aquanites", name = "Aquanites information", description = "Create individual bullet points in overlay, one per line", section = aquanitesSettings, position = 0)
-    default String aquanitesInfo() { return "Placeholder text"; }
+    default String aquanitesInfo() { return "Teleport to Prifddinas\n" + "Run North" + "Take rowboat to Ynysdail"; }
 
     // Araxytes
     @ConfigSection(position = POSITION_ARAXYTES, name = "Araxytes", closedByDefault = true, description = "Information to display for slayer task")
     String araxytesSettings = "araxytes";
 
     @ConfigItem(keyName = "Araxytes", name = "Araxytes information", description = "Create individual bullet points in overlay, one per line", section = araxytesSettings, position = 0)
-    default String araxytesInfo() { return "Placeholder text"; }
+    default String araxytesInfo() { return "Spider cave teleport\n" + "Hallowed crystal shard -> Run East and take shortcut (63 agility + 2 long ropes)\n" + "Ectophial or fairy ring (ALQ) -> Run South"; }
 
     // Aviansie
     @ConfigSection(position = POSITION_AVIANSIE, name = "Aviansie", closedByDefault = true, description = "Information to display for slayer task")
     String aviansieSettings = "aviansie";
 
     @ConfigItem(keyName = "Aviansie", name = "Aviansie information", description = "Create individual bullet points in overlay, one per line", section = aviansieSettings, position = 0)
-    default String aviansieInfo() { return "Placeholder text"; }
+    default String aviansieInfo() { return "GWD: Ghommal's hilt or Trollheim teleport"; }
 
     // Bandits
     @ConfigSection(position = POSITION_BANDITS, name = "Bandits", closedByDefault = true, description = "Information to display for slayer task")
     String banditsSettings = "bandits";
 
     @ConfigItem(keyName = "Bandits", name = "Bandits information", description = "Create individual bullet points in overlay, one per line", section = banditsSettings, position = 0)
-    default String banditsInfo() { return "Placeholder text"; }
+    default String banditsInfo() { return "Burning amulet (Bandit camp)\n" + "Run west from Ferox Enclave"; }
 
     // Banshees
     @ConfigSection(position = POSITION_BANSHEES, name = "Banshees", closedByDefault = true, description = "Information to display for slayer task")
     String bansheesSettings = "banshees";
 
     @ConfigItem(keyName = "Banshees", name = "Banshees information", description = "Create individual bullet points in overlay, one per line", section = bansheesSettings, position = 0)
-    default String bansheesInfo() { return "Placeholder text"; }
+    default String bansheesInfo() { return SLAYER_TOWER + "\n" + "Take shortcut outside on SE wall"; }
 
     // Basilisks
     @ConfigSection(position = POSITION_BASILISKS, name = "Basilisks", closedByDefault = true, description = "Information to display for slayer task")
     String basilisksSettings = "basilisks";
 
     @ConfigItem(keyName = "Basilisks", name = "Basilisks information", description = "Create individual bullet points in overlay, one per line", section = basilisksSettings, position = 0)
-    default String basilisksInfo() { return "Placeholder text"; }
+    default String basilisksInfo() { return "Fremennik slayer dungeon: Slayer ring or fairy ring (AJR)\n" + "Jormungand's Prison: Teleport to Rellekka -> Run West and talk to Haskell"; }
 
     // Bats
     @ConfigSection(position = POSITION_BATS, name = "Bats", closedByDefault = true, description = "Information to display for slayer task")
     String batsSettings = "bats";
 
     @ConfigItem(keyName = "Bats", name = "Bats information", description = "Create individual bullet points in overlay, one per line", section = batsSettings, position = 0)
-    default String batsInfo() { return "Placeholder text"; }
+    default String batsInfo() { return "Digsite pendent (Digsite)\n" + "Run North"; }
 
     // Bears
     @ConfigSection(position = POSITION_BEARS, name = "Bears", closedByDefault = true, description = "Information to display for slayer task")
     String bearsSettings = "bears";
 
     @ConfigItem(keyName = "Bears", name = "Bears information", description = "Create individual bullet points in overlay, one per line", section = bearsSettings, position = 0)
-    default String bearsInfo() { return "Placeholder text"; }
+    default String bearsInfo() { return "Fairy ring (BLS)\n" + "Run SW"; }
 
     // Birds
     @ConfigSection(position = POSITION_BIRDS, name = "Birds", closedByDefault = true, description = "Information to display for slayer task")
     String birdsSettings = "birds";
 
     @ConfigItem(keyName = "Birds", name = "Birds information", description = "Create individual bullet points in overlay, one per line", section = birdsSettings, position = 0)
-    default String birdsInfo() { return "Placeholder text"; }
+    default String birdsInfo() { return "Ectophial\n" + "Run West to Alice's farm"; }
 
     // Black Demons
     @ConfigSection(position = POSITION_BLACK_DEMONS, name = "Black Demons", closedByDefault = true, description = "Information to display for slayer task")
     String blackDemonsSettings = "blackDemons";
 
     @ConfigItem(keyName = "Black Demons", name = "Black Demons information", description = "Create individual bullet points in overlay, one per line", section = blackDemonsSettings, position = 0)
-    default String blackDemonsInfo() { return "Placeholder text"; }
+    default String blackDemonsInfo() { return "Demonics: Royal seed pod -> Run NW followed by North to crash site\n" + "Black demons: Falador teleport -> Take agility shortcut West -> Run North to Taverly dungeon"; }
 
     // Black Dragons
     @ConfigSection(position = POSITION_BLACK_DRAGONS, name = "Black Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String blackDragonsSettings = "blackDragons";
 
     @ConfigItem(keyName = "Black Dragons", name = "Black Dragons information", description = "Create individual bullet points in overlay, one per line", section = blackDragonsSettings, position = 0)
-    default String blackDragonsInfo() { return "Placeholder text"; }
+    default String blackDragonsInfo() { return "Baby black dragons: Task-only area in Taverly dungeon\n" + "Regular: Bring raw chicken to Zanaris -> Enter lair NE -> Run South to safespot" + "King black dragon: Burning amulet (Lava maze)"; }
 
     // Black Knights
     @ConfigSection(position = POSITION_BLACK_KNIGHTS, name = "Black Knights", closedByDefault = true, description = "Information to display for slayer task")
     String blackKnightsSettings = "blackKnights";
 
     @ConfigItem(keyName = "Black Knights", name = "Black Knights information", description = "Create individual bullet points in overlay, one per line", section = blackKnightsSettings, position = 0)
-    default String blackKnightsInfo() { return "Placeholder text"; }
+    default String blackKnightsInfo() { return "Combat bracelet (Monastery) -> Run West\n" + "Falador teleport -> Run North"; }
 
     // Bloodvelds
     @ConfigSection(position = POSITION_BLOODVELDS, name = "Bloodvelds", closedByDefault = true, description = "Information to display for slayer task")
     String bloodveldsSettings = "bloodvelds";
 
     @ConfigItem(keyName = "Bloodvelds", name = "Bloodvelds information", description = "Create individual bullet points in overlay, one per line", section = bloodveldsSettings, position = 0)
-    default String bloodveldsInfo() { return "Placeholder text"; }
+    default String bloodveldsInfo() { return STRONGHOLD_SLAYER_CAVE + "\n" + "Placeholder for preferred locations (Catacombs, meiyerditch, buccaneers, iorwerth)"; }
 
     // Blue Dragons
     @ConfigSection(position = POSITION_BLUE_DRAGONS, name = "Blue Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String blueDragonsSettings = "blueDragons";
 
     @ConfigItem(keyName = "Blue Dragons", name = "Blue Dragons information", description = "Create individual bullet points in overlay, one per line", section = blueDragonsSettings, position = 0)
-    default String blueDragonsInfo() { return "Placeholder text"; }
+    default String blueDragonsInfo() { return "Taverly dungeon"; }
 
     // Brine Rats
     @ConfigSection(position = POSITION_BRINE_RATS, name = "Brine Rats", closedByDefault = true, description = "Information to display for slayer task")
     String brineRatsSettings = "brineRats";
 
     @ConfigItem(keyName = "Brine Rats", name = "Brine Rats information", description = "Create individual bullet points in overlay, one per line", section = brineRatsSettings, position = 0)
-    default String brineRatsInfo() { return "Placeholder text"; }
+    default String brineRatsInfo() { return "Fairy ring (DKS)"; }
 
     // Catablepon
     @ConfigSection(position = POSITION_CATABLEPON, name = "Catablepon", closedByDefault = true, description = "Information to display for slayer task")
     String catableponSettings = "catablepon";
 
     @ConfigItem(keyName = "Catablepon", name = "Catablepon information", description = "Create individual bullet points in overlay, one per line", section = catableponSettings, position = 0)
-    default String catableponInfo() { return "Placeholder text"; }
+    default String catableponInfo() { return "Skull sceptre\n" + "3rd floor\n" + "Run NE"; }
 
     // Cave Bugs
     @ConfigSection(position = POSITION_CAVE_BUGS, name = "Cave Bugs", closedByDefault = true, description = "Information to display for slayer task")
     String caveBugsSettings = "caveBugs";
 
     @ConfigItem(keyName = "Cave Bugs", name = "Cave Bugs information", description = "Create individual bullet points in overlay, one per line", section = caveBugsSettings, position = 0)
-    default String caveBugsInfo() { return "Placeholder text"; }
+    default String caveBugsInfo() { return "BRING: Light source\n" + "Fairy ring (AJQ)"; }
 
     // Cave Crawlers
     @ConfigSection(position = POSITION_CAVE_CRAWLERS, name = "Cave Crawlers", closedByDefault = true, description = "Information to display for slayer task")
     String caveCrawlersSettings = "caveCrawlers";
 
     @ConfigItem(keyName = "Cave Crawlers", name = "Cave Crawlers information", description = "Create individual bullet points in overlay, one per line", section = caveCrawlersSettings, position = 0)
-    default String caveCrawlersInfo() { return "Placeholder text"; }
+    default String caveCrawlersInfo() { return FREMENNIK_SLAYER_CAVE; }
 
     // Cave Horrors
     @ConfigSection(position = POSITION_CAVE_HORRORS, name = "Cave Horrors", closedByDefault = true, description = "Information to display for slayer task")
     String caveHorrorsSettings = "caveHorrors";
 
     @ConfigItem(keyName = "Cave Horrors", name = "Cave Horrors information", description = "Create individual bullet points in overlay, one per line", section = caveHorrorsSettings, position = 0)
-    default String caveHorrorsInfo() { return "Placeholder text"; }
+    default String caveHorrorsInfo() { return "BRING: Witchwood icon\n" + MOS_LE_HARMLESS; }
 
     // Cave Slimes
     @ConfigSection(position = POSITION_CAVE_SLIMES, name = "Cave Slimes", closedByDefault = true, description = "Information to display for slayer task")
     String caveSlimesSettings = "caveSlimes";
 
     @ConfigItem(keyName = "Cave Slimes", name = "Cave Slimes information", description = "Create individual bullet points in overlay, one per line", section = caveSlimesSettings, position = 0)
-    default String caveSlimesInfo() { return "Placeholder text"; }
+    default String caveSlimesInfo() { return "BRING: Light source\n" + "Fairy ring (AJQ)"; }
 
     // Cave Kraken
     @ConfigSection(position = POSITION_CAVE_KRAKEN, name = "Cave Kraken", closedByDefault = true, description = "Information to display for slayer task")
     String caveKrakenSettings = "caveKraken";
 
     @ConfigItem(keyName = "Cave Kraken", name = "Cave Kraken information", description = "Create individual bullet points in overlay, one per line", section = caveKrakenSettings, position = 0)
-    default String caveKrakenInfo() { return "Placeholder text"; }
+    default String caveKrakenInfo() { return "Fairy ring (AKQ)"; }
 
     // Chaos Druids
     @ConfigSection(position = POSITION_CHAOS_DRUIDS, name = "Chaos Druids", closedByDefault = true, description = "Information to display for slayer task")
     String chaosDruidsSettings = "chaosDruids";
 
     @ConfigItem(keyName = "Chaos Druids", name = "Chaos Druids information", description = "Create individual bullet points in overlay, one per line", section = chaosDruidsSettings, position = 0)
-    default String chaosDruidsInfo() { return "Placeholder text"; }
+    default String chaosDruidsInfo() { return "Edgeville dungeon (Wilderness)\n" + "Chaos druid tower (North of Ardougne)"; }
 
     // Cockatrices
     @ConfigSection(position = POSITION_COCKATRICES, name = "Cockatrices", closedByDefault = true, description = "Information to display for slayer task")
     String cockatricesSettings = "cockatrices";
 
     @ConfigItem(keyName = "Cockatrices", name = "Cockatrices information", description = "Create individual bullet points in overlay, one per line", section = cockatricesSettings, position = 0)
-    default String cockatricesInfo() { return "Placeholder text"; }
+    default String cockatricesInfo() { return "BRING: Mirror shield\n" + FREMENNIK_SLAYER_CAVE; }
 
     // Cows
     @ConfigSection(position = POSITION_COWS, name = "Cows", closedByDefault = true, description = "Information to display for slayer task")
     String cowsSettings = "cows";
 
     @ConfigItem(keyName = "Cows", name = "Cows information", description = "Create individual bullet points in overlay, one per line", section = cowsSettings, position = 0)
-    default String cowsInfo() { return "Placeholder text"; }
+    default String cowsInfo() { return "Skill's necklace (crafting guild)"; }
 
     // Crabs
     @ConfigSection(position = POSITION_CRABS, name = "Crabs", closedByDefault = true, description = "Information to display for slayer task")
     String crabsSettings = "crabs";
 
     @ConfigItem(keyName = "Crabs", name = "Crabs information", description = "Create individual bullet points in overlay, one per line", section = crabsSettings, position = 0)
-    default String crabsInfo() { return "Placeholder text"; }
+    default String crabsInfo() { return "Ammonite crab: Shores of fossil island\n" + "Sand crab: Minigame teleport (tithe farm) -> Run South to shore"; }
 
     // Crawling Hands
     @ConfigSection(position = POSITION_CRAWLING_HANDS, name = "Crawling Hands", closedByDefault = true, description = "Information to display for slayer task")
     String crawlingHandsSettings = "crawlingHands";
 
     @ConfigItem(keyName = "Crawling Hands", name = "Crawling Hands information", description = "Create individual bullet points in overlay, one per line", section = crawlingHandsSettings, position = 0)
-    default String crawlingHandsInfo() { return "Placeholder text"; }
+    default String crawlingHandsInfo() { return SLAYER_TOWER + "\n" + "Bottom floor"; }
 
     // Crocodiles
     @ConfigSection(position = POSITION_CROCODILES, name = "Crocodiles", closedByDefault = true, description = "Information to display for slayer task")
     String crocodilesSettings = "crocodiles";
 
     @ConfigItem(keyName = "Crocodiles", name = "Crocodiles information", description = "Create individual bullet points in overlay, one per line", section = crocodilesSettings, position = 0)
-    default String crocodilesInfo() { return "Placeholder text"; }
+    default String crocodilesInfo() { return "BRING: Waterskins\n" + "Desert amulet\n" + "Run West"; }
 
     // Custodian Stalkers
     @ConfigSection(position = POSITION_CUSTODIAN_STALKERS, name = "Custodian Stalkers", closedByDefault = true, description = "Information to display for slayer task")
     String custodianStalkersSettings = "custodianStalkers";
 
     @ConfigItem(keyName = "Custodian Stalkers", name = "Custodian Stalkers information", description = "Create individual bullet points in overlay, one per line", section = custodianStalkersSettings, position = 0)
-    default String custodianStalkersInfo() { return "Placeholder text"; }
+    default String custodianStalkersInfo() { return "Fairy ring (BLS)\n" + "Run South to Stalker Den"; }
 
     // Dagannoths
     @ConfigSection(position = POSITION_DAGANNOTHS, name = "Dagannoths", closedByDefault = true, description = "Information to display for slayer task")
     String dagannothsSettings = "dagannoths";
 
     @ConfigItem(keyName = "Dagannoths", name = "Dagannoths information", description = "Create individual bullet points in overlay, one per line", section = dagannothsSettings, position = 0)
-    default String dagannothsInfo() { return "Placeholder text"; }
+    default String dagannothsInfo() { return "Lighthouse: Fairy ring (ALP)\n" + "Catacombs of Kourend: Run South"; }
 
     // Dark Beasts
     @ConfigSection(position = POSITION_DARK_BEASTS, name = "Dark Beasts", closedByDefault = true, description = "Information to display for slayer task")
     String darkBeastsSettings = "darkBeasts";
 
     @ConfigItem(keyName = "Dark Beasts", name = "Dark Beasts information", description = "Create individual bullet points in overlay, one per line", section = darkBeastsSettings, position = 0)
-    default String darkBeastsInfo() { return "Placeholder text"; }
+    default String darkBeastsInfo() { return "Slayer ring (dark beasts)"; }
 
     // Dark Warriors
     @ConfigSection(position = POSITION_DARK_WARRIORS, name = "Dark Warriors", closedByDefault = true, description = "Information to display for slayer task")
     String darkWarriorsSettings = "darkWarriors";
 
     @ConfigItem(keyName = "Dark Warriors", name = "Dark Warriors information", description = "Create individual bullet points in overlay, one per line", section = darkWarriorsSettings, position = 0)
-    default String darkWarriorsInfo() { return "Placeholder text"; }
+    default String darkWarriorsInfo() { return "Burning amulet (Bandit camp) -> Run West, then South\n" + "Run west from Ferox Enclave"; }
 
     // Dogs
     @ConfigSection(position = POSITION_DOGS, name = "Dogs", closedByDefault = true, description = "Information to display for slayer task")
     String dogsSettings = "dogs";
 
     @ConfigItem(keyName = "Dogs", name = "Dogs information", description = "Create individual bullet points in overlay, one per line", section = dogsSettings, position = 0)
-    default String dogsInfo() { return "Placeholder text"; }
+    default String dogsInfo() { return "Pharaoh's sceptre (2 - Jaleustrophos) -> Run South\n" + "Desert amulet -> Run West or South\n" + "Fairy ring (AKP) -> Run NE\n" + "Fairy ring (DLQ) -> Run South"; }
 
     // Drakes
     @ConfigSection(position = POSITION_DRAKES, name = "Drakes", closedByDefault = true, description = "Information to display for slayer task")
     String drakesSettings = "drakes";
 
     @ConfigItem(keyName = "Drakes", name = "Drakes information", description = "Create individual bullet points in overlay, one per line", section = drakesSettings, position = 0)
-    default String drakesInfo() { return "Placeholder text"; }
+    default String drakesInfo() { return MOUNT_KARUULM; }
 
     // Dust Devils
     @ConfigSection(position = POSITION_DUST_DEVILS, name = "Dust Devils", closedByDefault = true, description = "Information to display for slayer task")
     String dustDevilsSettings = "dustDevils";
 
     @ConfigItem(keyName = "Dust Devils", name = "Dust Devils information", description = "Create individual bullet points in overlay, one per line", section = dustDevilsSettings, position = 0)
-    default String dustDevilsInfo() { return "Placeholder text"; }
+    default String dustDevilsInfo() { return "Catacombs of Kourend\n" + "Run East, then South"; }
 
     // Dwarves
     @ConfigSection(position = POSITION_DWARVES, name = "Dwarves", closedByDefault = true, description = "Information to display for slayer task")
     String dwarvesSettings = "dwarves";
 
     @ConfigItem(keyName = "Dwarves", name = "Dwarves information", description = "Create individual bullet points in overlay, one per line", section = dwarvesSettings, position = 0)
-    default String dwarvesInfo() { return "Placeholder text"; }
+    default String dwarvesInfo() { return "Combat bracelet (Monastery) -> Run West\n" + "Falador teleport -> Run NE"; }
 
     // Earth Warriors
     @ConfigSection(position = POSITION_EARTH_WARRIORS, name = "Earth Warriors", closedByDefault = true, description = "Information to display for slayer task")
     String earthWarriorsSettings = "earthWarriors";
 
     @ConfigItem(keyName = "Earth Warriors", name = "Earth Warriors information", description = "Create individual bullet points in overlay, one per line", section = earthWarriorsSettings, position = 0)
-    default String earthWarriorsInfo() { return "Placeholder text"; }
+    default String earthWarriorsInfo() { return "Edgeville dungeon"; }
 
     // Elves
     @ConfigSection(position = POSITION_ELVES, name = "Elves", closedByDefault = true, description = "Information to display for slayer task")
     String elvesSettings = "elves";
 
     @ConfigItem(keyName = "Elves", name = "Elves information", description = "Create individual bullet points in overlay, one per line", section = elvesSettings, position = 0)
-    default String elvesInfo() { return "Placeholder text"; }
+    default String elvesInfo() { return "Mourner HQ: Slayer ring (dark beasts)\n" + "Iorwerth dungeon: Teleport to Prifddinas"; }
 
     // Ent
     @ConfigSection(position = POSITION_ENT, name = "Ent", closedByDefault = true, description = "Information to display for slayer task")
     String entSettings = "ent";
 
     @ConfigItem(keyName = "Ent", name = "Ent information", description = "Create individual bullet points in overlay, one per line", section = entSettings, position = 0)
-    default String entInfo() { return "Placeholder text"; }
+    default String entInfo() { return "Wilderness: Ferox enclave -> Run NE\n" + "Skill' necklace (WC guild) -> Enter dungeon"; }
 
     // Fever Spiders
     @ConfigSection(position = POSITION_FEVER_SPIDERS, name = "Fever Spiders", closedByDefault = true, description = "Information to display for slayer task")
     String feverSpidersSettings = "feverSpiders";
 
     @ConfigItem(keyName = "Fever Spiders", name = "Fever Spiders information", description = "Create individual bullet points in overlay, one per line", section = feverSpidersSettings, position = 0)
-    default String feverSpidersInfo() { return "Placeholder text"; }
+    default String feverSpidersInfo() { return "Ectophial\n" + "Run North and talk to Pirate Pete to Braindeath island"; }
 
     // Fire Giants
     @ConfigSection(position = POSITION_FIRE_GIANTS, name = "Fire Giants", closedByDefault = true, description = "Information to display for slayer task")
     String fireGiantsSettings = "fireGiants";
 
     @ConfigItem(keyName = "Fire Giants", name = "Fire Giants information", description = "Create individual bullet points in overlay, one per line", section = fireGiantsSettings, position = 0)
-    default String fireGiantsInfo() { return "Placeholder text"; }
+    default String fireGiantsInfo() { return "Catacombs of Kourend: Run West\n" + STRONGHOLD_SLAYER_CAVE; }
 
     // Flesh Crawlers
     @ConfigSection(position = POSITION_FLESH_CRAWLERS, name = "Flesh Crawlers", closedByDefault = true, description = "Information to display for slayer task")
     String fleshCrawlersSettings = "fleshCrawlers";
 
     @ConfigItem(keyName = "Flesh Crawlers", name = "Flesh Crawlers information", description = "Create individual bullet points in overlay, one per line", section = fleshCrawlersSettings, position = 0)
-    default String fleshCrawlersInfo() { return "Placeholder text"; }
+    default String fleshCrawlersInfo() { return "Skull sceptre\n" + "2nd floor\n" + "Run SE"; }
 
     // Fossil Island Wyvern
     @ConfigSection(position = POSITION_FOSSIL_ISLAND_WYVERN, name = "Fossil Island Wyvern", closedByDefault = true, description = "Information to display for slayer task")
     String fossilIslandWyvernSettings = "fossilIslandWyvern";
 
     @ConfigItem(keyName = "Fossil Island Wyvern", name = "Fossil Island Wyvern information", description = "Create individual bullet points in overlay, one per line", section = fossilIslandWyvernSettings, position = 0)
-    default String fossilIslandWyvernInfo() { return "Placeholder text"; }
+    default String fossilIslandWyvernInfo() { return "BRING: Elemental/ancient wyvern/dragonfire shield\n" + "Digsite pendent (Fossil island) -> Magic mushtree (4) -> Run South to cave"; }
 
     // Frost Dragons
     @ConfigSection(position = POSITION_FROST_DRAGONS, name = "Frost Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String frostDragonsSettings = "frostDragons";
 
     @ConfigItem(keyName = "Frost Dragons", name = "Frost Dragons information", description = "Create individual bullet points in overlay, one per line", section = frostDragonsSettings, position = 0)
-    default String frostDragonsInfo() { return "Placeholder text"; }
+    default String frostDragonsInfo() { return "Fairy ring (DLP)"; }
 
     // Gargoyles
     @ConfigSection(position = POSITION_GARGOYLES, name = "Gargoyles", closedByDefault = true, description = "Information to display for slayer task")
     String gargoylesSettings = "gargoyles";
 
     @ConfigItem(keyName = "Gargoyles", name = "Gargoyles information", description = "Create individual bullet points in overlay, one per line", section = gargoylesSettings, position = 0)
-    default String gargoylesInfo() { return "Placeholder text"; }
+    default String gargoylesInfo() { return SLAYER_TOWER + "\n" + "Top floor or basement"; }
 
     // Ghosts
     @ConfigSection(position = POSITION_GHOSTS, name = "Ghosts", closedByDefault = true, description = "Information to display for slayer task")
     String ghostsSettings = "ghosts";
 
     @ConfigItem(keyName = "Ghosts", name = "Ghosts information", description = "Create individual bullet points in overlay, one per line", section = ghostsSettings, position = 0)
-    default String ghostsInfo() { return "Placeholder text"; }
+    default String ghostsInfo() { return "Catacombs of Kourend\n" + "Run East, then North"; }
 
     // Ghouls
     @ConfigSection(position = POSITION_GHOULS, name = "Ghouls", closedByDefault = true, description = "Information to display for slayer task")
     String ghoulsSettings = "ghouls";
 
     @ConfigItem(keyName = "Ghouls", name = "Ghouls information", description = "Create individual bullet points in overlay, one per line", section = ghoulsSettings, position = 0)
-    default String ghoulsInfo() { return "Placeholder text"; }
+    default String ghoulsInfo() { return "Salve graveyard teleport\n" + "Fairy ring (CKS)"; }
 
     // Goblins
     @ConfigSection(position = POSITION_GOBLINS, name = "Goblins", closedByDefault = true, description = "Information to display for slayer task")
     String goblinsSettings = "goblins";
 
     @ConfigItem(keyName = "Goblins", name = "Goblins information", description = "Create individual bullet points in overlay, one per line", section = goblinsSettings, position = 0)
-    default String goblinsInfo() { return "Placeholder text"; }
+    default String goblinsInfo() { return "Lumbridge teleport\n" + "Run East across river"; }
 
     // Greater Demons
     @ConfigSection(position = POSITION_GREATER_DEMONS, name = "Greater Demons", closedByDefault = true, description = "Information to display for slayer task")
     String greaterDemonsSettings = "greaterDemons";
 
     @ConfigItem(keyName = "Greater Demons", name = "Greater Demons information", description = "Create individual bullet points in overlay, one per line", section = greaterDemonsSettings, position = 0)
-    default String greaterDemonsInfo() { return "Placeholder text"; }
+    default String greaterDemonsInfo() { return "Tormented demons: Guthixian temple teleport - alternatively (Remember sapphire lantern) Games necklace (Tears of Guthix)" + CHASM_OF_FIRE; }
 
     // Green Dragons
     @ConfigSection(position = POSITION_GREEN_DRAGONS, name = "Green Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String greenDragonsSettings = "greenDragons";
 
     @ConfigItem(keyName = "Green Dragons", name = "Green Dragons information", description = "Create individual bullet points in overlay, one per line", section = greenDragonsSettings, position = 0)
-    default String greenDragonsInfo() { return "Placeholder text"; }
+    default String greenDragonsInfo() { return "Ferox enclave -> run North\n" + "Wilderness slayer cave"; }
 
     // Gryphons
     @ConfigSection(position = POSITION_GRYPHONS, name = "Gryphons", closedByDefault = true, description = "Information to display for slayer task")
     String gryphonsSettings = "gryphons";
 
     @ConfigItem(keyName = "Gryphons", name = "Gryphons information", description = "Create individual bullet points in overlay, one per line", section = gryphonsSettings, position = 0)
-    default String gryphonsInfo() { return "Placeholder text"; }
+    default String gryphonsInfo() { return "Fairy ring (CJQ)\n" + "Run North"; }
 
     // Harpie Bug Swarms
     @ConfigSection(position = POSITION_HARPIE_BUG_SWARMS, name = "Harpie Bug Swarms", closedByDefault = true, description = "Information to display for slayer task")
     String harpieBugSwarmsSettings = "harpieBugSwarms";
 
     @ConfigItem(keyName = "Harpie Bug Swarms", name = "Harpie Bug Swarms information", description = "Create individual bullet points in overlay, one per line", section = harpieBugSwarmsSettings, position = 0)
-    default String harpieBugSwarmsInfo() { return "Placeholder text"; }
+    default String harpieBugSwarmsInfo() { return "Colossal worm quetzal site -> Run SE\n" + "Fairy ring (AJP) -> Run SE"; }
 
     // Hellhounds
     @ConfigSection(position = POSITION_HELLHOUNDS, name = "Hellhounds", closedByDefault = true, description = "Information to display for slayer task")
     String hellhoundsSettings = "hellhounds";
 
     @ConfigItem(keyName = "Hellhounds", name = "Hellhounds information", description = "Create individual bullet points in overlay, one per line", section = hellhoundsSettings, position = 0)
-    default String hellhoundsInfo() { return "Placeholder text"; }
+    default String hellhoundsInfo() { return STRONGHOLD_SLAYER_CAVE + "Run South"; }
 
     // Hill Giants
     @ConfigSection(position = POSITION_HILL_GIANTS, name = "Hill Giants", closedByDefault = true, description = "Information to display for slayer task")
     String hillGiantsSettings = "hillGiants";
 
     @ConfigItem(keyName = "Hill Giants", name = "Hill Giants information", description = "Create individual bullet points in overlay, one per line", section = hillGiantsSettings, position = 0)
-    default String hillGiantsInfo() { return "Placeholder text"; }
+    default String hillGiantsInfo() { return "Catacombs of Kourend: Run North"; }
 
     // Hobgoblins
     @ConfigSection(position = POSITION_HOBGOBLINS, name = "Hobgoblins", closedByDefault = true, description = "Information to display for slayer task")
     String hobgoblinsSettings = "hobgoblins";
 
     @ConfigItem(keyName = "Hobgoblins", name = "Hobgoblins information", description = "Create individual bullet points in overlay, one per line", section = hobgoblinsSettings, position = 0)
-    default String hobgoblinsInfo() { return "Placeholder text"; }
+    default String hobgoblinsInfo() { return "Fairy ring (AKR)\n" + "Run North"; }
 
     // Hydras
     @ConfigSection(position = POSITION_HYDRAS, name = "Hydras", closedByDefault = true, description = "Information to display for slayer task")
     String hydrasSettings = "hydras";
 
     @ConfigItem(keyName = "Hydras", name = "Hydras information", description = "Create individual bullet points in overlay, one per line", section = hydrasSettings, position = 0)
-    default String hydrasInfo() { return "Placeholder text"; }
+    default String hydrasInfo() { return MOUNT_KARUULM; }
 
     // Icefiends
     @ConfigSection(position = POSITION_ICEFIENDS, name = "Icefiends", closedByDefault = true, description = "Information to display for slayer task")
     String icefiendsSettings = "icefiends";
 
     @ConfigItem(keyName = "Icefiends", name = "Icefiends information", description = "Create individual bullet points in overlay, one per line", section = icefiendsSettings, position = 0)
-    default String icefiendsInfo() { return "Placeholder text"; }
+    default String icefiendsInfo() { return "Combat bracelet (Monastery)"; }
 
     // Ice Giants
     @ConfigSection(position = POSITION_ICE_GIANTS, name = "Ice Giants", closedByDefault = true, description = "Information to display for slayer task")
     String iceGiantsSettings = "iceGiants";
 
     @ConfigItem(keyName = "Ice Giants", name = "Ice Giants information", description = "Create individual bullet points in overlay, one per line", section = iceGiantsSettings, position = 0)
-    default String iceGiantsInfo() { return "Placeholder text"; }
+    default String iceGiantsInfo() { return "Giantsoul amulet\n" + "Fairy ring (AIQ) -> Run North to Asgarnian Ice Dungeon -> Take shortcut West or run North, then East"; }
 
     // Ice Warriors
     @ConfigSection(position = POSITION_ICE_WARRIORS, name = "Ice Warriors", closedByDefault = true, description = "Information to display for slayer task")
     String iceWarriorsSettings = "iceWarriors";
 
     @ConfigItem(keyName = "Ice Warriors", name = "Ice Warriors information", description = "Create individual bullet points in overlay, one per line", section = iceWarriorsSettings, position = 0)
-    default String iceWarriorsInfo() { return "Placeholder text"; }
+    default String iceWarriorsInfo() { return "Giantsoul amulet\n" + "Fairy ring (AIQ) -> Run North to Asgarnian Ice Dungeon -> Run North, then East"; }
 
     // Infernal Mages
     @ConfigSection(position = POSITION_INFERNAL_MAGES, name = "Infernal Mages", closedByDefault = true, description = "Information to display for slayer task")
     String infernalMagesSettings = "infernalMages";
 
     @ConfigItem(keyName = "Infernal Mages", name = "Infernal Mages information", description = "Create individual bullet points in overlay, one per line", section = infernalMagesSettings, position = 0)
-    default String infernalMagesInfo() { return "Placeholder text"; }
+    default String infernalMagesInfo() { return SLAYER_TOWER + "\n" + "1st floor"; }
 
     // Jellies
     @ConfigSection(position = POSITION_JELLIES, name = "Jellies", closedByDefault = true, description = "Information to display for slayer task")
     String jelliesSettings = "jellies";
 
     @ConfigItem(keyName = "Jellies", name = "Jellies information", description = "Create individual bullet points in overlay, one per line", section = jelliesSettings, position = 0)
-    default String jelliesInfo() { return "Placeholder text"; }
+    default String jelliesInfo() { return "Catacombs of Kourend: Run East, then South (continue or then East and then North)"; }
 
     // Jungle Horrors
     @ConfigSection(position = POSITION_JUNGLE_HORRORS, name = "Jungle Horrors", closedByDefault = true, description = "Information to display for slayer task")
     String jungleHorrorsSettings = "jungleHorrors";
 
     @ConfigItem(keyName = "Jungle Horrors", name = "Jungle Horrors information", description = "Create individual bullet points in overlay, one per line", section = jungleHorrorsSettings, position = 0)
-    default String jungleHorrorsInfo() { return "Placeholder text"; }
+    default String jungleHorrorsInfo() { return MOS_LE_HARMLESS; }
 
     // Kalphite
     @ConfigSection(position = POSITION_KALPHITE, name = "Kalphite", closedByDefault = true, description = "Information to display for slayer task")
     String kalphiteSettings = "kalphite";
 
     @ConfigItem(keyName = "Kalphite", name = "Kalphite information", description = "Create individual bullet points in overlay, one per line", section = kalphiteSettings, position = 0)
-    default String kalphiteInfo() { return "Placeholder text"; }
+    default String kalphiteInfo() { return "Desert amulet 4\n" + "Fairy ring (BIQ)"; }
 
     // Killerwatts
     @ConfigSection(position = POSITION_KILLERWATTS, name = "Killerwatts", closedByDefault = true, description = "Information to display for slayer task")
     String killerwattsSettings = "killerwatts";
 
     @ConfigItem(keyName = "Killerwatts", name = "Killerwatts information", description = "Create individual bullet points in overlay, one per line", section = killerwattsSettings, position = 0)
-    default String killerwattsInfo() { return "Placeholder text"; }
+    default String killerwattsInfo() { return "Top of Draynor manor (portal machine)"; }
 
     // Kurasks
     @ConfigSection(position = POSITION_KURASKS, name = "Kurasks", closedByDefault = true, description = "Information to display for slayer task")
     String kurasksSettings = "kurasks";
 
     @ConfigItem(keyName = "Kurasks", name = "Kurasks information", description = "Create individual bullet points in overlay, one per line", section = kurasksSettings, position = 0)
-    default String kurasksInfo() { return "Placeholder text"; }
+    default String kurasksInfo() { return "BRING: Leaf-bladed weapons or broad ammunition\n" + "Iorwerth dungeon\n" + FREMENNIK_SLAYER_CAVE; }
 
     // Lava Dragons
     @ConfigSection(position = POSITION_LAVA_DRAGONS, name = "Lava Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String lavaDragonsSettings = "lavaDragons";
 
     @ConfigItem(keyName = "Lava Dragons", name = "Lava Dragons information", description = "Create individual bullet points in overlay, one per line", section = lavaDragonsSettings, position = 0)
-    default String lavaDragonsInfo() { return "Placeholder text"; }
+    default String lavaDragonsInfo() { return "Revenant cave teleport -> Run East\n" + "Annakarl teleport -> Run SW"; }
 
     // Lesser Demons
     @ConfigSection(position = POSITION_LESSER_DEMONS, name = "Lesser Demons", closedByDefault = true, description = "Information to display for slayer task")
     String lesserDemonsSettings = "lesserDemons";
 
     @ConfigItem(keyName = "Lesser Demons", name = "Lesser Demons information", description = "Create individual bullet points in overlay, one per line", section = lesserDemonsSettings, position = 0)
-    default String lesserDemonsInfo() { return "Placeholder text"; }
+    default String lesserDemonsInfo() { return CHASM_OF_FIRE; }
 
     // Lesser Nagua
     @ConfigSection(position = POSITION_LESSER_NAGUA, name = "Lesser Nagua", closedByDefault = true, description = "Information to display for slayer task")
     String lesserNaguaSettings = "lesserNagua";
 
     @ConfigItem(keyName = "Lesser Nagua", name = "Lesser Nagua information", description = "Create individual bullet points in overlay, one per line", section = lesserNaguaSettings, position = 0)
-    default String lesserNaguaInfo() { return "Placeholder text"; }
+    default String lesserNaguaInfo() { return "Cam Torum teleport (calcified moth or quetzal)\n" + "Run North to Moons\n" + "Run through SW"; }
 
     // Lizardmen
     @ConfigSection(position = POSITION_LIZARDMEN, name = "Lizardmen", closedByDefault = true, description = "Information to display for slayer task")
