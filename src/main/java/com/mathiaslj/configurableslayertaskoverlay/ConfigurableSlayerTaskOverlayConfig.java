@@ -111,7 +111,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     public static final int POSITION_INFERNAL_MAGES = BASE + 61;
     public static final int POSITION_JELLIES = BASE + 62;
     public static final int POSITION_JUNGLE_HORRORS = BASE + 63;
-    public static final int POSITION_KALPHITE = BASE + 64;
+    public static final int POSITION_KALPHITES = BASE + 64;
     public static final int POSITION_KILLERWATTS = BASE + 65;
     public static final int POSITION_KURASKS = BASE + 66;
     public static final int POSITION_LAVA_DRAGONS = BASE + 67;
@@ -744,12 +744,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Jungle Horrors", name = "Jungle Horrors information", description = "Create individual bullet points in overlay, one per line", section = jungleHorrorsSettings, position = 0)
     default String jungleHorrorsInfo() { return MOS_LE_HARMLESS; }
 
-    // Kalphite
-    @ConfigSection(position = POSITION_KALPHITE, name = "Kalphite", closedByDefault = true, description = "Information to display for slayer task")
-    String kalphiteSettings = "kalphite";
+    // Kalphites
+    @ConfigSection(position = POSITION_KALPHITES, name = "Kalphites", closedByDefault = true, description = "Information to display for slayer task")
+    String kalphitesSettings = "kalphites";
 
-    @ConfigItem(keyName = "Kalphite", name = "Kalphite information", description = "Create individual bullet points in overlay, one per line", section = kalphiteSettings, position = 0)
-    default String kalphiteInfo() { return "Desert amulet 4\n" + "Fairy ring (BIQ)"; }
+    @ConfigItem(keyName = "Kalphites", name = "Kalphites information", description = "Create individual bullet points in overlay, one per line", section = kalphitesSettings, position = 0)
+    default String kalphitesInfo() { return "Desert amulet 4\n" + "Fairy ring (BIQ)"; }
 
     // Killerwatts
     @ConfigSection(position = POSITION_KILLERWATTS, name = "Killerwatts", closedByDefault = true, description = "Information to display for slayer task")
