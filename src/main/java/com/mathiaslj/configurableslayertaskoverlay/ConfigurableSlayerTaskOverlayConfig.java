@@ -896,7 +896,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String ratsSettings = "rats";
 
     @ConfigItem(keyName = "Rats", name = "Rats information", description = "Create individual bullet points in overlay, one per line", section = ratsSettings, position = 0)
-    default String ratsInfo() { return "Scurrius: Teleport to Varrock -> Run NE and enter sewers -> Run East\n" + "Normal rats: Fairy ring (BLS) -> Run West"; }
+    default String ratsInfo() { return "Scurrius: Teleport to Varrock -> Run NE and enter sewers -> Run East\n" + "Normal rats: Fairy ring (BLS) -> Run East"; }
 
     // Red Dragons
     @ConfigSection(position = POSITION_RED_DRAGONS, name = "Red Dragons", closedByDefault = true, description = "Information to display for slayer task")
