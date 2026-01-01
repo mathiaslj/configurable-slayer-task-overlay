@@ -66,7 +66,7 @@ public enum DebugSlayerTask {
     Dwarves,
     Earth_Warriors,
     Elves,
-    Ent,
+    Ents,
     Fever_Spiders,
     Fire_Giants,
     Flesh_Crawlers,

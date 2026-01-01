@@ -87,7 +87,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     public static final int POSITION_DWARVES = BASE + 37;
     public static final int POSITION_EARTH_WARRIORS = BASE + 38;
     public static final int POSITION_ELVES = BASE + 39;
-    public static final int POSITION_ENT = BASE + 40;
+    public static final int POSITION_ENTS = BASE + 40;
     public static final int POSITION_FEVER_SPIDERS = BASE + 41;
     public static final int POSITION_FIRE_GIANTS = BASE + 42;
     public static final int POSITION_FLESH_CRAWLERS = BASE + 43;
@@ -576,12 +576,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Elves", name = "Elves information", description = "Create individual bullet points in overlay, one per line", section = elvesSettings, position = 0)
     default String elvesInfo() { return "Mourner HQ: Slayer ring (dark beasts)\n" + "Iorwerth dungeon: Teleport to Prifddinas"; }
 
-    // Ent
-    @ConfigSection(position = POSITION_ENT, name = "Ent", closedByDefault = true, description = "Information to display for slayer task")
-    String entSettings = "ent";
+    // Ents
+    @ConfigSection(position = POSITION_ENTS, name = "Ents", closedByDefault = true, description = "Information to display for slayer task")
+    String entsSettings = "ents";
 
-    @ConfigItem(keyName = "Ent", name = "Ent information", description = "Create individual bullet points in overlay, one per line", section = entSettings, position = 0)
-    default String entInfo() { return "Wilderness: Ferox enclave -> Run NE\n" + "Skill' necklace (WC guild) -> Enter dungeon"; }
+    @ConfigItem(keyName = "Ents", name = "Ents information", description = "Create individual bullet points in overlay, one per line", section = entsSettings, position = 0)
+    default String entsInfo() { return "Wilderness: Ferox enclave -> Run NE\n" + "Skill' necklace (WC guild) -> Enter dungeon"; }
 
     // Fever Spiders
     @ConfigSection(position = POSITION_FEVER_SPIDERS, name = "Fever Spiders", closedByDefault = true, description = "Information to display for slayer task")

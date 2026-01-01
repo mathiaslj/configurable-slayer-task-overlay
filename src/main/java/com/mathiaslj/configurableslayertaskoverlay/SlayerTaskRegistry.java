@@ -489,15 +489,15 @@ public class SlayerTaskRegistry {
                         ), config.elvesInfo().split("\n"))
                 ))),
 
-                Map.entry("ent", new SlayerTask("Ent", List.of(1), List.of(
+                Map.entry("ents", new SlayerTask("Ents", List.of(1), List.of(
                         new WorldPoint(0, 0, 0)
                 ), List.of(
-                        new NpcLocation("Ent", List.of(
+                        new NpcLocation("Ents", List.of(
                                 WorldAreaUtils.fromCorners(
                                         new WorldPoint(0, 0, 0),
                                         new WorldPoint(0, 0, 0)
                                 )
-                        ), config.entInfo().split("\n"))
+                        ), config.entsInfo().split("\n"))
                 ))),
 
                 Map.entry("fever spiders", new SlayerTask("Fever spiders", List.of(1), List.of(
@@ -656,7 +656,7 @@ public class SlayerTaskRegistry {
 
                 Map.entry("jungle horrors", new SlayerTask("Jungle horrors", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Jungle horrors", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.jungleHorrorsInfo().split("\n"))))),
 
-                Map.entry("kalphite", new SlayerTask("Kalphite", List.of(NpcID.KALPHITE_WORKER, NpcID.KALPHITE_SOLDIER, NpcID.KALPHITE_QUEEN), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Kalphite", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.kalphiteInfo().split("\n"))))),
+                Map.entry("kalphites", new SlayerTask("Kalphites", List.of(NpcID.KALPHITE_WORKER, NpcID.KALPHITE_SOLDIER, NpcID.KALPHITE_QUEEN), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Kalphites", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.kalphitesInfo().split("\n"))))),
 
                 Map.entry("killerwatts", new SlayerTask("Killerwatts", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Killerwatts", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.killerwattsInfo().split("\n"))))),
 
@@ -762,7 +762,15 @@ public class SlayerTaskRegistry {
 
     public SlayerTask getSlayerTaskByNpcName(String npcName)
     {
-        return tasks.get(npcName.toLowerCase());
+        String tolower = npcName.toLowerCase();
+        String pluralis = tolower + "s";
+
+        // Try exact match first, then pluralis form
+        SlayerTask task = tasks.get(tolower);
+        if (task == null) {
+            task = tasks.get(pluralis);
+        }
+        return task;
     }
 
     /**

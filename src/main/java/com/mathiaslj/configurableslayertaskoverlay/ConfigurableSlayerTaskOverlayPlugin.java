@@ -77,9 +77,9 @@ import java.util.regex.Pattern;
         tags = {"slayer", "overlay", "task", "configurable"}
 )
 public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
-    private static final Pattern SLAYER_ASSIGN_MESSAGE = Pattern.compile("Your new task is to kill \\d+ (?<name>.+)\\.");
-    private static final Pattern SLAYER_CURRENT_MESSAGE = Pattern.compile("You're still hunting (?<name>.+)[,;] you have \\d+ to go\\.");
-    private static final Pattern SLAYER_CURRENT_CHAT_MESSAGE = Pattern.compile("You're assigned to kill (?<name>.+)[,;] only \\d+ more to go\\.");
+    private static final Pattern SLAYER_ASSIGN_MESSAGE = Pattern.compile("Your new task is to kill \\d+ (?<name>.+?)s?\\.");
+    private static final Pattern SLAYER_CURRENT_MESSAGE = Pattern.compile("You're still hunting (?<name>.+?)s?[,;] you have \\d+ to go\\.");
+    private static final Pattern SLAYER_CURRENT_CHAT_MESSAGE = Pattern.compile("You're assigned to kill (?<name>.+?)s?[,;] only \\d+ more to go\\.");
 
     private final Set<NPC> targets = new HashSet<>();
 
@@ -207,7 +207,7 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
             this.completeTask();
 
             if (!event.getNewValue().equals("None")) {
-                this.startTask(event.getNewValue().toLowerCase().replace("_", " "));
+                this.startTask(event.getNewValue().toLowerCase().replace("_", " ").replaceFirst("s$", ""));
             }
         }
     }
