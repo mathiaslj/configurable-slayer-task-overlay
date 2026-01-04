@@ -205,7 +205,8 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
             position = 1,
             keyName = "automaticallyHideInformationBox",
             name = "Automatically hide information box",
-            description = "Whether to automatically hide the information box when you at the location of your current task.",
+            description = "Whether to automatically hide the information box when you get to the location of your current task.<br/>" +
+                    "Change the location of your task by right-clicking the world map and choosing 'Set [slayer task] slayer task location'",
             section = generalSettings
     )
     default boolean automaticallyHideInformationBox() {
@@ -216,7 +217,8 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
             position = 2,
             keyName = "displayMapIcon",
             name = "Enable world map icon",
-            description = "Displays an icon on the world map where the current task is located.",
+            description = "Displays an icon on the world map where the current task is located.<br/>" +
+                    "Change the location of your task by right-clicking the world map and choosing 'Set [slayer task] slayer task location'",
             section = generalSettings
     )
     default boolean enableWorldMapIcon() {
@@ -227,7 +229,8 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
             position = 3,
             keyName = "useShortestPath",
             name = "Use 'Shortest Path' plugin",
-            description = "Draws the shortest path to the assigned task (remember to set the task location by right-clicking the world map).<br/>" +
+            description = "Draws the shortest path to the assigned task.<br/>" +
+                    "Change the location of your task by right-clicking the world map and choosing 'Set [slayer task] slayer task location'.<br/>" +
                     "The 'Shortest Path' plugin needs to be installed and enabled for this to work.",
             section = generalSettings
     )
@@ -285,7 +288,8 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigSection(
             position = 3,
             name = "Debugging",
-            description = "Various debug settings"
+            description = "Various debug settings",
+            closedByDefault = true
     )
     String debugSettings = "debugSettings";
 
@@ -527,7 +531,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String custodianStalkersSettings = "custodianStalkers";
 
     @ConfigItem(keyName = "Custodian Stalkers", name = "Custodian Stalkers information", description = "Create individual bullet points in overlay, one per line", section = custodianStalkersSettings, position = 0)
-    default String custodianStalkersInfo() { return "Fairy ring (BLS)\n" + "Run South to Stalker Den"; }
+    default String custodianStalkersInfo() { return "REQ 59 agility: Fairy ring(AIS) -> Run West and North to Stalker Den\n" + "Fairy ring (BLS) -> Run South to Stalker Den"; }
 
     // Dagannoths
     @ConfigSection(position = POSITION_DAGANNOTHS, name = "Dagannoths", closedByDefault = true, description = "Information to display for slayer task")
