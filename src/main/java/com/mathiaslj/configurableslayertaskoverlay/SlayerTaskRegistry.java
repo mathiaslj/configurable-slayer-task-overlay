@@ -65,7 +65,7 @@ public class SlayerTaskRegistry {
         WorldPoint Mos_le_harmless = new WorldPoint(3750, 2973, 0);
         WorldPoint Edgeville_dungeon = new WorldPoint(3092, 3463, 0);
         WorldPoint Karuulm_dungeon = new WorldPoint(1309, 3806, 0);
-        WorldPoint Asgarnian_dungeon = new WorldPoint(3004, 3143, 0);
+        WorldPoint Asgarnian_dungeon = new WorldPoint(3009, 3149, 0);
         WorldPoint Mourner_HQ = new WorldPoint(2543, 3322, 0);
         WorldPoint Braindeath_island = new WorldPoint(3678, 3532, 0);
         WorldPoint Chasm_of_fire = new WorldPoint(1432, 3661, 0);
@@ -85,7 +85,7 @@ public class SlayerTaskRegistry {
         WorldPoint batsLocation = savedLocations.getOrDefault("bats", new WorldPoint(3363, 3480, 0));
         WorldPoint bearsLocation = savedLocations.getOrDefault("bears", new WorldPoint(1249, 3473, 0));
         WorldPoint birdsLocation = savedLocations.getOrDefault("birds", Alices_farm);
-        WorldPoint blackDemonsLocation = savedLocations.getOrDefault("black demons", WorldPoint: new WorldPoint(2451, 3534, 0));
+        WorldPoint blackDemonsLocation = savedLocations.getOrDefault("black demons", new WorldPoint(2451, 3534, 0));
         WorldPoint blackDragonsLocation = savedLocations.getOrDefault("black dragons", Taverley_dungeon);
         WorldPoint blackKnightsLocation = savedLocations.getOrDefault("black knights", new WorldPoint(3020, 3507, 0));
         WorldPoint bloodveldsLocation = savedLocations.getOrDefault("bloodvelds", Stronghold_dungeon);
@@ -103,7 +103,7 @@ public class SlayerTaskRegistry {
         WorldPoint crabsLocation = savedLocations.getOrDefault("crabs", new WorldPoint(3712, 3860, 0));
         WorldPoint crawlingHandsLocation = savedLocations.getOrDefault("crawling hands", new WorldPoint(3418, 3541, 0));
         WorldPoint crocodilesLocation = savedLocations.getOrDefault("crocodiles", new WorldPoint(3358, 2921, 0));
-        WorldPoint custodianStalkersLocation = savedLocations.getOrDefault("custodian stalkers", new WorldPoint(1294, 3373, 0));
+        WorldPoint custodianStalkersLocation = savedLocations.getOrDefault("custodian stalkers", new WorldPoint(1326, 3362, 0));
         WorldPoint dagannothsLocation = savedLocations.getOrDefault("dagannoths", new WorldPoint(2508, 3640, 0));
         WorldPoint darkBeastsLocation = savedLocations.getOrDefault("dark beasts", Mourner_HQ);
         WorldPoint darkWarriorsLocation = savedLocations.getOrDefault("dark warriors", new WorldPoint(3022, 3625, 0));
@@ -135,7 +135,7 @@ public class SlayerTaskRegistry {
         WorldPoint iceGiantsLocation = savedLocations.getOrDefault("ice giants", Asgarnian_dungeon);
         WorldPoint iceWarriorsLocation = savedLocations.getOrDefault("ice warriors", Asgarnian_dungeon);
         WorldPoint infernalMagesLocation = savedLocations.getOrDefault("infernal mages", new WorldPoint(3437, 3564, 0));
-        WorldPoint jelliesLocation = savedLocations.getOrDefault("jellies", WorldPoint: new WorldPoint(1686, 9995, 0));
+        WorldPoint jelliesLocation = savedLocations.getOrDefault("jellies", new WorldPoint(1686, 9995, 0));
         WorldPoint jungleHorrorsLocation = savedLocations.getOrDefault("jungle horrors", Mos_le_harmless);
         WorldPoint kalphitesLocation = savedLocations.getOrDefault("kalphites", new WorldPoint(3321, 3114, 0));
         WorldPoint killerwattsLocation = savedLocations.getOrDefault("killerwatts", new WorldPoint(3110, 3355, 0));
