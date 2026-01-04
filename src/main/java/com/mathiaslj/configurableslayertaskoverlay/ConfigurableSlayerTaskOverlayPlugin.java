@@ -203,6 +203,15 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
 
         slayerTaskRegistry.rebuildTasks();
 
+        if (event.getKey().equals("displayMapIcon"))
+        {
+            updateWorldMapIcons();
+        }
+        if (event.getKey().equals("useShortestPath"))
+        {
+            updateShortestPath();
+        }
+
         // Set a dummy task
         if (event.getKey().equals("debugTask")) {
             if (event.getNewValue() == null) {
@@ -343,23 +352,8 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
         if (lookupSlayerTask != null) {
             this.currentSlayerTask = lookupSlayerTask;
 
-            if (config.enableWorldMapIcon()) {
-                // worldMapPointManager.removeIf(point -> point instanceof SlayerTaskWorldMapPoint);
-
-                for (WorldPoint worldPoint : currentSlayerTask.getWorldMapLocations()) {
-                    // Skip invalid/default locations
-                    if (worldPoint.getX() == 0 && worldPoint.getY() == 0) {
-                        continue;
-                    }
-
-                    worldMapPointManager.add(new SlayerTaskWorldMapPoint(worldPoint));
-                }
-            }
-
-            if (config.useShortestPath()) {
-                WorldPoint location = currentSlayerTask.getShortestPathWorldPoint();
-                setShortestPath(location);
-            }
+            updateWorldMapIcons();
+            updateShortestPath();
 
             // Target NPC's visible to the player in case they are already at the location
             Player player = client.getLocalPlayer();
@@ -376,6 +370,44 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
                     }
                 }
             }
+        }
+    }
+
+    private void updateWorldMapIcons() {
+        // Remove all existing map icons first
+        worldMapPointManager.removeIf(point -> point instanceof SlayerTaskWorldMapPoint);
+
+        // Only add icons if config is enabled and there's an active task
+        if (config.enableWorldMapIcon() && currentSlayerTask != null)
+        {
+            for (WorldPoint worldPoint : currentSlayerTask.getWorldMapLocations())
+            {
+                // Skip invalid/default locations
+                if (worldPoint.getX() == 0 && worldPoint.getY() == 0)
+                {
+                    continue;
+                }
+
+                worldMapPointManager.add(new SlayerTaskWorldMapPoint(worldPoint));
+            }
+        }
+    }
+
+    private void clearShortestPath() {
+        Map<String, Object> data = new HashMap<>();
+        eventBus.post(new PluginMessage("shortestpath", "clear", data));
+    }
+
+    private void updateShortestPath()
+    {
+        if (config.useShortestPath() && currentSlayerTask != null)
+        {
+            WorldPoint location = currentSlayerTask.getShortestPathWorldPoint();
+            setShortestPath(location);
+        }
+        else
+        {
+            clearShortestPath();
         }
     }
 
@@ -457,6 +489,7 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
 
     private void handleLocationSelected(WorldPoint location)
     {
+        log.info("Selected world map location: WorldPoint({}, {}, {})", location.getX(), location.getY(), location.getPlane());
         if (currentSlayerTask == null)
         {
             client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
@@ -472,6 +505,10 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
 
         // Refresh current task reference
         this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(currentSlayerTask.getName());
+
+        // Update UI elements with new location
+        updateWorldMapIcons();
+        updateShortestPath();
 
         client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
                 "Saved location for " + currentSlayerTask.getName() + "!", "");
