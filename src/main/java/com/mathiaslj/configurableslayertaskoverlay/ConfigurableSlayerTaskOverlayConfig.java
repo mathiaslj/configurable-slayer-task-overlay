@@ -429,14 +429,14 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String blueDragonsSettings = "blueDragons";
 
     @ConfigItem(keyName = "Blue Dragons", name = "Blue Dragons information", description = "Create individual bullet points in overlay, one per line", section = blueDragonsSettings, position = 0)
-    default String blueDragonsInfo() { return "Taverly dungeon"; }
+    default String blueDragonsInfo() { return "Taverley dungeon"; }
 
     // Brine Rats
     @ConfigSection(position = POSITION_BRINE_RATS, name = "Brine Rats", closedByDefault = true, description = "Information to display for slayer task")
     String brineRatsSettings = "brineRats";
 
     @ConfigItem(keyName = "Brine Rats", name = "Brine Rats information", description = "Create individual bullet points in overlay, one per line", section = brineRatsSettings, position = 0)
-    default String brineRatsInfo() { return "Fairy ring (DKS)"; }
+    default String brineRatsInfo() { return "BRING: Spade\n" + "Fairy ring (DKS)\n" + "Run a little North and enter Brine Rat Cavern"; }
 
     // Catablepon
     @ConfigSection(position = POSITION_CATABLEPON, name = "Catablepon", closedByDefault = true, description = "Information to display for slayer task")
@@ -821,7 +821,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String magicAxesSettings = "magicAxes";
 
     @ConfigItem(keyName = "Magic Axes", name = "Magic Axes information", description = "Create individual bullet points in overlay, one per line", section = magicAxesSettings, position = 0)
-    default String magicAxesInfo() { return "Taverly dungeon"; }
+    default String magicAxesInfo() { return "Taverley dungeon"; }
 
     // Mammoth
     @ConfigSection(position = POSITION_MAMMOTH, name = "Mammoth", closedByDefault = true, description = "Information to display for slayer task")
@@ -1059,7 +1059,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String vampyresSettings = "vampyres";
 
     @ConfigItem(keyName = "Vampyres", name = "Vampyres information", description = "Create individual bullet points in overlay, one per line", section = vampyresSettings, position = 0)
-    default String vampyresInfo() { return "Feral vampyres: Morytania legs 3 (Burgh) -> Run West\n" + "Vyrewatch sentinel: Drakan's medallion (Darkmeyer)"; }
+    default String vampyresInfo() { return "Vyrewatch sentinel: Drakan's medallion (Darkmeyer)\n" + "Feral vampyres: Morytania legs 3 (Burgh) -> Run West"; }
 
     // Wall Beasts
     @ConfigSection(position = POSITION_WALL_BEASTS, name = "Wall Beasts", closedByDefault = true, description = "Information to display for slayer task")
@@ -1073,7 +1073,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String warpedCreaturesSettings = "warpedCreatures";
 
     @ConfigItem(keyName = "Warped Creatures", name = "Warped Creatures information", description = "Create individual bullet points in overlay, one per line", section = warpedCreaturesSettings, position = 0)
-    default String warpedCreaturesInfo() { return "Spirit tree (6)"; }
+    default String warpedCreaturesInfo() { return "Spirit tree (Poison waste)"; }
 
     // Waterfiends
     @ConfigSection(position = POSITION_WATERFIENDS, name = "Waterfiends", closedByDefault = true, description = "Information to display for slayer task")
@@ -1115,6 +1115,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String zygomitesSettings = "zygomites";
 
     @ConfigItem(keyName = "Zygomites", name = "Zygomites information", description = "Create individual bullet points in overlay, one per line", section = zygomitesSettings, position = 0)
-    default String zygomitesInfo() { return "BRING: Fungicide spray\n" + "Digsite pendent (Fossil island) -> Magic mushtree (4)"; }
+    default String zygomitesInfo() { return "BRING: Fungicide spray and Dramen staff\n" + "Zanaris -> Run North"; }
 }
 

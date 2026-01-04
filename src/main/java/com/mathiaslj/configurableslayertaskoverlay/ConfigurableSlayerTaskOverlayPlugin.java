@@ -457,51 +457,37 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
 
     private void handleLocationSelected(WorldPoint location)
     {
-        log.info("=== handleLocationSelected called ===");
-        log.info("Location: {}", location);
-        log.info("Current task: {}", currentSlayerTask);
         if (currentSlayerTask == null)
         {
-            log.warn("No active slayer task to set location for");
             client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
                     "No active slayer task. Start a task first!", "");
             return;
         }
 
-        log.info("About to save location for task: {}", currentSlayerTask.getName());
         // Save the location
         saveTaskLocation(currentSlayerTask.getName(), location);
 
-        log.info("About to rebuild tasks");
         // Rebuild tasks to load the new location
         slayerTaskRegistry.rebuildTasks();
 
         // Refresh current task reference
         this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(currentSlayerTask.getName());
 
-        log.info("Saved location {} for task: {}", location, currentSlayerTask.getName());
         client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
                 "Saved location for " + currentSlayerTask.getName() + "!", "");
     }
 
     private void saveTaskLocation(String taskName, WorldPoint location)
     {
-        log.info("=== SAVING LOCATION ===");
-        log.info("Task name: {}", taskName);
-        log.info("Location: {}", location);
 
         // Parse existing saved locations
         String currentSaved = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
-        log.info("Current saved string: '{}'", currentSaved);
 
         Map<String, WorldPoint> savedLocations = parseSavedLocations(currentSaved);
-        log.info("Parsed locations before save: {}", savedLocations);
 
         // Update with new location
         String key = taskName.toLowerCase();
-        log.info("Using key: '{}'", key);
         savedLocations.put(key, location);
-        log.info("Locations after adding new: {}", savedLocations);
 
         // Serialize back to config
         StringBuilder sb = new StringBuilder();
@@ -517,14 +503,11 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
         }
 
         String serialized = sb.toString();
-        log.info("Serialized string: '{}'", serialized);
 
         configManager.setConfiguration("configurable-slayer-task-overlay", "savedTaskLocations", serialized);
 
         // Verify it was saved using configManager
         String afterSave = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
-        log.info("Config value after save: '{}'", afterSave);
-        log.info("=== SAVE COMPLETE ===");
     }
 
     private Map<String, WorldPoint> parseSavedLocations(String savedLocationsString)
