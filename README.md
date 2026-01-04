@@ -15,7 +15,7 @@ Basic functionality of plugin:
   <img src="assets/zombies-detailed.png" width="90%" alt="Plugin showcase"/>
 </p>
 
-Debugging lets you inspect the result of your changes:
+Gif showing functionalities:
 <p align="center">
-  <img src="assets/debug-gif.gif" width="90%" alt="Debug GIF"/>
+  <img src="assets/show-shortest-path.gif-gif.gif" width="90%" alt="Debug GIF"/>
 </p>
