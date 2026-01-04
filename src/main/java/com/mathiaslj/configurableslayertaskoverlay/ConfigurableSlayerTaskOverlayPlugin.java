@@ -212,6 +212,17 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
             updateShortestPath();
         }
 
+        if (currentSlayerTask != null)
+        {
+            String taskName = currentSlayerTask.getName();
+            if (event.getKey().equalsIgnoreCase(taskName)) {
+                slayerTaskRegistry.rebuildTasks();
+                // Refresh current task if one is active
+                this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(taskName);
+            }
+
+        }
+
         // Set a dummy task
         if (event.getKey().equals("debugTask")) {
             if (event.getNewValue() == null) {
