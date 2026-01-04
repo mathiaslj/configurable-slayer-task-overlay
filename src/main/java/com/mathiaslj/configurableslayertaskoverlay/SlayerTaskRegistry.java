@@ -27,6 +27,7 @@ package com.mathiaslj.configurableslayertaskoverlay;
 import com.mathiaslj.configurableslayertaskoverlay.models.NpcLocation;
 import com.mathiaslj.configurableslayertaskoverlay.models.SlayerTask;
 import com.mathiaslj.configurableslayertaskoverlay.utils.WorldAreaUtils;
+import net.runelite.api.World;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.gameval.NpcID;
 import net.runelite.api.coords.WorldArea;
@@ -52,717 +53,718 @@ public class SlayerTaskRegistry {
         rebuildTasks();
     }
 
-    public void rebuildTasks()
-    {
-        // Load saved locations from config by calling the supplier
+    public void rebuildTasks() {
         Map<String, WorldPoint> savedLocations = savedLocationsSupplier.get();
-        WorldPoint bansheesLocation = savedLocations.getOrDefault("banshees", new WorldPoint(0, 0, 0));
+
+        WorldPoint GWD_location = new WorldPoint(2909, 3743, 0);
+        WorldPoint Stronghold_dungeon = new WorldPoint(2429, 3425, 0);
+        WorldPoint Stronghold_of_security = new WorldPoint(3082, 3420, 0);
+        WorldPoint Fremennik_slayer_dungeon = new WorldPoint(2790, 3613, 0);
+        WorldPoint Alices_farm = new WorldPoint(3630, 3524, 0);
+        WorldPoint Taverley_dungeon = new WorldPoint(2882, 3387, 0);
+        WorldPoint Mos_le_harmless = new WorldPoint(3750, 2973, 0);
+        WorldPoint Edgeville_dungeon = new WorldPoint(3092, 3463, 0);
+        WorldPoint Karuulm_dungeon = new WorldPoint(1309, 3806, 0);
+        WorldPoint Asgarnian_dungeon = new WorldPoint(3004, 3143, 0);
+        WorldPoint Mourner_HQ = new WorldPoint(2543, 3322, 0);
+        WorldPoint Braindeath_island = new WorldPoint(3678, 3532, 0);
+        WorldPoint Chasm_of_fire = new WorldPoint(1432, 3661, 0);
+        WorldPoint Dorgeshkaan = new WorldPoint(3201, 3209, 0);
+        WorldPoint Ancient_cavern = new WorldPoint(2512, 3509, 0);
+
+        // Define all locations
+        WorldPoint aberrantSpectresLocation = savedLocations.getOrDefault("aberrant spectres", Stronghold_dungeon);
+        WorldPoint abyssalDemonsLocation = savedLocations.getOrDefault("abyssal demons", new WorldPoint(1662, 10081, 0));
+        WorldPoint ankousLocation = savedLocations.getOrDefault("ankous", Stronghold_of_security);
+        WorldPoint aquanitesLocation = savedLocations.getOrDefault("aquanites", new WorldPoint(2216, 3470, 0));
+        WorldPoint araxytesLocation = savedLocations.getOrDefault("araxytes", new WorldPoint(3643, 3400, 0));
+        WorldPoint aviansieLocation = savedLocations.getOrDefault("aviansie", GWD_location);
+        WorldPoint banditsLocation = savedLocations.getOrDefault("bandits", new WorldPoint(3032, 3681, 0));
+        WorldPoint bansheesLocation = savedLocations.getOrDefault("banshees", new WorldPoint(3443, 3542, 0));
+        WorldPoint basilisksLocation = savedLocations.getOrDefault("basilisks", Fremennik_slayer_dungeon);
+        WorldPoint batsLocation = savedLocations.getOrDefault("bats", new WorldPoint(3363, 3480, 0));
+        WorldPoint bearsLocation = savedLocations.getOrDefault("bears", new WorldPoint(1249, 3473, 0));
+        WorldPoint birdsLocation = savedLocations.getOrDefault("birds", Alices_farm);
+        WorldPoint blackDemonsLocation = savedLocations.getOrDefault("black demons", WorldPoint: new WorldPoint(2451, 3534, 0));
+        WorldPoint blackDragonsLocation = savedLocations.getOrDefault("black dragons", Taverley_dungeon);
+        WorldPoint blackKnightsLocation = savedLocations.getOrDefault("black knights", new WorldPoint(3020, 3507, 0));
+        WorldPoint bloodveldsLocation = savedLocations.getOrDefault("bloodvelds", Stronghold_dungeon);
+        WorldPoint blueDragonsLocation = savedLocations.getOrDefault("blue dragons", Taverley_dungeon);
+        WorldPoint brineRatsLocation = savedLocations.getOrDefault("brine rats", new WorldPoint(2746, 3729, 0));
+        WorldPoint catableponLocation = savedLocations.getOrDefault("catablepon", Stronghold_of_security);
+        WorldPoint caveBugsLocation = savedLocations.getOrDefault("cave bugs", Dorgeshkaan);
+        WorldPoint caveCrawlersLocation = savedLocations.getOrDefault("cave crawlers", Fremennik_slayer_dungeon);
+        WorldPoint caveHorrorsLocation = savedLocations.getOrDefault("cave horrors", Mos_le_harmless);
+        WorldPoint caveSlimesLocation = savedLocations.getOrDefault("cave slimes", Dorgeshkaan);
+        WorldPoint caveKrakenLocation = savedLocations.getOrDefault("cave kraken", new WorldPoint(2273, 3608, 0));
+        WorldPoint chaosDruidsLocation = savedLocations.getOrDefault("chaos druids", Edgeville_dungeon);
+        WorldPoint cockatriceLocation = savedLocations.getOrDefault("cockatrice", Fremennik_slayer_dungeon);
+        WorldPoint cowsLocation = savedLocations.getOrDefault("cows", new WorldPoint(2925, 3282, 0));
+        WorldPoint crabsLocation = savedLocations.getOrDefault("crabs", new WorldPoint(3712, 3860, 0));
+        WorldPoint crawlingHandsLocation = savedLocations.getOrDefault("crawling hands", new WorldPoint(3418, 3541, 0));
+        WorldPoint crocodilesLocation = savedLocations.getOrDefault("crocodiles", new WorldPoint(3358, 2921, 0));
+        WorldPoint custodianStalkersLocation = savedLocations.getOrDefault("custodian stalkers", new WorldPoint(1294, 3373, 0));
+        WorldPoint dagannothsLocation = savedLocations.getOrDefault("dagannoths", new WorldPoint(2508, 3640, 0));
+        WorldPoint darkBeastsLocation = savedLocations.getOrDefault("dark beasts", Mourner_HQ);
+        WorldPoint darkWarriorsLocation = savedLocations.getOrDefault("dark warriors", new WorldPoint(3022, 3625, 0));
+        WorldPoint dogsLocation = savedLocations.getOrDefault("dogs", new WorldPoint(3343, 2787, 0));
+        WorldPoint drakesLocation = savedLocations.getOrDefault("drakes", Karuulm_dungeon);
+        WorldPoint dustDevilsLocation = savedLocations.getOrDefault("dust devils", new WorldPoint(1709, 10013, 0));
+        WorldPoint dwarvesLocation = savedLocations.getOrDefault("dwarves", new WorldPoint(3021, 3455, 0));
+        WorldPoint earthWarriorsLocation = savedLocations.getOrDefault("earth warriors", Asgarnian_dungeon);
+        WorldPoint elvesLocation = savedLocations.getOrDefault("elves", Mourner_HQ);
+        WorldPoint entsLocation = savedLocations.getOrDefault("ents", new WorldPoint(3195, 3643, 0));
+        WorldPoint feverSpidersLocation = savedLocations.getOrDefault("fever spiders", Braindeath_island);
+        WorldPoint fireGiantsLocation = savedLocations.getOrDefault("fire giants", new WorldPoint(1626, 10057, 0));
+        WorldPoint fleshCrawlersLocation = savedLocations.getOrDefault("flesh crawlers", Stronghold_of_security);
+        WorldPoint fossilIslandWyvernLocation = savedLocations.getOrDefault("fossil island wyvern", new WorldPoint(3677, 3850, 0));
+        WorldPoint frostDragonsLocation = savedLocations.getOrDefault("frost dragons", new WorldPoint(2913, 4067, 0));
+        WorldPoint gargoylesLocation = savedLocations.getOrDefault("gargoyles", new WorldPoint(3419, 3546, 0));
+        WorldPoint ghostsLocation = savedLocations.getOrDefault("ghosts", new WorldPoint(1692, 10060, 0));
+        WorldPoint ghoulsLocation = savedLocations.getOrDefault("ghouls", new WorldPoint(3436, 3461, 0));
+        WorldPoint goblinsLocation = savedLocations.getOrDefault("goblins", new WorldPoint(3248, 3233, 0));
+        WorldPoint greaterDemonsLocation = savedLocations.getOrDefault("greater demons", Chasm_of_fire);
+        WorldPoint greenDragonsLocation = savedLocations.getOrDefault("green dragons", new WorldPoint(3119, 3688, 0));
+        WorldPoint gryphonsLocation = savedLocations.getOrDefault("gryphons", new WorldPoint(3164, 2471, 0));
+        WorldPoint harpieBugSwarmsLocation = savedLocations.getOrDefault("harpie bug swarms", new WorldPoint(1714, 2911, 0));
+        WorldPoint hellhoundsLocation = savedLocations.getOrDefault("hellhounds", Stronghold_dungeon);
+        WorldPoint hillGiantsLocation = savedLocations.getOrDefault("hill giants", new WorldPoint(1664, 10067, 0));
+        WorldPoint hobgoblinsLocation = savedLocations.getOrDefault("hobgoblins", new WorldPoint(1833, 3604, 0));
+        WorldPoint hydrasLocation = savedLocations.getOrDefault("hydras", Karuulm_dungeon);
+        WorldPoint icefiendsLocation = savedLocations.getOrDefault("icefiends", new WorldPoint(3014, 3467, 0));
+        WorldPoint iceGiantsLocation = savedLocations.getOrDefault("ice giants", Asgarnian_dungeon);
+        WorldPoint iceWarriorsLocation = savedLocations.getOrDefault("ice warriors", Asgarnian_dungeon);
+        WorldPoint infernalMagesLocation = savedLocations.getOrDefault("infernal mages", new WorldPoint(3437, 3564, 0));
+        WorldPoint jelliesLocation = savedLocations.getOrDefault("jellies", WorldPoint: new WorldPoint(1686, 9995, 0));
+        WorldPoint jungleHorrorsLocation = savedLocations.getOrDefault("jungle horrors", Mos_le_harmless);
+        WorldPoint kalphitesLocation = savedLocations.getOrDefault("kalphites", new WorldPoint(3321, 3114, 0));
+        WorldPoint killerwattsLocation = savedLocations.getOrDefault("killerwatts", new WorldPoint(3110, 3355, 0));
+        WorldPoint kurasksLocation = savedLocations.getOrDefault("kurasks", Fremennik_slayer_dungeon);
+        WorldPoint lavaDragonsLocation = savedLocations.getOrDefault("lava dragons", new WorldPoint(3204, 3817, 0));
+        WorldPoint lesserDemonsLocation = savedLocations.getOrDefault("lesser demons", Chasm_of_fire);
+        WorldPoint lesserNaguaLocation = savedLocations.getOrDefault("lesser nagua", new WorldPoint(1433, 3122, 0));
+        WorldPoint lizardmenLocation = savedLocations.getOrDefault("lizardmen", new WorldPoint(1291, 3655, 0));
+        WorldPoint lizardsLocation = savedLocations.getOrDefault("lizards", Karuulm_dungeon);
+        WorldPoint magicAxesLocation = savedLocations.getOrDefault("magic axes", Taverley_dungeon);
+        WorldPoint mammothLocation = savedLocations.getOrDefault("mammoth", new WorldPoint(3168, 3589, 0));
+        WorldPoint metalDragonsLocation = savedLocations.getOrDefault("metal dragons", new WorldPoint(2513, 3508, 0));
+        WorldPoint minotaursLocation = savedLocations.getOrDefault("minotaurs", Stronghold_of_security);
+        WorldPoint mogresLocation = savedLocations.getOrDefault("mogres", new WorldPoint(2998, 3113, 0));
+        WorldPoint molanisksLocation = savedLocations.getOrDefault("molanisks", Dorgeshkaan);
+        WorldPoint monkeysLocation = savedLocations.getOrDefault("monkeys", new WorldPoint(2787, 3000, 0));
+        WorldPoint mossGiantsLocation = savedLocations.getOrDefault("moss giants", new WorldPoint(1686, 10044, 0));
+        WorldPoint nechryaelLocation = savedLocations.getOrDefault("nechryael", new WorldPoint(1693, 10075, 0));
+        WorldPoint ogresLocation = savedLocations.getOrDefault("ogres", new WorldPoint(2508, 3102, 0));
+        WorldPoint otherworldlyBeingsLocation = savedLocations.getOrDefault("otherworldly beings", new WorldPoint(2384, 4424, 0));
+        WorldPoint piratesLocation = savedLocations.getOrDefault("pirates", Asgarnian_dungeon);
+        WorldPoint pyrefiendsLocation = savedLocations.getOrDefault("pyrefiends", new WorldPoint(2248, 2951, 0));
+        WorldPoint ratsLocation = savedLocations.getOrDefault("rats", new WorldPoint(1343, 3486, 0));
+        WorldPoint redDragonsLocation = savedLocations.getOrDefault("red dragons", new WorldPoint(2750, 3151, 0));
+        WorldPoint revenantsLocation = savedLocations.getOrDefault("revenants", new WorldPoint(3084, 3725, 0));
+        WorldPoint rockslugsLocation = savedLocations.getOrDefault("rockslugs", Fremennik_slayer_dungeon);
+        WorldPoint roguesLocation = savedLocations.getOrDefault("rogues", new WorldPoint(3294, 3931, 0));
+        WorldPoint minionsOfScabarasLocation = savedLocations.getOrDefault("minions of scabaras", new WorldPoint(3317, 2797, 0));
+        WorldPoint scorpionsLocation = savedLocations.getOrDefault("scorpions", new WorldPoint(3060, 3372, 0));
+        WorldPoint seaSnakesLocation = savedLocations.getOrDefault("sea snakes", new WorldPoint(2511, 3842, 0));
+        WorldPoint shadesLocation = savedLocations.getOrDefault("shades", new WorldPoint(1604, 10039, 0));
+        WorldPoint shadowWarriorsLocation = savedLocations.getOrDefault("shadow warriors", new WorldPoint(2726, 3375, 0));
+        WorldPoint skeletalWyvernsLocation = savedLocations.getOrDefault("skeletal wyverns", Asgarnian_dungeon);
+        WorldPoint skeletonsLocation = savedLocations.getOrDefault("skeletons", new WorldPoint(1639, 10045, 0));
+        WorldPoint smokeDevilsLocation = savedLocations.getOrDefault("smoke devils", new WorldPoint(2413, 3052, 0));
+        WorldPoint sourhogsLocation = savedLocations.getOrDefault("sourhogs", new WorldPoint(3146, 3345, 0));
+        WorldPoint spidersLocation = savedLocations.getOrDefault("spiders", new WorldPoint(3652, 3408, 0));
+        WorldPoint spiritualCreaturesLocation = savedLocations.getOrDefault("spiritual creatures", GWD_location);
+        WorldPoint suqahsLocation = savedLocations.getOrDefault("suqahs", new WorldPoint(2110, 3934, 0));
+        WorldPoint terrorDogsLocation = savedLocations.getOrDefault("terror dogs", new WorldPoint(3445, 3231, 0));
+        WorldPoint trollsLocation = savedLocations.getOrDefault("trolls", new WorldPoint(1238, 3520, 0));
+        WorldPoint turothLocation = savedLocations.getOrDefault("turoth", Fremennik_slayer_dungeon);
+        WorldPoint tzHaarLocation = savedLocations.getOrDefault("tzhaar", new WorldPoint(2446, 5136, 0));
+        WorldPoint vampyresLocation = savedLocations.getOrDefault("vampyres", new WorldPoint(3598, 3355, 0));
+        WorldPoint wallBeastsLocation = savedLocations.getOrDefault("wall beasts", new WorldPoint(3172, 3168, 0));
+        WorldPoint warpedCreaturesLocation = savedLocations.getOrDefault("warped creatures", new WorldPoint(2215, 3088, 0));
+        WorldPoint waterfiendsLocation = savedLocations.getOrDefault("waterfiends", Ancient_cavern);
+        WorldPoint werewolvesLocation = savedLocations.getOrDefault("werewolves", GWD_location);
+        WorldPoint wolvesLocation = savedLocations.getOrDefault("wolves", new WorldPoint(2836, 3496, 0));
+        WorldPoint wyrmsLocation = savedLocations.getOrDefault("wyrms", Karuulm_dungeon);
+        WorldPoint zombiesLocation = savedLocations.getOrDefault("zombies", Alices_farm);
+        WorldPoint zygomitesLocation = savedLocations.getOrDefault("zygomites", new WorldPoint(2417, 4465, 0));
 
         tasks = Map.ofEntries(
                 Map.entry("aberrant spectres", new SlayerTask("Aberrant spectres", List.of(NpcID.SLAYER_ABBERANT_SPECTRE_1),
-                                Arrays.asList(savedLocations.getOrDefault("aberrant spectres", new WorldPoint(0, 0, 0)))
-                , List.of(
-                        new NpcLocation("Aberrant spectres", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.aberrantSpectresInfo().split("\n"))
-                ))),
+                        Collections.singletonList(aberrantSpectresLocation),
+                        createNpcLocationsFromWorldPoint("Aberrant spectres", aberrantSpectresLocation, config.aberrantSpectresInfo().split("\n"))
+                )),
 
-                Map.entry("abyssal demons", new SlayerTask("Abyssal demons", List.of(NpcID.SLAYER_ABYSSAL), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Abyssal demons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.abyssalDemonsInfo().split("\n"))
-                ))),
+                Map.entry("abyssal demons", new SlayerTask("Abyssal demons", List.of(NpcID.SLAYER_ABYSSAL),
+                        Collections.singletonList(abyssalDemonsLocation),
+                        createNpcLocationsFromWorldPoint("Abyssal demons", abyssalDemonsLocation, config.abyssalDemonsInfo().split("\n"))
+                )),
 
-                Map.entry("ankous", new SlayerTask("Ankous", List.of(NpcID.SOS_DEATH_ANKOU), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Ankous", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.ankousInfo().split("\n"))
-                ))),
+                Map.entry("ankous", new SlayerTask("Ankous", List.of(NpcID.SOS_DEATH_ANKOU),
+                        Collections.singletonList(ankousLocation),
+                        createNpcLocationsFromWorldPoint("Ankous", ankousLocation, config.ankousInfo().split("\n"))
+                )),
 
-                Map.entry("aquanites", new SlayerTask("Aquanites", List.of(NpcID.SLAYER_AQUANITE), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Aquanites", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.aquanitesInfo().split("\n"))
-                ))),
+                Map.entry("aquanites", new SlayerTask("Aquanites", List.of(NpcID.SLAYER_AQUANITE),
+                        Collections.singletonList(aquanitesLocation),
+                        createNpcLocationsFromWorldPoint("Aquanites", aquanitesLocation, config.aquanitesInfo().split("\n"))
+                )),
 
-                Map.entry("araxytes", new SlayerTask("Araxytes", List.of(NpcID.ARAXYTE_BABY, NpcID.ARAXYTE_NORMAL, NpcID.ARAXYTE_LARGE), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Araxytes", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.araxytesInfo().split("\n"))
-                ))),
+                Map.entry("araxytes", new SlayerTask("Araxytes", List.of(NpcID.ARAXYTE_BABY, NpcID.ARAXYTE_NORMAL, NpcID.ARAXYTE_LARGE),
+                        Collections.singletonList(araxytesLocation),
+                        createNpcLocationsFromWorldPoint("Araxytes", araxytesLocation, config.araxytesInfo().split("\n"))
+                )),
 
-                Map.entry("aviansie", new SlayerTask("Aviansie", List.of(NpcID.GODWARS_ARMADYL_MALE_ARMOR01_BLUE), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Aviansie", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.aviansieInfo().split("\n"))
-                ))),
+                Map.entry("aviansie", new SlayerTask("Aviansie", List.of(NpcID.GODWARS_ARMADYL_MALE_ARMOR01_BLUE),
+                        Collections.singletonList(aviansieLocation),
+                        createNpcLocationsFromWorldPoint("Aviansie", aviansieLocation, config.aviansieInfo().split("\n"))
+                )),
 
-                Map.entry("bandits", new SlayerTask("Bandits", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Bandits", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.banditsInfo().split("\n"))
-                ))),
+                Map.entry("bandits", new SlayerTask("Bandits", List.of(1),
+                        Collections.singletonList(banditsLocation),
+                        createNpcLocationsFromWorldPoint("Bandits", banditsLocation, config.banditsInfo().split("\n"))
+                )),
 
                 Map.entry("banshees", new SlayerTask("Banshees", List.of(1),
                         Collections.singletonList(bansheesLocation),
-                        createNpcLocationsFromWorldPoint("Banshees", bansheesLocation,
-                                config.bansheesInfo().split("\n"))
+                        createNpcLocationsFromWorldPoint("Banshees", bansheesLocation, config.bansheesInfo().split("\n"))
                 )),
 
-                Map.entry("basilisks", new SlayerTask("Basilisks", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Basilisks", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.basilisksInfo().split("\n"))
-                ))),
+                Map.entry("basilisks", new SlayerTask("Basilisks", List.of(1),
+                        Collections.singletonList(basilisksLocation),
+                        createNpcLocationsFromWorldPoint("Basilisks", basilisksLocation, config.basilisksInfo().split("\n"))
+                )),
 
-                Map.entry("bats", new SlayerTask("Bats", List.of(NpcID.BAT), List.of(
-                        new WorldPoint(3351, 3490, 0)
-                ), List.of(
-                        new NpcLocation("Bats", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(3327, 3475, 0),
-                                        new WorldPoint(3398, 3507, 0)
-                                )
-                        ), config.batsInfo().split("\n"))
-                ))),
+                Map.entry("bats", new SlayerTask("Bats", List.of(NpcID.BAT),
+                        Collections.singletonList(batsLocation),
+                        createNpcLocationsFromWorldPoint("Bats", batsLocation, config.batsInfo().split("\n"))
+                )),
 
-                Map.entry("bears", new SlayerTask("Bears", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Bears", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.bearsInfo().split("\n"))
-                ))),
+                Map.entry("bears", new SlayerTask("Bears", List.of(1),
+                        Collections.singletonList(bearsLocation),
+                        createNpcLocationsFromWorldPoint("Bears", bearsLocation, config.bearsInfo().split("\n"))
+                )),
 
-                Map.entry("birds", new SlayerTask("Birds", List.of(NpcID.CHICKEN, NpcID.ROOSTER, NpcID.SEAGULL, NpcID.TERRORBIRD), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Birds", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.birdsInfo().split("\n"))
-                ))),
+                Map.entry("birds", new SlayerTask("Birds", List.of(NpcID.CHICKEN, NpcID.ROOSTER, NpcID.SEAGULL, NpcID.TERRORBIRD),
+                        Collections.singletonList(birdsLocation),
+                        createNpcLocationsFromWorldPoint("Birds", birdsLocation, config.birdsInfo().split("\n"))
+                )),
 
-                Map.entry("black demons", new SlayerTask("Black demons", List.of(NpcID.BLACK_DEMON), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Black demons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.blackDemonsInfo().split("\n"))
-                ))),
+                Map.entry("black demons", new SlayerTask("Black demons", List.of(NpcID.BLACK_DEMON),
+                        Collections.singletonList(blackDemonsLocation),
+                        createNpcLocationsFromWorldPoint("Black demons", blackDemonsLocation, config.blackDemonsInfo().split("\n"))
+                )),
 
-                Map.entry("black dragons", new SlayerTask("Black dragons", List.of(NpcID.BLACK_DRAGON), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Black dragons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.blackDragonsInfo().split("\n"))
-                ))),
+                Map.entry("black dragons", new SlayerTask("Black dragons", List.of(NpcID.BLACK_DRAGON),
+                        Collections.singletonList(blackDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Black dragons", blackDragonsLocation, config.blackDragonsInfo().split("\n"))
+                )),
 
-                Map.entry("black knights", new SlayerTask("Black knights", List.of(NpcID.BLACK_KNIGHT), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Black knights", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.blackKnightsInfo().split("\n"))
-                ))),
+                Map.entry("black knights", new SlayerTask("Black knights", List.of(NpcID.BLACK_KNIGHT),
+                        Collections.singletonList(blackKnightsLocation),
+                        createNpcLocationsFromWorldPoint("Black knights", blackKnightsLocation, config.blackKnightsInfo().split("\n"))
+                )),
 
-                Map.entry("bloodvelds", new SlayerTask("Bloodvelds", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Bloodvelds", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.bloodveldsInfo().split("\n"))
-                ))),
+                Map.entry("bloodvelds", new SlayerTask("Bloodvelds", List.of(1),
+                        Collections.singletonList(bloodveldsLocation),
+                        createNpcLocationsFromWorldPoint("Bloodvelds", bloodveldsLocation, config.bloodveldsInfo().split("\n"))
+                )),
 
-                Map.entry("blue dragons", new SlayerTask("Blue dragons", List.of(NpcID.BLUE_DRAGON, NpcID.VORKATH), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Blue dragons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.blueDragonsInfo().split("\n"))
-                ))),
+                Map.entry("blue dragons", new SlayerTask("Blue dragons", List.of(NpcID.BLUE_DRAGON, NpcID.VORKATH),
+                        Collections.singletonList(blueDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Blue dragons", blueDragonsLocation, config.blueDragonsInfo().split("\n"))
+                )),
 
-                Map.entry("brine rats", new SlayerTask("Brine rats", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Brine rats", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.brineRatsInfo().split("\n"))
-                ))),
+                Map.entry("brine rats", new SlayerTask("Brine rats", List.of(1),
+                        Collections.singletonList(brineRatsLocation),
+                        createNpcLocationsFromWorldPoint("Brine rats", brineRatsLocation, config.brineRatsInfo().split("\n"))
+                )),
 
-                Map.entry("catablepon", new SlayerTask("Catablepon", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Catablepon", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.catableponInfo().split("\n"))
-                ))),
+                Map.entry("catablepon", new SlayerTask("Catablepon", List.of(1),
+                        Collections.singletonList(catableponLocation),
+                        createNpcLocationsFromWorldPoint("Catablepon", catableponLocation, config.catableponInfo().split("\n"))
+                )),
 
-                Map.entry("cave bugs", new SlayerTask("Cave bugs", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Cave bugs", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.caveBugsInfo().split("\n"))
-                ))),
+                Map.entry("cave bugs", new SlayerTask("Cave bugs", List.of(1),
+                        Collections.singletonList(caveBugsLocation),
+                        createNpcLocationsFromWorldPoint("Cave bugs", caveBugsLocation, config.caveBugsInfo().split("\n"))
+                )),
 
-                Map.entry("cave crawlers", new SlayerTask("Cave crawlers", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Cave crawlers", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.caveCrawlersInfo().split("\n"))
-                ))),
+                Map.entry("cave crawlers", new SlayerTask("Cave crawlers", List.of(1),
+                        Collections.singletonList(caveCrawlersLocation),
+                        createNpcLocationsFromWorldPoint("Cave crawlers", caveCrawlersLocation, config.caveCrawlersInfo().split("\n"))
+                )),
 
-                Map.entry("cave horrors", new SlayerTask("Cave horrors", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Cave horrors", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.caveHorrorsInfo().split("\n"))
-                ))),
+                Map.entry("cave horrors", new SlayerTask("Cave horrors", List.of(1),
+                        Collections.singletonList(caveHorrorsLocation),
+                        createNpcLocationsFromWorldPoint("Cave horrors", caveHorrorsLocation, config.caveHorrorsInfo().split("\n"))
+                )),
 
-                Map.entry("cave slimes", new SlayerTask("Cave slimes", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Cave slimes", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.caveSlimesInfo().split("\n"))
-                ))),
+                Map.entry("cave slimes", new SlayerTask("Cave slimes", List.of(1),
+                        Collections.singletonList(caveSlimesLocation),
+                        createNpcLocationsFromWorldPoint("Cave slimes", caveSlimesLocation, config.caveSlimesInfo().split("\n"))
+                )),
 
-                Map.entry("cave kraken", new SlayerTask("Cave kraken", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Cave kraken", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.caveKrakenInfo().split("\n"))
-                ))),
+                Map.entry("cave kraken", new SlayerTask("Cave kraken", List.of(1),
+                        Collections.singletonList(caveKrakenLocation),
+                        createNpcLocationsFromWorldPoint("Cave kraken", caveKrakenLocation, config.caveKrakenInfo().split("\n"))
+                )),
 
-                Map.entry("chaos druids", new SlayerTask("Chaos druids", List.of(NpcID.CHAOS_DRUID), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Chaos druids", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.chaosDruidsInfo().split("\n"))
-                ))),
+                Map.entry("chaos druids", new SlayerTask("Chaos druids", List.of(NpcID.CHAOS_DRUID),
+                        Collections.singletonList(chaosDruidsLocation),
+                        createNpcLocationsFromWorldPoint("Chaos druids", chaosDruidsLocation, config.chaosDruidsInfo().split("\n"))
+                )),
 
-                Map.entry("cockatrice", new SlayerTask("cockatrice", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("cockatrice", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.cockatriceInfo().split("\n"))
-                ))),
+                Map.entry("cockatrice", new SlayerTask("cockatrice", List.of(1),
+                        Collections.singletonList(cockatriceLocation),
+                        createNpcLocationsFromWorldPoint("cockatrice", cockatriceLocation, config.cockatriceInfo().split("\n"))
+                )),
 
-                Map.entry("cows", new SlayerTask("Cows", List.of(NpcID.COW), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Cows", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.cowsInfo().split("\n"))
-                ))),
+                Map.entry("cows", new SlayerTask("Cows", List.of(NpcID.COW),
+                        Collections.singletonList(cowsLocation),
+                        createNpcLocationsFromWorldPoint("Cows", cowsLocation, config.cowsInfo().split("\n"))
+                )),
 
-                Map.entry("crabs", new SlayerTask("Crabs", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Crabs", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.crabsInfo().split("\n"))
-                ))),
+                Map.entry("crabs", new SlayerTask("Crabs", List.of(1),
+                        Collections.singletonList(crabsLocation),
+                        createNpcLocationsFromWorldPoint("Crabs", crabsLocation, config.crabsInfo().split("\n"))
+                )),
 
-                Map.entry("crawling hands", new SlayerTask("Crawling hands", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Crawling hands", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.crawlingHandsInfo().split("\n"))
-                ))),
+                Map.entry("crawling hands", new SlayerTask("Crawling hands", List.of(1),
+                        Collections.singletonList(crawlingHandsLocation),
+                        createNpcLocationsFromWorldPoint("Crawling hands", crawlingHandsLocation, config.crawlingHandsInfo().split("\n"))
+                )),
 
-                Map.entry("crocodiles", new SlayerTask("Crocodiles", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Crocodiles", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.crocodilesInfo().split("\n"))
-                ))),
+                Map.entry("crocodiles", new SlayerTask("Crocodiles", List.of(1),
+                        Collections.singletonList(crocodilesLocation),
+                        createNpcLocationsFromWorldPoint("Crocodiles", crocodilesLocation, config.crocodilesInfo().split("\n"))
+                )),
 
-                Map.entry("custodian stalkers", new SlayerTask("Custodian stalkers", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Custodian stalkers", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.custodianStalkersInfo().split("\n"))
-                ))),
+                Map.entry("custodian stalkers", new SlayerTask("Custodian stalkers", List.of(1),
+                        Collections.singletonList(custodianStalkersLocation),
+                        createNpcLocationsFromWorldPoint("Custodian stalkers", custodianStalkersLocation, config.custodianStalkersInfo().split("\n"))
+                )),
 
-                Map.entry("dagannoths", new SlayerTask("Dagannoths", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Dagannoths", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.dagannothsInfo().split("\n"))
-                ))),
+                Map.entry("dagannoths", new SlayerTask("Dagannoths", List.of(1),
+                        Collections.singletonList(dagannothsLocation),
+                        createNpcLocationsFromWorldPoint("Dagannoths", dagannothsLocation, config.dagannothsInfo().split("\n"))
+                )),
 
-                Map.entry("dark beasts", new SlayerTask("Dark beasts", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Dark beasts", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.darkBeastsInfo().split("\n"))
-                ))),
+                Map.entry("dark beasts", new SlayerTask("Dark beasts", List.of(1),
+                        Collections.singletonList(darkBeastsLocation),
+                        createNpcLocationsFromWorldPoint("Dark beasts", darkBeastsLocation, config.darkBeastsInfo().split("\n"))
+                )),
 
-                Map.entry("dark warriors", new SlayerTask("Dark warriors", List.of(NpcID.DARK_WARRIOR), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Dark warriors", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.darkWarriorsInfo().split("\n"))
-                ))),
+                Map.entry("dark warriors", new SlayerTask("Dark warriors", List.of(NpcID.DARK_WARRIOR),
+                        Collections.singletonList(darkWarriorsLocation),
+                        createNpcLocationsFromWorldPoint("Dark warriors", darkWarriorsLocation, config.darkWarriorsInfo().split("\n"))
+                )),
 
-                Map.entry("dogs", new SlayerTask("Dogs", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Dogs", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.dogsInfo().split("\n"))
-                ))),
+                Map.entry("dogs", new SlayerTask("Dogs", List.of(1),
+                        Collections.singletonList(dogsLocation),
+                        createNpcLocationsFromWorldPoint("Dogs", dogsLocation, config.dogsInfo().split("\n"))
+                )),
 
-                Map.entry("drakes", new SlayerTask("Drakes", List.of(NpcID.DRAKE), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Drakes", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.drakesInfo().split("\n"))
-                ))),
+                Map.entry("drakes", new SlayerTask("Drakes", List.of(NpcID.DRAKE),
+                        Collections.singletonList(drakesLocation),
+                        createNpcLocationsFromWorldPoint("Drakes", drakesLocation, config.drakesInfo().split("\n"))
+                )),
 
-                Map.entry("dust devils", new SlayerTask("Dust devils", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Dust devils", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.dustDevilsInfo().split("\n"))
-                ))),
+                Map.entry("dust devils", new SlayerTask("Dust devils", List.of(1),
+                        Collections.singletonList(dustDevilsLocation),
+                        createNpcLocationsFromWorldPoint("Dust devils", dustDevilsLocation, config.dustDevilsInfo().split("\n"))
+                )),
 
-                Map.entry("dwarves", new SlayerTask("Dwarves", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Dwarves", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.dwarvesInfo().split("\n"))
-                ))),
+                Map.entry("dwarves", new SlayerTask("Dwarves", List.of(1),
+                        Collections.singletonList(dwarvesLocation),
+                        createNpcLocationsFromWorldPoint("Dwarves", dwarvesLocation, config.dwarvesInfo().split("\n"))
+                )),
 
-                Map.entry("earth warriors", new SlayerTask("Earth warriors", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Earth warriors", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.earthWarriorsInfo().split("\n"))
-                ))),
+                Map.entry("earth warriors", new SlayerTask("Earth warriors", List.of(1),
+                        Collections.singletonList(earthWarriorsLocation),
+                        createNpcLocationsFromWorldPoint("Earth warriors", earthWarriorsLocation, config.earthWarriorsInfo().split("\n"))
+                )),
 
-                Map.entry("elves", new SlayerTask("Elves", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Elves", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.elvesInfo().split("\n"))
-                ))),
+                Map.entry("elves", new SlayerTask("Elves", List.of(1),
+                        Collections.singletonList(elvesLocation),
+                        createNpcLocationsFromWorldPoint("Elves", elvesLocation, config.elvesInfo().split("\n"))
+                )),
 
-                Map.entry("ents", new SlayerTask("Ents", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Ents", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.entsInfo().split("\n"))
-                ))),
+                Map.entry("ents", new SlayerTask("Ents", List.of(1),
+                        Collections.singletonList(entsLocation),
+                        createNpcLocationsFromWorldPoint("Ents", entsLocation, config.entsInfo().split("\n"))
+                )),
 
-                Map.entry("fever spiders", new SlayerTask("Fever spiders", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Fever spiders", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.feverSpidersInfo().split("\n"))
-                ))),
+                Map.entry("fever spiders", new SlayerTask("Fever spiders", List.of(1),
+                        Collections.singletonList(feverSpidersLocation),
+                        createNpcLocationsFromWorldPoint("Fever spiders", feverSpidersLocation, config.feverSpidersInfo().split("\n"))
+                )),
 
-                Map.entry("fire giants", new SlayerTask("Fire giants", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Fire giants", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.fireGiantsInfo().split("\n"))
-                ))),
+                Map.entry("fire giants", new SlayerTask("Fire giants", List.of(1),
+                        Collections.singletonList(fireGiantsLocation),
+                        createNpcLocationsFromWorldPoint("Fire giants", fireGiantsLocation, config.fireGiantsInfo().split("\n"))
+                )),
 
-                Map.entry("flesh crawlers", new SlayerTask("Flesh crawlers", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Flesh crawlers", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.fleshCrawlersInfo().split("\n"))
-                ))),
+                Map.entry("flesh crawlers", new SlayerTask("Flesh crawlers", List.of(1),
+                        Collections.singletonList(fleshCrawlersLocation),
+                        createNpcLocationsFromWorldPoint("Flesh crawlers", fleshCrawlersLocation, config.fleshCrawlersInfo().split("\n"))
+                )),
 
-                Map.entry("fossil island wyvern", new SlayerTask("Fossil island wyvern", List.of(NpcID.ANCIENT_WYVERN), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Fossil island wyvern", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.fossilIslandWyvernInfo().split("\n"))
-                ))),
+                Map.entry("fossil island wyvern", new SlayerTask("Fossil island wyvern", List.of(NpcID.ANCIENT_WYVERN),
+                        Collections.singletonList(fossilIslandWyvernLocation),
+                        createNpcLocationsFromWorldPoint("Fossil island wyvern", fossilIslandWyvernLocation, config.fossilIslandWyvernInfo().split("\n"))
+                )),
 
-                Map.entry("frost dragons", new SlayerTask("Frost dragons", List.of(NpcID.FROST_DRAGON), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Frost dragons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.frostDragonsInfo().split("\n"))
-                ))),
+                Map.entry("frost dragons", new SlayerTask("Frost dragons", List.of(NpcID.FROST_DRAGON),
+                        Collections.singletonList(frostDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Frost dragons", frostDragonsLocation, config.frostDragonsInfo().split("\n"))
+                )),
 
                 Map.entry("gargoyles", new SlayerTask("Gargoyles",
                         List.of(NpcID.SLAYER_GARGOYLE_1, NpcID.SLAYER_CAVE_GARGOYLE, NpcID.SUPERIOR_GARGOYLE),
-                        List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Gargoyles", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.gargoylesInfo().split("\n"))
-                ))),
-
-                Map.entry("ghosts", new SlayerTask("Ghosts", List.of(NpcID.GHOST), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Ghosts", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.ghostsInfo().split("\n"))
-                ))),
-
-                Map.entry("ghouls", new SlayerTask("Ghouls", List.of(NpcID.GHOUL), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Ghouls", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.ghoulsInfo().split("\n"))
-                ))),
-
-                Map.entry("goblins", new SlayerTask("Goblins", List.of(NpcID.GOBLIN, NpcID.CAVE_GOBLIN), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Goblins", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.goblinsInfo().split("\n"))
-                ))),
-
-                Map.entry("greater demons", new SlayerTask("Greater demons", List.of(NpcID.GREATER_DEMON), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Greater demons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.greaterDemonsInfo().split("\n"))
-                ))),
-
-                Map.entry("green dragons", new SlayerTask("Green dragons", List.of(NpcID.GREEN_DRAGON), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Green dragons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.greenDragonsInfo().split("\n"))
-                ))),
-
-                Map.entry("gryphons", new SlayerTask("Gryphons", List.of(1), List.of(
-                        new WorldPoint(0, 0, 0)
-                ), List.of(
-                        new NpcLocation("Gryphons", List.of(
-                                WorldAreaUtils.fromCorners(
-                                        new WorldPoint(0, 0, 0),
-                                        new WorldPoint(0, 0, 0)
-                                )
-                        ), config.gryphonsInfo().split("\n"))
-                ))),
-
-                Map.entry("harpie bug swarms", new SlayerTask("Harpie bug swarms", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Harpie bug swarms", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.harpieBugSwarmsInfo().split("\n"))))),
-
-                Map.entry("hellhounds", new SlayerTask("Hellhounds", List.of(NpcID.HELLHOUND, 1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Hellhounds", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.hellhoundsInfo().split("\n"))))),
-
-                Map.entry("hill giants", new SlayerTask("Hill giants", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Hill giants", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.hillGiantsInfo().split("\n"))))),
-
-                Map.entry("hobgoblins", new SlayerTask("Hobgoblins", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Hobgoblins", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.hobgoblinsInfo().split("\n"))))),
-
-                Map.entry("hydras", new SlayerTask("Hydras", List.of(NpcID.HYDRA), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Hydras", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.hydrasInfo().split("\n"))))),
-
-                Map.entry("icefiends", new SlayerTask("Icefiends", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Icefiends", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.icefiendsInfo().split("\n"))))),
-
-                Map.entry("ice giants", new SlayerTask("Ice giants", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Ice giants", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.iceGiantsInfo().split("\n"))))),
-
-                Map.entry("ice warriors", new SlayerTask("Ice warriors", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Ice warriors", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.iceWarriorsInfo().split("\n"))))),
-
-                Map.entry("infernal mages", new SlayerTask("Infernal mages", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Infernal mages", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.infernalMagesInfo().split("\n"))))),
-
-                Map.entry("jellies", new SlayerTask("Jellies", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Jellies", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.jelliesInfo().split("\n"))))),
-
-                Map.entry("jungle horrors", new SlayerTask("Jungle horrors", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Jungle horrors", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.jungleHorrorsInfo().split("\n"))))),
-
-                Map.entry("kalphites", new SlayerTask("Kalphites", List.of(NpcID.KALPHITE_WORKER, NpcID.KALPHITE_SOLDIER, NpcID.KALPHITE_QUEEN), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Kalphites", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.kalphitesInfo().split("\n"))))),
-
-                Map.entry("killerwatts", new SlayerTask("Killerwatts", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Killerwatts", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.killerwattsInfo().split("\n"))))),
-
-                Map.entry("kurasks", new SlayerTask("Kurasks", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Kurasks", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.kurasksInfo().split("\n"))))),
-
-                Map.entry("lava dragons", new SlayerTask("Lava dragons", List.of(NpcID.LAVA_DRAGON), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Lava dragons", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.lavaDragonsInfo().split("\n"))))),
-
-                Map.entry("lesser demons", new SlayerTask("Lesser demons", List.of(NpcID.LESSER_DEMON), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Lesser demons", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.lesserDemonsInfo().split("\n"))))),
-
-                Map.entry("lesser nagua", new SlayerTask("Lesser nagua", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Lesser nagua", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.lesserNaguaInfo().split("\n"))))),
-
-                Map.entry("lizardmen", new SlayerTask("Lizardmen", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Lizardmen", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.lizardmenInfo().split("\n"))))),
-
-                Map.entry("lizards", new SlayerTask("Lizards", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Lizards", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.lizardsInfo().split("\n"))))),
-
-                Map.entry("magic axes", new SlayerTask("Magic axes", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Magic axes", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.magicAxesInfo().split("\n"))))),
-
-                Map.entry("mammoth", new SlayerTask("Mammoth", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Mammoth", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.mammothInfo().split("\n"))))),
-
-                Map.entry("metal dragons", new SlayerTask("Metal dragons", List.of(NpcID.BRONZE_DRAGON, NpcID.IRON_DRAGON, NpcID.STEEL_DRAGON, NpcID.ADAMANT_DRAGON, NpcID.RUNE_DRAGON), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Metal dragons", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.metalDragonsInfo().split("\n"))))),
-
-                Map.entry("minotaurs", new SlayerTask("Minotaurs", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Minotaurs", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.minotaursInfo().split("\n"))))),
-
-                Map.entry("mogres", new SlayerTask("Mogres", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Mogres", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.mogresInfo().split("\n"))))),
-
-                Map.entry("molanisks", new SlayerTask("Molanisks", List.of(NpcID.MOLANISK), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Molanisks", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.molanisksInfo().split("\n"))))),
-
-                Map.entry("monkeys", new SlayerTask("Monkeys", List.of(NpcID.MONKEY), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Monkeys", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.monkeysInfo().split("\n"))))),
-
-                Map.entry("moss giants", new SlayerTask("Moss giants", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Moss giants", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.mossGiantsInfo().split("\n"))))),
-
-                Map.entry("nechryael", new SlayerTask("Nechryael", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Nechryael", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.nechryaelInfo().split("\n"))))),
-
-                Map.entry("ogres", new SlayerTask("Ogres", List.of(NpcID.OGRE), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Ogres", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.ogresInfo().split("\n"))))),
-
-                Map.entry("otherworldly beings", new SlayerTask("Otherworldly beings", List.of(NpcID.OTHERWORLDLY_BEING), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Otherworldly beings", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.otherworldlyBeingsInfo().split("\n"))))),
-
-                Map.entry("pirates", new SlayerTask("Pirates", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Pirates", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.piratesInfo().split("\n"))))),
-
-                Map.entry("pyrefiends", new SlayerTask("Pyrefiends", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Pyrefiends", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.pyrefiendsInfo().split("\n"))))),
-
-                Map.entry("rats", new SlayerTask("Rats", List.of(NpcID.RAT), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Rats", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.ratsInfo().split("\n"))))),
-
-                Map.entry("red dragons", new SlayerTask("Red dragons", List.of(NpcID.RED_DRAGON), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Red dragons", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.redDragonsInfo().split("\n"))))),
-
-                Map.entry("revenants", new SlayerTask("Revenants", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Revenants", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.revenantsInfo().split("\n"))))),
-
-                Map.entry("rockslugs", new SlayerTask("Rockslugs", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Rockslugs", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.rockslugsInfo().split("\n"))))),
-
-                Map.entry("rogues", new SlayerTask("Rogues", List.of(NpcID.ROGUE), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Rogues", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.roguesInfo().split("\n"))))),
-
-                Map.entry("minions of scabaras", new SlayerTask("Minions of Scabaras", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Minions of Scabaras", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.minionsOfScabarasInfo().split("\n"))))),
-
-                Map.entry("scorpions", new SlayerTask("Scorpions", List.of(NpcID.SCORPION, NpcID.SCORPIA), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Scorpions", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.scorpionsInfo().split("\n"))))),
-
-                Map.entry("sea snakes", new SlayerTask("Sea snakes", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Sea snakes", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.seaSnakesInfo().split("\n"))))),
-
-                Map.entry("shades", new SlayerTask("Shades", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Shades", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.shadesInfo().split("\n"))))),
-
-                Map.entry("shadow warriors", new SlayerTask("Shadow warriors", List.of(NpcID.SHADOW_WARRIOR), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Shadow warriors", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.shadowWarriorsInfo().split("\n"))))),
-
-                Map.entry("skeletal wyverns", new SlayerTask("Skeletal wyverns", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Skeletal wyverns", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.skeletalWyvernsInfo().split("\n"))))),
-
-                Map.entry("skeletons", new SlayerTask("Skeletons", List.of(NpcID.VETION), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Skeletons", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.skeletonsInfo().split("\n"))))),
-
-                Map.entry("smoke devils", new SlayerTask("Smoke devils", List.of(NpcID.SMOKE_DEVIL), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Smoke devils", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.smokeDevilsInfo().split("\n"))))),
-
-                Map.entry("sourhogs", new SlayerTask("Sourhogs", List.of(NpcID.SOURHOG), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Sourhogs", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.sourhogsInfo().split("\n"))))),
-
-                Map.entry("spiders", new SlayerTask("Spiders", List.of(NpcID.SPIDER, NpcID.SARACHNIS, NpcID.VENENATIS), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Spiders", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.spidersInfo().split("\n"))))),
-
-                Map.entry("spiritual creatures", new SlayerTask("Spiritual creatures", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Spiritual creatures", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.spiritualCreaturesInfo().split("\n"))))),
-
-                Map.entry("suqahs", new SlayerTask("Suqahs", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Suqahs", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.suqahsInfo().split("\n"))))),
-
-                Map.entry("terror dogs", new SlayerTask("Terror dogs", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Terror dogs", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.terrorDogsInfo().split("\n"))))),
-
-                Map.entry("trolls", new SlayerTask("Trolls", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Trolls", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.trollsInfo().split("\n"))))),
-
-                Map.entry("turoth", new SlayerTask("Turoth", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Turoth", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.turothInfo().split("\n"))))),
-
-                Map.entry("tzhaar", new SlayerTask("TzHaar", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("TzHaar", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.tzHaarInfo().split("\n"))))),
-
-                Map.entry("vampyres", new SlayerTask("Vampyres", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Vampyres", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.vampyresInfo().split("\n"))))),
-
-                Map.entry("wall beasts", new SlayerTask("Wall beasts", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Wall beasts", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.wallBeastsInfo().split("\n"))))),
-
-                Map.entry("warped creatures", new SlayerTask("Warped creatures", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Warped creatures", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.warpedCreaturesInfo().split("\n"))))),
-
-                Map.entry("waterfiends", new SlayerTask("Waterfiends", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Waterfiends", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.waterfiendsInfo().split("\n"))))),
-
-                Map.entry("werewolves", new SlayerTask("Werewolves", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Werewolves", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.werewolvesInfo().split("\n"))))),
-
-                Map.entry("wolves", new SlayerTask("Wolves", List.of(NpcID.WOLF), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Wolves", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.wolvesInfo().split("\n"))))),
-
-                Map.entry("wyrms", new SlayerTask("Wyrms", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Wyrms", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.wyrmsInfo().split("\n"))))),
-
-                Map.entry("zombies", new SlayerTask("Zombies", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Zombies", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.zombiesInfo().split("\n"))))),
-
-                Map.entry("zygomites", new SlayerTask("Zygomites", List.of(1), List.of(new WorldPoint(0, 0, 0)), List.of(new NpcLocation("Zygomites", List.of(WorldAreaUtils.fromCorners(new WorldPoint(0, 0, 0), new WorldPoint(0, 0, 0))), config.zygomitesInfo().split("\n")))))
-                );
+                        Collections.singletonList(gargoylesLocation),
+                        createNpcLocationsFromWorldPoint("Gargoyles", gargoylesLocation, config.gargoylesInfo().split("\n"))
+                )),
+
+                Map.entry("ghosts", new SlayerTask("Ghosts", List.of(NpcID.GHOST),
+                        Collections.singletonList(ghostsLocation),
+                        createNpcLocationsFromWorldPoint("Ghosts", ghostsLocation, config.ghostsInfo().split("\n"))
+                )),
+
+                Map.entry("ghouls", new SlayerTask("Ghouls", List.of(NpcID.GHOUL),
+                        Collections.singletonList(ghoulsLocation),
+                        createNpcLocationsFromWorldPoint("Ghouls", ghoulsLocation, config.ghoulsInfo().split("\n"))
+                )),
+
+                Map.entry("goblins", new SlayerTask("Goblins", List.of(NpcID.GOBLIN, NpcID.CAVE_GOBLIN),
+                        Collections.singletonList(goblinsLocation),
+                        createNpcLocationsFromWorldPoint("Goblins", goblinsLocation, config.goblinsInfo().split("\n"))
+                )),
+
+                Map.entry("greater demons", new SlayerTask("Greater demons", List.of(NpcID.GREATER_DEMON),
+                        Collections.singletonList(greaterDemonsLocation),
+                        createNpcLocationsFromWorldPoint("Greater demons", greaterDemonsLocation, config.greaterDemonsInfo().split("\n")))),
+
+                Map.entry("green dragons", new SlayerTask("Green dragons", List.of(NpcID.GREEN_DRAGON),
+                        Collections.singletonList(greenDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Green dragons", greenDragonsLocation, config.greenDragonsInfo().split("\n"))
+                )),
+
+                Map.entry("gryphons", new SlayerTask("Gryphons", List.of(1),
+                        Collections.singletonList(gryphonsLocation),
+                        createNpcLocationsFromWorldPoint("Gryphons", gryphonsLocation, config.gryphonsInfo().split("\n"))
+                )),
+
+                Map.entry("harpie bug swarms", new SlayerTask("Harpie bug swarms", List.of(1),
+                        Collections.singletonList(harpieBugSwarmsLocation),
+                        createNpcLocationsFromWorldPoint("Harpie bug swarms", harpieBugSwarmsLocation, config.harpieBugSwarmsInfo().split("\n"))
+                )),
+
+                Map.entry("hellhounds", new SlayerTask("Hellhounds", List.of(NpcID.HELLHOUND, 1),
+                        Collections.singletonList(hellhoundsLocation),
+                        createNpcLocationsFromWorldPoint("Hellhounds", hellhoundsLocation, config.hellhoundsInfo().split("\n"))
+                )),
+
+                Map.entry("hill giants", new SlayerTask("Hill giants", List.of(1),
+                        Collections.singletonList(hillGiantsLocation),
+                        createNpcLocationsFromWorldPoint("Hill giants", hillGiantsLocation, config.hillGiantsInfo().split("\n"))
+                )),
+
+                Map.entry("hobgoblins", new SlayerTask("Hobgoblins", List.of(1),
+                        Collections.singletonList(hobgoblinsLocation),
+                        createNpcLocationsFromWorldPoint("Hobgoblins", hobgoblinsLocation, config.hobgoblinsInfo().split("\n"))
+                )),
+
+                Map.entry("hydras", new SlayerTask("Hydras", List.of(NpcID.HYDRA),
+                        Collections.singletonList(hydrasLocation),
+                        createNpcLocationsFromWorldPoint("Hydras", hydrasLocation, config.hydrasInfo().split("\n"))
+                )),
+
+                Map.entry("icefiends", new SlayerTask("Icefiends", List.of(1),
+                        Collections.singletonList(icefiendsLocation),
+                        createNpcLocationsFromWorldPoint("Icefiends", icefiendsLocation, config.icefiendsInfo().split("\n"))
+                )),
+
+                Map.entry("ice giants", new SlayerTask("Ice giants", List.of(1),
+                        Collections.singletonList(iceGiantsLocation),
+                        createNpcLocationsFromWorldPoint("Ice giants", iceGiantsLocation, config.iceGiantsInfo().split("\n"))
+                )),
+
+                Map.entry("ice warriors", new SlayerTask("Ice warriors", List.of(1),
+                        Collections.singletonList(iceWarriorsLocation),
+                        createNpcLocationsFromWorldPoint("Ice warriors", iceWarriorsLocation, config.iceWarriorsInfo().split("\n"))
+                )),
+
+                Map.entry("infernal mages", new SlayerTask("Infernal mages", List.of(1),
+                        Collections.singletonList(infernalMagesLocation),
+                        createNpcLocationsFromWorldPoint("Infernal mages", infernalMagesLocation, config.infernalMagesInfo().split("\n"))
+                )),
+
+                Map.entry("jellies", new SlayerTask("Jellies", List.of(1),
+                        Collections.singletonList(jelliesLocation),
+                        createNpcLocationsFromWorldPoint("Jellies", jelliesLocation, config.jelliesInfo().split("\n"))
+                )),
+
+                Map.entry("jungle horrors", new SlayerTask("Jungle horrors", List.of(1),
+                        Collections.singletonList(jungleHorrorsLocation),
+                        createNpcLocationsFromWorldPoint("Jungle horrors", jungleHorrorsLocation, config.jungleHorrorsInfo().split("\n"))
+                )),
+
+                Map.entry("kalphites", new SlayerTask("Kalphites", List.of(NpcID.KALPHITE_WORKER, NpcID.KALPHITE_SOLDIER, NpcID.KALPHITE_QUEEN),
+                        Collections.singletonList(kalphitesLocation),
+                        createNpcLocationsFromWorldPoint("Kalphites", kalphitesLocation, config.kalphitesInfo().split("\n"))
+                )),
+
+                Map.entry("killerwatts", new SlayerTask("Killerwatts", List.of(1),
+                        Collections.singletonList(killerwattsLocation),
+                        createNpcLocationsFromWorldPoint("Killerwatts", killerwattsLocation, config.killerwattsInfo().split("\n"))
+                )),
+
+                Map.entry("kurasks", new SlayerTask("Kurasks", List.of(1),
+                        Collections.singletonList(kurasksLocation),
+                        createNpcLocationsFromWorldPoint("Kurasks", kurasksLocation, config.kurasksInfo().split("\n"))
+                )),
+
+                Map.entry("lava dragons", new SlayerTask("Lava dragons", List.of(NpcID.LAVA_DRAGON),
+                        Collections.singletonList(lavaDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Lava dragons", lavaDragonsLocation, config.lavaDragonsInfo().split("\n"))
+                )),
+
+                Map.entry("lesser demons", new SlayerTask("Lesser demons", List.of(NpcID.LESSER_DEMON),
+                        Collections.singletonList(lesserDemonsLocation),
+                        createNpcLocationsFromWorldPoint("Lesser demons", lesserDemonsLocation, config.lesserDemonsInfo().split("\n"))
+                )),
+
+                Map.entry("lesser nagua", new SlayerTask("Lesser nagua", List.of(1),
+                        Collections.singletonList(lesserNaguaLocation),
+                        createNpcLocationsFromWorldPoint("Lesser nagua", lesserNaguaLocation, config.lesserNaguaInfo().split("\n"))
+                )),
+
+                Map.entry("lizardmen", new SlayerTask("Lizardmen", List.of(1),
+                        Collections.singletonList(lizardmenLocation),
+                        createNpcLocationsFromWorldPoint("Lizardmen", lizardmenLocation, config.lizardmenInfo().split("\n"))
+                )),
+
+                Map.entry("lizards", new SlayerTask("Lizards", List.of(1),
+                        Collections.singletonList(lizardsLocation),
+                        createNpcLocationsFromWorldPoint("Lizards", lizardsLocation, config.lizardsInfo().split("\n"))
+                )),
+
+                Map.entry("magic axes", new SlayerTask("Magic axes", List.of(1),
+                        Collections.singletonList(magicAxesLocation),
+                        createNpcLocationsFromWorldPoint("Magic axes", magicAxesLocation, config.magicAxesInfo().split("\n"))
+                )),
+
+                Map.entry("mammoth", new SlayerTask("Mammoth", List.of(1),
+                        Collections.singletonList(mammothLocation),
+                        createNpcLocationsFromWorldPoint("Mammoth", mammothLocation, config.mammothInfo().split("\n"))
+                )),
+
+                Map.entry("metal dragons", new SlayerTask("Metal dragons", List.of(NpcID.BRONZE_DRAGON, NpcID.IRON_DRAGON, NpcID.STEEL_DRAGON, NpcID.ADAMANT_DRAGON, NpcID.RUNE_DRAGON),
+                        Collections.singletonList(metalDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Metal dragons", metalDragonsLocation, config.metalDragonsInfo().split("\n"))
+                )),
+
+                Map.entry("minotaurs", new SlayerTask("Minotaurs", List.of(1),
+                        Collections.singletonList(minotaursLocation),
+                        createNpcLocationsFromWorldPoint("Minotaurs", minotaursLocation, config.minotaursInfo().split("\n"))
+                )),
+
+                Map.entry("mogres", new SlayerTask("Mogres", List.of(1),
+                        Collections.singletonList(mogresLocation),
+                        createNpcLocationsFromWorldPoint("Mogres", mogresLocation, config.mogresInfo().split("\n"))
+                )),
+
+                Map.entry("molanisks", new SlayerTask("Molanisks", List.of(NpcID.MOLANISK),
+                        Collections.singletonList(molanisksLocation),
+                        createNpcLocationsFromWorldPoint("Molanisks", molanisksLocation, config.molanisksInfo().split("\n"))
+                )),
+
+                Map.entry("monkeys", new SlayerTask("Monkeys", List.of(NpcID.MONKEY),
+                        Collections.singletonList(monkeysLocation),
+                        createNpcLocationsFromWorldPoint("Monkeys", monkeysLocation, config.monkeysInfo().split("\n"))
+                )),
+
+                Map.entry("moss giants", new SlayerTask("Moss giants", List.of(1),
+                        Collections.singletonList(mossGiantsLocation),
+                        createNpcLocationsFromWorldPoint("Moss giants", mossGiantsLocation, config.mossGiantsInfo().split("\n"))
+                )),
+
+                Map.entry("nechryael", new SlayerTask("Nechryael", List.of(1),
+                        Collections.singletonList(nechryaelLocation),
+                        createNpcLocationsFromWorldPoint("Nechryael", nechryaelLocation, config.nechryaelInfo().split("\n"))
+                )),
+
+                Map.entry("ogres", new SlayerTask("Ogres", List.of(NpcID.OGRE),
+                        Collections.singletonList(ogresLocation),
+                        createNpcLocationsFromWorldPoint("Ogres", ogresLocation, config.ogresInfo().split("\n"))
+                )),
+
+                Map.entry("otherworldly beings", new SlayerTask("Otherworldly beings", List.of(NpcID.OTHERWORLDLY_BEING),
+                        Collections.singletonList(otherworldlyBeingsLocation),
+                        createNpcLocationsFromWorldPoint("Otherworldly beings", otherworldlyBeingsLocation, config.otherworldlyBeingsInfo().split("\n"))
+                )),
+
+                Map.entry("pirates", new SlayerTask("Pirates", List.of(1),
+                        Collections.singletonList(piratesLocation),
+                        createNpcLocationsFromWorldPoint("Pirates", piratesLocation, config.piratesInfo().split("\n"))
+                )),
+
+                Map.entry("pyrefiends", new SlayerTask("Pyrefiends", List.of(1),
+                        Collections.singletonList(pyrefiendsLocation),
+                        createNpcLocationsFromWorldPoint("Pyrefiends", pyrefiendsLocation, config.pyrefiendsInfo().split("\n"))
+                )),
+
+                Map.entry("rats", new SlayerTask("Rats", List.of(NpcID.RAT),
+                        Collections.singletonList(ratsLocation),
+                        createNpcLocationsFromWorldPoint("Rats", ratsLocation, config.ratsInfo().split("\n"))
+                )),
+
+                Map.entry("red dragons", new SlayerTask("Red dragons", List.of(NpcID.RED_DRAGON),
+                        Collections.singletonList(redDragonsLocation),
+                        createNpcLocationsFromWorldPoint("Red dragons", redDragonsLocation, config.redDragonsInfo().split("\n"))
+                )),
+
+                Map.entry("revenants", new SlayerTask("Revenants", List.of(1),
+                        Collections.singletonList(revenantsLocation),
+                        createNpcLocationsFromWorldPoint("Revenants", revenantsLocation, config.revenantsInfo().split("\n"))
+                )),
+
+                Map.entry("rockslugs", new SlayerTask("Rockslugs", List.of(1),
+                        Collections.singletonList(rockslugsLocation),
+                        createNpcLocationsFromWorldPoint("Rockslugs", rockslugsLocation, config.rockslugsInfo().split("\n"))
+                )),
+
+                Map.entry("rogues", new SlayerTask("Rogues", List.of(NpcID.ROGUE),
+                        Collections.singletonList(roguesLocation),
+                        createNpcLocationsFromWorldPoint("Rogues", roguesLocation, config.roguesInfo().split("\n"))
+                )),
+
+                Map.entry("minions of scabaras", new SlayerTask("Minions of Scabaras", List.of(1),
+                        Collections.singletonList(minionsOfScabarasLocation),
+                        createNpcLocationsFromWorldPoint("Minions of Scabaras", minionsOfScabarasLocation, config.minionsOfScabarasInfo().split("\n"))
+                )),
+
+                Map.entry("scorpions", new SlayerTask("Scorpions", List.of(NpcID.SCORPION, NpcID.SCORPIA),
+                        Collections.singletonList(scorpionsLocation),
+                        createNpcLocationsFromWorldPoint("Scorpions", scorpionsLocation, config.scorpionsInfo().split("\n"))
+                )),
+
+                Map.entry("sea snakes", new SlayerTask("Sea snakes", List.of(1),
+                        Collections.singletonList(seaSnakesLocation),
+                        createNpcLocationsFromWorldPoint("Sea snakes", seaSnakesLocation, config.seaSnakesInfo().split("\n"))
+                )),
+
+                Map.entry("shades", new SlayerTask("Shades", List.of(1),
+                        Collections.singletonList(shadesLocation),
+                        createNpcLocationsFromWorldPoint("Shades", shadesLocation, config.shadesInfo().split("\n"))
+                )),
+
+                Map.entry("shadow warriors", new SlayerTask("Shadow warriors", List.of(NpcID.SHADOW_WARRIOR),
+                        Collections.singletonList(shadowWarriorsLocation),
+                        createNpcLocationsFromWorldPoint("Shadow warriors", shadowWarriorsLocation, config.shadowWarriorsInfo().split("\n"))
+                )),
+
+                Map.entry("skeletal wyverns", new SlayerTask("Skeletal wyverns", List.of(1),
+                        Collections.singletonList(skeletalWyvernsLocation),
+                        createNpcLocationsFromWorldPoint("Skeletal wyverns", skeletalWyvernsLocation, config.skeletalWyvernsInfo().split("\n"))
+                )),
+
+                Map.entry("skeletons", new SlayerTask("Skeletons", List.of(NpcID.VETION),
+                        Collections.singletonList(skeletonsLocation),
+                        createNpcLocationsFromWorldPoint("Skeletons", skeletonsLocation, config.skeletonsInfo().split("\n"))
+                )),
+
+                Map.entry("smoke devils", new SlayerTask("Smoke devils", List.of(NpcID.SMOKE_DEVIL),
+                        Collections.singletonList(smokeDevilsLocation),
+                        createNpcLocationsFromWorldPoint("Smoke devils", smokeDevilsLocation, config.smokeDevilsInfo().split("\n"))
+                )),
+
+                Map.entry("sourhogs", new SlayerTask("Sourhogs", List.of(NpcID.SOURHOG),
+                        Collections.singletonList(sourhogsLocation),
+                        createNpcLocationsFromWorldPoint("Sourhogs", sourhogsLocation, config.sourhogsInfo().split("\n"))
+                )),
+
+                Map.entry("spiders", new SlayerTask("Spiders", List.of(NpcID.SPIDER, NpcID.SARACHNIS, NpcID.VENENATIS),
+                        Collections.singletonList(spidersLocation),
+                        createNpcLocationsFromWorldPoint("Spiders", spidersLocation, config.spidersInfo().split("\n"))
+                )),
+
+                Map.entry("spiritual creatures", new SlayerTask("Spiritual creatures", List.of(1),
+                        Collections.singletonList(spiritualCreaturesLocation),
+                        createNpcLocationsFromWorldPoint("Spiritual creatures", spiritualCreaturesLocation, config.spiritualCreaturesInfo().split("\n"))
+                )),
+
+                Map.entry("suqahs", new SlayerTask("Suqahs", List.of(1),
+                        Collections.singletonList(suqahsLocation),
+                        createNpcLocationsFromWorldPoint("Suqahs", suqahsLocation, config.suqahsInfo().split("\n"))
+                )),
+
+                Map.entry("terror dogs", new SlayerTask("Terror dogs", List.of(1),
+                        Collections.singletonList(terrorDogsLocation),
+                        createNpcLocationsFromWorldPoint("Terror dogs", terrorDogsLocation, config.terrorDogsInfo().split("\n"))
+                )),
+
+                Map.entry("trolls", new SlayerTask("Trolls", List.of(1),
+                        Collections.singletonList(trollsLocation),
+                        createNpcLocationsFromWorldPoint("Trolls", trollsLocation, config.trollsInfo().split("\n"))
+                )),
+
+                Map.entry("turoth", new SlayerTask("Turoth", List.of(1),
+                        Collections.singletonList(turothLocation),
+                        createNpcLocationsFromWorldPoint("Turoth", turothLocation, config.turothInfo().split("\n"))
+                )),
+
+                Map.entry("tzhaar", new SlayerTask("TzHaar", List.of(1),
+                        Collections.singletonList(tzHaarLocation),
+                        createNpcLocationsFromWorldPoint("TzHaar", tzHaarLocation, config.tzHaarInfo().split("\n"))
+                )),
+
+                Map.entry("vampyres", new SlayerTask("Vampyres", List.of(1),
+                        Collections.singletonList(vampyresLocation),
+                        createNpcLocationsFromWorldPoint("Vampyres", vampyresLocation, config.vampyresInfo().split("\n"))
+                )),
+
+                Map.entry("wall beasts", new SlayerTask("Wall beasts", List.of(1),
+                        Collections.singletonList(wallBeastsLocation),
+                        createNpcLocationsFromWorldPoint("Wall beasts", wallBeastsLocation, config.wallBeastsInfo().split("\n"))
+                )),
+
+                Map.entry("warped creatures", new SlayerTask("Warped creatures", List.of(1),
+                        Collections.singletonList(warpedCreaturesLocation),
+                        createNpcLocationsFromWorldPoint("Warped creatures", warpedCreaturesLocation, config.warpedCreaturesInfo().split("\n"))
+                )),
+
+                Map.entry("waterfiends", new SlayerTask("Waterfiends", List.of(1),
+                        Collections.singletonList(waterfiendsLocation),
+                        createNpcLocationsFromWorldPoint("Waterfiends", waterfiendsLocation, config.waterfiendsInfo().split("\n"))
+                )),
+
+                Map.entry("werewolves", new SlayerTask("Werewolves", List.of(1),
+                        Collections.singletonList(werewolvesLocation),
+                        createNpcLocationsFromWorldPoint("Werewolves", werewolvesLocation, config.werewolvesInfo().split("\n"))
+                )),
+
+                Map.entry("wolves", new SlayerTask("Wolves", List.of(NpcID.WOLF),
+                        Collections.singletonList(wolvesLocation),
+                        createNpcLocationsFromWorldPoint("Wolves", wolvesLocation, config.wolvesInfo().split("\n"))
+                )),
+
+                Map.entry("wyrms", new SlayerTask("Wyrms", List.of(1),
+                        Collections.singletonList(wyrmsLocation),
+                        createNpcLocationsFromWorldPoint("Wyrms", wyrmsLocation, config.wyrmsInfo().split("\n"))
+                )),
+
+                Map.entry("zombies", new SlayerTask("Zombies", List.of(1),
+                        Collections.singletonList(zombiesLocation),
+                        createNpcLocationsFromWorldPoint("Zombies", zombiesLocation, config.zombiesInfo().split("\n"))
+                )),
+
+                Map.entry("zygomites", new SlayerTask("Zygomites", List.of(1),
+                        Collections.singletonList(zygomitesLocation),
+                        createNpcLocationsFromWorldPoint("Zygomites", zygomitesLocation, config.zygomitesInfo().split("\n"))
+                ))
+        );
     }
 
     public SlayerTask getSlayerTaskByNpcName(String npcName)
@@ -779,7 +781,7 @@ public class SlayerTaskRegistry {
     }
 
     private List<NpcLocation> createNpcLocationsFromWorldPoint(String name, WorldPoint location, String[] info) {
-        return createNpcLocationsFromWorldPoint(name, location, info, 25); // default padding of 10
+        return createNpcLocationsFromWorldPoint(name, location, info, 20);
     }
 
     private List<NpcLocation> createNpcLocationsFromWorldPoint(String name, WorldPoint location, String[] info, int padding) {
