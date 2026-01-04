@@ -17,5 +17,5 @@ Basic functionality of plugin:
 
 Gif showing functionalities:
 <p align="center">
-  <img src="assets/show-shortest-path.gif-gif.gif" width="90%" alt="Debug GIF"/>
+  <img src="assets/show-shortest-path.gif" width="90%" alt="Debug GIF"/>
 </p>
