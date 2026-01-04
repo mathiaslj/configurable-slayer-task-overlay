@@ -42,10 +42,7 @@ import net.runelite.api.Player;
 import net.runelite.api.Tile;
 import net.runelite.api.WorldView;
 import net.runelite.api.coords.WorldPoint;
-import net.runelite.api.events.ChatMessage;
-import net.runelite.api.events.GameTick;
-import net.runelite.api.events.MenuEntryAdded;
-import net.runelite.api.events.MenuOptionClicked;
+import net.runelite.api.events.*;
 import net.runelite.api.gameval.InterfaceID;
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.config.ConfigManager;
@@ -59,6 +56,9 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.worldmap.WorldMapPointManager;
 import net.runelite.client.util.Text;
+import net.runelite.api.widgets.ComponentID;
+import net.runelite.api.RenderOverview;
+import net.runelite.api.MenuEntry;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -69,6 +69,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 @Slf4j
 @PluginDescriptor(
@@ -115,6 +118,9 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     @Inject
     private EventBus eventBus;
 
+    @Inject
+    private ConfigManager configManager;
+
     @Getter
     private SlayerTask currentSlayerTask;
 
@@ -122,7 +128,10 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     protected void startUp() {
         overlayManager.add(slayerTaskOverlay);
 
-        slayerTaskRegistry = new SlayerTaskRegistry(config);
+        slayerTaskRegistry = new SlayerTaskRegistry(config, () -> {
+            String saved = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
+            return parseSavedLocations(saved);
+        });
     }
 
     @Override
@@ -153,7 +162,7 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
                         chatBoxNpcName.getText().equalsIgnoreCase("steve") ||
                         chatBoxNpcName.getText().equalsIgnoreCase("duradel") ||
                         chatBoxNpcName.getText().equalsIgnoreCase("kuradel")
-                        )
+                )
         ) {
             String npcText = Text.sanitizeMultilineText(chatBoxNpcText.getText());
             String taskName = getTaskName(npcText);
@@ -194,6 +203,26 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
 
         slayerTaskRegistry.rebuildTasks();
 
+        if (event.getKey().equals("displayMapIcon"))
+        {
+            updateWorldMapIcons();
+        }
+        if (event.getKey().equals("useShortestPath"))
+        {
+            updateShortestPath();
+        }
+
+        if (currentSlayerTask != null)
+        {
+            String taskName = currentSlayerTask.getName();
+            if (event.getKey().equalsIgnoreCase(taskName)) {
+                slayerTaskRegistry.rebuildTasks();
+                // Refresh current task if one is active
+                this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(taskName);
+            }
+
+        }
+
         // Set a dummy task
         if (event.getKey().equals("debugTask")) {
             if (event.getNewValue() == null) {
@@ -210,7 +239,11 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     }
 
     @Subscribe
-    public void onMenuEntryAdded(MenuEntryAdded menuEntryAdded) {
+    public void onMenuOpened(MenuOpened event) {
+        if (currentSlayerTask == null) {
+            return;
+        }
+        /*
         if (!config.enableWorldPointSelector()) {
             return;
         }
@@ -260,6 +293,39 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
                     .setType(MenuAction.RUNELITE)
                     .setIdentifier(menuEntryAdded.getIdentifier());
         }
+        */
+
+        // Check if the menu is for the world map
+        final Widget map = client.getWidget(ComponentID.WORLD_MAP_MAPVIEW);
+        if (map == null)
+        {
+            return;
+        }
+
+        MenuEntry[] entries = event.getMenuEntries();
+
+        String option = "Set";
+        String target = "<col=ff9040>" + currentSlayerTask.getName() + "</col> slayer task location";
+
+        // Prevent duplicates
+        for (MenuEntry entry : entries)
+        {
+            if (entry.getOption().equals(option) && entry.getTarget().equals(target))
+            {
+                return;
+            }
+        }
+
+        client.createMenuEntry(entries.length) // append → right-click only
+                .setOption(option)
+                .setTarget(target)
+                .setType(MenuAction.RUNELITE)
+                .setDeprioritized(true)
+                .onClick(e -> onMapClick());
+    }
+
+    private void onMenuOption(MenuEntry entry) {
+
     }
 
     @Subscribe
@@ -297,16 +363,8 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
         if (lookupSlayerTask != null) {
             this.currentSlayerTask = lookupSlayerTask;
 
-            if (config.enableWorldMapIcon()) {
-                for (WorldPoint worldPoint : currentSlayerTask.getWorldMapLocations()) {
-                    worldMapPointManager.add(new SlayerTaskWorldMapPoint(worldPoint));
-                }
-            }
-
-            if (config.useShortestPath()) {
-                WorldPoint location = currentSlayerTask.getShortestPathWorldPoint();
-                setShortestPath(location);
-            }
+            updateWorldMapIcons();
+            updateShortestPath();
 
             // Target NPC's visible to the player in case they are already at the location
             Player player = client.getLocalPlayer();
@@ -323,6 +381,44 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
                     }
                 }
             }
+        }
+    }
+
+    private void updateWorldMapIcons() {
+        // Remove all existing map icons first
+        worldMapPointManager.removeIf(point -> point instanceof SlayerTaskWorldMapPoint);
+
+        // Only add icons if config is enabled and there's an active task
+        if (config.enableWorldMapIcon() && currentSlayerTask != null)
+        {
+            for (WorldPoint worldPoint : currentSlayerTask.getWorldMapLocations())
+            {
+                // Skip invalid/default locations
+                if (worldPoint.getX() == 0 && worldPoint.getY() == 0)
+                {
+                    continue;
+                }
+
+                worldMapPointManager.add(new SlayerTaskWorldMapPoint(worldPoint));
+            }
+        }
+    }
+
+    private void clearShortestPath() {
+        Map<String, Object> data = new HashMap<>();
+        eventBus.post(new PluginMessage("shortestpath", "clear", data));
+    }
+
+    private void updateShortestPath()
+    {
+        if (config.useShortestPath() && currentSlayerTask != null)
+        {
+            WorldPoint location = currentSlayerTask.getShortestPathWorldPoint();
+            setShortestPath(location);
+        }
+        else
+        {
+            clearShortestPath();
         }
     }
 
@@ -349,12 +445,152 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     }
 
     private void setShortestPath(WorldPoint target) {
-        if (target == null){
+        if (target == null) {
             return;
         }
 
         Map<String, Object> data = new HashMap<>();
         data.put("target", target);
         eventBus.post(new PluginMessage("shortestpath", "path", data));
+    }
+
+    private void onMapClick() {
+        // Get the world point from the map click
+        final WorldPoint worldPoint = calculateMapPoint();
+
+        if (worldPoint != null) {
+            handleLocationSelected(worldPoint);
+        }
+    }
+
+    private WorldPoint calculateMapPoint() {
+        Widget map = client.getWidget(ComponentID.WORLD_MAP_MAPVIEW);
+        if (map == null) {
+            return null;
+        }
+
+        RenderOverview renderOverview = client.getRenderOverview();
+        if (renderOverview == null) {
+            return null;
+        }
+
+        float zoom = renderOverview.getWorldMapZoom();
+        net.runelite.api.Point mapPosition = renderOverview.getWorldMapPosition();
+
+        // Convert to WorldPoint
+        WorldPoint worldMapPosition = new WorldPoint(mapPosition.getX(), mapPosition.getY(), client.getPlane());
+
+        // Get mouse position as AWT Point
+        net.runelite.api.Point mouseCanvas = client.getMouseCanvasPosition();
+        java.awt.Point mousePoint = new java.awt.Point(mouseCanvas.getX(), mouseCanvas.getY());
+
+        // Calculate the world point from mouse position
+        int widgetX = mousePoint.x - map.getCanvasLocation().getX();
+        int widgetY = mousePoint.y - map.getCanvasLocation().getY();
+
+        int dx = (int) ((widgetX - map.getWidth() / 2) / zoom);
+        int dy = (int) ((widgetY - map.getHeight() / 2) / zoom);
+
+        return new WorldPoint(
+                worldMapPosition.getX() + dx,
+                worldMapPosition.getY() - dy,
+                worldMapPosition.getPlane()
+        );
+    }
+
+    private void handleLocationSelected(WorldPoint location)
+    {
+        log.info("Selected world map location: WorldPoint({}, {}, {})", location.getX(), location.getY(), location.getPlane());
+        if (currentSlayerTask == null)
+        {
+            client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
+                    "No active slayer task. Start a task first!", "");
+            return;
+        }
+
+        // Save the location
+        saveTaskLocation(currentSlayerTask.getName(), location);
+
+        // Rebuild tasks to load the new location
+        slayerTaskRegistry.rebuildTasks();
+
+        // Refresh current task reference
+        this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(currentSlayerTask.getName());
+
+        // Update UI elements with new location
+        updateWorldMapIcons();
+        updateShortestPath();
+
+        client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
+                "Saved location for " + currentSlayerTask.getName() + "!", "");
+    }
+
+    private void saveTaskLocation(String taskName, WorldPoint location)
+    {
+
+        // Parse existing saved locations
+        String currentSaved = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
+
+        Map<String, WorldPoint> savedLocations = parseSavedLocations(currentSaved);
+
+        // Update with new location
+        String key = taskName.toLowerCase();
+        savedLocations.put(key, location);
+
+        // Serialize back to config
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, WorldPoint> entry : savedLocations.entrySet())
+        {
+            if (sb.length() > 0) sb.append(";");
+            WorldPoint wp = entry.getValue();
+            sb.append(entry.getKey())
+                    .append(":")
+                    .append(wp.getX()).append(",")
+                    .append(wp.getY()).append(",")
+                    .append(wp.getPlane());
+        }
+
+        String serialized = sb.toString();
+
+        configManager.setConfiguration("configurable-slayer-task-overlay", "savedTaskLocations", serialized);
+
+        // Verify it was saved using configManager
+        String afterSave = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
+    }
+
+    private Map<String, WorldPoint> parseSavedLocations(String savedLocationsString)
+    {
+        Map<String, WorldPoint> result = new HashMap<>();
+
+        if (savedLocationsString == null || savedLocationsString.isEmpty())
+        {
+            return result;
+        }
+
+        String[] entries = savedLocationsString.split(";");
+        for (String entry : entries)
+        {
+            String[] parts = entry.split(":");
+            if (parts.length != 2) continue;
+
+            String taskName = parts[0];
+            String[] coords = parts[1].split(",");
+
+            if (coords.length != 3) continue;
+
+            try
+            {
+                int x = Integer.parseInt(coords[0]);
+                int y = Integer.parseInt(coords[1]);
+                int plane = Integer.parseInt(coords[2]);
+                result.put(taskName, new WorldPoint(x, y, plane));
+            }
+            catch (NumberFormatException e)
+            {
+                log.warn("Failed to parse saved location for task: {}", taskName);
+            }
+        }
+
+        return result;
     }
 }

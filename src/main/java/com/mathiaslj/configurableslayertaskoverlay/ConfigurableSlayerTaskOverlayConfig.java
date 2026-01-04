@@ -171,13 +171,31 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     )
     String generalSettings = "generalSettings";
 
+    // In your ConfigurableSlayerTaskOverlayConfig interface
+    @ConfigItem(
+            keyName = "savedTaskLocations",
+            name = "",
+            description = "",
+            hidden = true
+    )
+    default String savedTaskLocations()
+    {
+        return "";
+    }
+
+    @ConfigItem(
+            keyName = "savedTaskLocations",
+            name = "",
+            description = ""
+    )
+    void savedTaskLocations(String locations);
+
     @ConfigItem(
             position = 0,
             keyName = "displayInfo",
             name = "Enable information box",
             description = "Whether to show an information box with information about the current task.",
-            section = generalSettings,
-            hidden = true
+            section = generalSettings
     )
     default boolean enableInformationBox() {
         return true;
@@ -187,7 +205,8 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
             position = 1,
             keyName = "automaticallyHideInformationBox",
             name = "Automatically hide information box",
-            description = "Whether to automatically hide the information box when you are at your current task.",
+            description = "Whether to automatically hide the information box when you get to the location of your current task.<br/>" +
+                    "Change the location of your task by right-clicking the world map and choosing 'Set [slayer task] slayer task location'",
             section = generalSettings
     )
     default boolean automaticallyHideInformationBox() {
@@ -198,12 +217,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
             position = 2,
             keyName = "displayMapIcon",
             name = "Enable world map icon",
-            description = "Displays an icon on the world map where the current task is located.",
-            section = generalSettings,
-            hidden = true
+            description = "Displays an icon on the world map where the current task is located.<br/>" +
+                    "Change the location of your task by right-clicking the world map and choosing 'Set [slayer task] slayer task location'",
+            section = generalSettings
     )
     default boolean enableWorldMapIcon() {
-        return false;
+        return true;
     }
 
     @ConfigItem(
@@ -211,9 +230,9 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
             keyName = "useShortestPath",
             name = "Use 'Shortest Path' plugin",
             description = "Draws the shortest path to the assigned task.<br/>" +
+                    "Change the location of your task by right-clicking the world map and choosing 'Set [slayer task] slayer task location'.<br/>" +
                     "The 'Shortest Path' plugin needs to be installed and enabled for this to work.",
-            section = generalSettings,
-            hidden = true
+            section = generalSettings
     )
     default boolean useShortestPath() {
         return false;
@@ -269,7 +288,8 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigSection(
             position = 3,
             name = "Debugging",
-            description = "Various debug settings"
+            description = "Various debug settings",
+            closedByDefault = true
     )
     String debugSettings = "debugSettings";
 
@@ -413,14 +433,14 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String blueDragonsSettings = "blueDragons";
 
     @ConfigItem(keyName = "Blue Dragons", name = "Blue Dragons information", description = "Create individual bullet points in overlay, one per line", section = blueDragonsSettings, position = 0)
-    default String blueDragonsInfo() { return "Taverly dungeon"; }
+    default String blueDragonsInfo() { return "Taverley dungeon"; }
 
     // Brine Rats
     @ConfigSection(position = POSITION_BRINE_RATS, name = "Brine Rats", closedByDefault = true, description = "Information to display for slayer task")
     String brineRatsSettings = "brineRats";
 
     @ConfigItem(keyName = "Brine Rats", name = "Brine Rats information", description = "Create individual bullet points in overlay, one per line", section = brineRatsSettings, position = 0)
-    default String brineRatsInfo() { return "Fairy ring (DKS)"; }
+    default String brineRatsInfo() { return "BRING: Spade\n" + "Fairy ring (DKS)\n" + "Run a little North and enter Brine Rat Cavern"; }
 
     // Catablepon
     @ConfigSection(position = POSITION_CATABLEPON, name = "Catablepon", closedByDefault = true, description = "Information to display for slayer task")
@@ -511,7 +531,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String custodianStalkersSettings = "custodianStalkers";
 
     @ConfigItem(keyName = "Custodian Stalkers", name = "Custodian Stalkers information", description = "Create individual bullet points in overlay, one per line", section = custodianStalkersSettings, position = 0)
-    default String custodianStalkersInfo() { return "Fairy ring (BLS)\n" + "Run South to Stalker Den"; }
+    default String custodianStalkersInfo() { return "REQ 59 agility: Fairy ring(AIS) -> Run West and North to Stalker Den\n" + "Fairy ring (BLS) -> Run South to Stalker Den"; }
 
     // Dagannoths
     @ConfigSection(position = POSITION_DAGANNOTHS, name = "Dagannoths", closedByDefault = true, description = "Information to display for slayer task")
@@ -805,7 +825,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String magicAxesSettings = "magicAxes";
 
     @ConfigItem(keyName = "Magic Axes", name = "Magic Axes information", description = "Create individual bullet points in overlay, one per line", section = magicAxesSettings, position = 0)
-    default String magicAxesInfo() { return "Taverly dungeon"; }
+    default String magicAxesInfo() { return "Taverley dungeon"; }
 
     // Mammoth
     @ConfigSection(position = POSITION_MAMMOTH, name = "Mammoth", closedByDefault = true, description = "Information to display for slayer task")
@@ -1043,7 +1063,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String vampyresSettings = "vampyres";
 
     @ConfigItem(keyName = "Vampyres", name = "Vampyres information", description = "Create individual bullet points in overlay, one per line", section = vampyresSettings, position = 0)
-    default String vampyresInfo() { return "Feral vampyres: Morytania legs 3 (Burgh) -> Run West\n" + "Vyrewatch sentinel: Drakan's medallion (Darkmeyer)"; }
+    default String vampyresInfo() { return "Vyrewatch sentinel: Drakan's medallion (Darkmeyer)\n" + "Feral vampyres: Morytania legs 3 (Burgh) -> Run West"; }
 
     // Wall Beasts
     @ConfigSection(position = POSITION_WALL_BEASTS, name = "Wall Beasts", closedByDefault = true, description = "Information to display for slayer task")
@@ -1057,7 +1077,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String warpedCreaturesSettings = "warpedCreatures";
 
     @ConfigItem(keyName = "Warped Creatures", name = "Warped Creatures information", description = "Create individual bullet points in overlay, one per line", section = warpedCreaturesSettings, position = 0)
-    default String warpedCreaturesInfo() { return "Spirit tree (6)"; }
+    default String warpedCreaturesInfo() { return "Spirit tree (Poison waste)"; }
 
     // Waterfiends
     @ConfigSection(position = POSITION_WATERFIENDS, name = "Waterfiends", closedByDefault = true, description = "Information to display for slayer task")
@@ -1099,6 +1119,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String zygomitesSettings = "zygomites";
 
     @ConfigItem(keyName = "Zygomites", name = "Zygomites information", description = "Create individual bullet points in overlay, one per line", section = zygomitesSettings, position = 0)
-    default String zygomitesInfo() { return "BRING: Fungicide spray\n" + "Digsite pendent (Fossil island) -> Magic mushtree (4)"; }
+    default String zygomitesInfo() { return "BRING: Fungicide spray and Dramen staff\n" + "Zanaris -> Run North"; }
 }
 
