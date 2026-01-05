@@ -298,26 +298,78 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
             return;
         }
 
+        if (currentSlayerTask == null)
+        {
+            return;
+        }
+
         MenuEntry[] entries = event.getMenuEntries();
 
-        String option = "Set";
-        String target = "<col=ff9040>" + currentSlayerTask.getName() + "</col> slayer task location";
+        String setOption = "Set";
+        String setTarget = "<col=ff9040>" + currentSlayerTask.getName() + "</col> slayer task location";
 
-        // Prevent duplicates
+// Prevent duplicates for Set entry
+        boolean hasSetEntry = false;
         for (MenuEntry entry : entries)
         {
-            if (entry.getOption().equals(option) && entry.getTarget().equals(target))
+            if (entry.getOption().equals(setOption) && entry.getTarget().equals(setTarget))
             {
-                return;
+                hasSetEntry = true;
+                break;
             }
         }
 
-        client.createMenuEntry(entries.length) // append → right-click only
-                .setOption(option)
-                .setTarget(target)
-                .setType(MenuAction.RUNELITE)
-                .setDeprioritized(true)
-                .onClick(e -> onMapClick());
+// Always add "Set location" entry
+        if (!hasSetEntry)
+        {
+            client.createMenuEntry(entries.length)
+                    .setOption(setOption)
+                    .setTarget(setTarget)
+                    .setType(MenuAction.RUNELITE)
+                    .setDeprioritized(true)
+                    .onClick(e -> onMapClick());
+        }
+
+// Check if any entry contains "Focus on" (indicates we're hovering over an icon)
+        boolean hasFocusOn = false;
+        for (MenuEntry entry : entries)
+        {
+            if (entry.getOption().contains("Focus on"))
+            {
+                hasFocusOn = true;
+                break;
+            }
+        }
+
+// Add reset entry only if:
+// 1. We're hovering over a map icon (has "Focus on")
+// 2. Location has been customized (not default)
+        if (hasFocusOn && hasCustomLocation(currentSlayerTask.getName()))
+        {
+            String resetOption = "Reset";
+            String resetTarget = "<col=ff9040>" + currentSlayerTask.getName() + "</col> location to default";
+
+            // Prevent duplicates for Reset entry
+            boolean hasResetEntry = false;
+            for (MenuEntry entry : entries)
+            {
+                if (entry.getOption().equals(resetOption) && entry.getTarget().equals(resetTarget))
+                {
+                    hasResetEntry = true;
+                    break;
+                }
+            }
+
+            if (!hasResetEntry)
+            {
+                client.createMenuEntry(entries.length)
+                        .setOption(resetOption)
+                        .setTarget(resetTarget)
+                        .setType(MenuAction.RUNELITE)
+                        .setDeprioritized(true)
+                        .onClick(e -> resetTaskLocation(currentSlayerTask.getName()));
+            }
+        }
     }
 
     private void onMenuOption(MenuEntry entry) {
@@ -596,5 +648,48 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
         }
 
         return result;
+    }
+
+    private boolean hasCustomLocation(String taskName)
+    {
+        String currentSaved = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
+        Map<String, WorldPoint> savedLocations = parseSavedLocations(currentSaved);
+
+        return savedLocations.containsKey(taskName.toLowerCase());
+    }
+
+    private void resetTaskLocation(String taskName)
+    {
+        // Remove the saved location from config
+        String currentSaved = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
+        Map<String, WorldPoint> savedLocations = parseSavedLocations(currentSaved);
+
+        savedLocations.remove(taskName.toLowerCase());
+
+        // Serialize back without this task
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, WorldPoint> entry : savedLocations.entrySet())
+        {
+            if (sb.length() > 0) sb.append(";");
+            WorldPoint wp = entry.getValue();
+            sb.append(entry.getKey())
+                    .append(":")
+                    .append(wp.getX()).append(",")
+                    .append(wp.getY()).append(",")
+                    .append(wp.getPlane());
+        }
+
+        configManager.setConfiguration("configurable-slayer-task-overlay", "savedTaskLocations", sb.toString());
+
+        // Rebuild tasks to load default location
+        slayerTaskRegistry.rebuildTasks();
+
+        // Refresh current task
+        this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(currentSlayerTask.getName());
+        updateWorldMapIcons();
+        updateShortestPath();
+
+        client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
+                "Reset location for " + taskName + " to default!", "");
     }
 }
