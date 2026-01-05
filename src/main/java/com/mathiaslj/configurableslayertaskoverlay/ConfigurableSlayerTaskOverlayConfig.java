@@ -325,8 +325,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "aberrantSpectresInfo", name = "Aberrant Spectres information", description = "Create individual bullet points in overlay, one per line", section = aberrantSpectresSettings, position = 0)
     default String aberrantSpectresInfo() { return "BRING: Slayer helm (or nose peg)\n" + STRONGHOLD_SLAYER_CAVE; }
 
-    @ConfigItem(keyName = "resetAberrantSpectresLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = aberrantSpectresSettings, position = 1)
-    default Button resetAberrantSpectresLocation() { return new Button(); }
 
     // Abyssal Demons
     @ConfigSection(position = POSITION_ABYSSAL_DEMONS, name = "Abyssal Demons", closedByDefault = true, description = "Information to display for slayer task")
@@ -335,8 +333,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "abyssalDemonsInfo", name = "Abyssal Demons information", description = "Create individual bullet points in overlay, one per line", section = abyssalDemonsSettings, position = 0)
     default String abyssalDemonsInfo() { return "Catacombs of Kourend\n" + "Run North"; }
 
-    @ConfigItem(keyName = "resetAbyssalDemonsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = abyssalDemonsSettings, position = 1)
-    default Button resetAbyssalDemonsLocation() { return new Button(); }
 
     // Ankous
     @ConfigSection(position = POSITION_ANKOUS, name = "Ankous", closedByDefault = true, description = "Information to display for slayer task")
@@ -345,8 +341,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "ankousInfo", name = "Ankous information", description = "Create individual bullet points in overlay, one per line", section = ankousSettings, position = 0)
     default String ankousInfo() { return "Skull sceptre\n" + "4th floor\n" + "Run north"; }
 
-    @ConfigItem(keyName = "resetAnkousLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = ankousSettings, position = 1)
-    default Button resetAnkousLocation() { return new Button(); }
 
     // Aquanites
     @ConfigSection(position = POSITION_AQUANITES, name = "Aquanites", closedByDefault = true, description = "Information to display for slayer task")
@@ -355,8 +349,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "aquanitesInfo", name = "Aquanites information", description = "Create individual bullet points in overlay, one per line", section = aquanitesSettings, position = 0)
     default String aquanitesInfo() { return "Teleport to Prifddinas\n" + "Run North" + "Take rowboat to Ynysdail"; }
 
-    @ConfigItem(keyName = "resetAquanitesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = aquanitesSettings, position = 1)
-    default Button resetAquanitesLocation() { return new Button(); }
 
     // Araxytes
     @ConfigSection(position = POSITION_ARAXYTES, name = "Araxytes", closedByDefault = true, description = "Information to display for slayer task")
@@ -365,8 +357,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "araxytesInfo", name = "Araxytes information", description = "Create individual bullet points in overlay, one per line", section = araxytesSettings, position = 0)
     default String araxytesInfo() { return "Spider cave teleport\n" + "Hallowed crystal shard -> Run East and take shortcut (63 agility + 2 long ropes)\n" + "Ectophial or fairy ring (ALQ) -> Run South"; }
 
-    @ConfigItem(keyName = "resetAraxytesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = araxytesSettings, position = 1)
-    default Button resetAraxytesLocation() { return new Button(); }
 
     // Aviansie
     @ConfigSection(position = POSITION_AVIANSIE, name = "Aviansie", closedByDefault = true, description = "Information to display for slayer task")
@@ -375,8 +365,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "aviansieInfo", name = "Aviansie information", description = "Create individual bullet points in overlay, one per line", section = aviansieSettings, position = 0)
     default String aviansieInfo() { return GOD_WARS_DUNGEON; }
 
-    @ConfigItem(keyName = "resetAviansieLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = aviansieSettings, position = 1)
-    default Button resetAviansieLocation() { return new Button(); }
 
     // Bandits
     @ConfigSection(position = POSITION_BANDITS, name = "Bandits", closedByDefault = true, description = "Information to display for slayer task")
@@ -385,8 +373,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "banditsInfo", name = "Bandits information", description = "Create individual bullet points in overlay, one per line", section = banditsSettings, position = 0)
     default String banditsInfo() { return "Burning amulet (Bandit camp)\n" + "Run west from Ferox Enclave"; }
 
-    @ConfigItem(keyName = "resetBanditsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = banditsSettings, position = 1)
-    default Button resetBanditsLocation() { return new Button(); }
 
     // Banshees
     @ConfigSection(position = POSITION_BANSHEES, name = "Banshees", closedByDefault = true, description = "Information to display for slayer task")
@@ -395,8 +381,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "bansheesInfo", name = "Banshees information", description = "Create individual bullet points in overlay, one per line", section = bansheesSettings, position = 0)
     default String bansheesInfo() { return SLAYER_TOWER + "\n" + "Take shortcut outside on SE wall"; }
 
-    @ConfigItem(keyName = "resetBansheesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = bansheesSettings, position = 1)
-    default Button resetBansheesLocation() { return new Button(); }
 
     // Basilisks
     @ConfigSection(position = POSITION_BASILISKS, name = "Basilisks", closedByDefault = true, description = "Information to display for slayer task")
@@ -405,9 +389,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "basilisksInfo", name = "Basilisks information", description = "Create individual bullet points in overlay, one per line", section = basilisksSettings, position = 0)
     default String basilisksInfo() { return "Fremennik slayer dungeon: Slayer ring or fairy ring (AJR)\n" + "Jormungand's Prison: Teleport to Rellekka -> Run West and talk to Haskell"; }
 
-    @ConfigItem(keyName = "resetBasilisksLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = basilisksSettings, position = 1)
-    default Button resetBasilisksLocation() { return new Button(); }
-
     // Bats
     @ConfigSection(position = POSITION_BATS, name = "Bats", closedByDefault = true, description = "Information to display for slayer task")
     String batsSettings = "bats";
@@ -415,8 +396,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "batsInfo", name = "Bats information", description = "Create individual bullet points in overlay, one per line", section = batsSettings, position = 0)
     default String batsInfo() { return "Digsite pendent (Digsite)\n" + "Run North"; }
 
-    @ConfigItem(keyName = "resetBatsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = batsSettings, position = 1)
-    default Button resetBatsLocation() { return new Button(); }
 
     // Bears
     @ConfigSection(position = POSITION_BEARS, name = "Bears", closedByDefault = true, description = "Information to display for slayer task")
@@ -425,8 +404,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "bearsInfo", name = "Bears information", description = "Create individual bullet points in overlay, one per line", section = bearsSettings, position = 0)
     default String bearsInfo() { return "Fairy ring (BLS)\n" + "Run SW"; }
 
-    @ConfigItem(keyName = "resetBearsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = bearsSettings, position = 1)
-    default Button resetBearsLocation() { return new Button(); }
 
     // Birds
     @ConfigSection(position = POSITION_BIRDS, name = "Birds", closedByDefault = true, description = "Information to display for slayer task")
@@ -435,8 +412,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "birdsInfo", name = "Birds information", description = "Create individual bullet points in overlay, one per line", section = birdsSettings, position = 0)
     default String birdsInfo() { return ALICES_FARM; }
 
-    @ConfigItem(keyName = "resetBirdsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = birdsSettings, position = 1)
-    default Button resetBirdsLocation() { return new Button(); }
 
     // Black Demons
     @ConfigSection(position = POSITION_BLACK_DEMONS, name = "Black Demons", closedByDefault = true, description = "Information to display for slayer task")
@@ -445,8 +420,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "blackDemonsInfo", name = "Black Demons information", description = "Create individual bullet points in overlay, one per line", section = blackDemonsSettings, position = 0)
     default String blackDemonsInfo() { return "Demonics: Royal seed pod -> Run NW followed by North to crash site\n" + "Black demons: Falador teleport -> Take agility shortcut West -> Run North to Taverly dungeon"; }
 
-    @ConfigItem(keyName = "resetBlackDemonsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = blackDemonsSettings, position = 1)
-    default Button resetBlackDemonsLocation() { return new Button(); }
 
     // Black Dragons
     @ConfigSection(position = POSITION_BLACK_DRAGONS, name = "Black Dragons", closedByDefault = true, description = "Information to display for slayer task")
@@ -455,8 +428,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "blackDragonsInfo", name = "Black Dragons information", description = "Create individual bullet points in overlay, one per line", section = blackDragonsSettings, position = 0)
     default String blackDragonsInfo() { return "Baby black dragons: Task-only area in Taverly dungeon\n" + "Regular: Bring raw chicken to Zanaris -> Enter lair NE -> Run South to safespot" + "King black dragon: Burning amulet (Lava maze)"; }
 
-    @ConfigItem(keyName = "resetBlackDragonsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = blackDragonsSettings, position = 1)
-    default Button resetBlackDragonsLocation() { return new Button(); }
 
     // Black Knights
     @ConfigSection(position = POSITION_BLACK_KNIGHTS, name = "Black Knights", closedByDefault = true, description = "Information to display for slayer task")
@@ -465,8 +436,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "blackKnightsInfo", name = "Black Knights information", description = "Create individual bullet points in overlay, one per line", section = blackKnightsSettings, position = 0)
     default String blackKnightsInfo() { return "Combat bracelet (Monastery) -> Run West\n" + "Falador teleport -> Run North"; }
 
-    @ConfigItem(keyName = "resetBlackKnightsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = blackKnightsSettings, position = 1)
-    default Button resetBlackKnightsLocation() { return new Button(); }
 
     // Bloodvelds
     @ConfigSection(position = POSITION_BLOODVELDS, name = "Bloodvelds", closedByDefault = true, description = "Information to display for slayer task")
@@ -475,8 +444,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "bloodveldsInfo", name = "Bloodvelds information", description = "Create individual bullet points in overlay, one per line", section = bloodveldsSettings, position = 0)
     default String bloodveldsInfo() { return STRONGHOLD_SLAYER_CAVE + "\n" + "Placeholder for preferred locations (Catacombs, meiyerditch, buccaneers, iorwerth)"; }
 
-    @ConfigItem(keyName = "resetBloodveldsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = bloodveldsSettings, position = 1)
-    default Button resetBloodveldsLocation() { return new Button(); }
 
     // Blue Dragons
     @ConfigSection(position = POSITION_BLUE_DRAGONS, name = "Blue Dragons", closedByDefault = true, description = "Information to display for slayer task")
@@ -485,8 +452,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "blueDragonsInfo", name = "Blue Dragons information", description = "Create individual bullet points in overlay, one per line", section = blueDragonsSettings, position = 0)
     default String blueDragonsInfo() { return "Taverley dungeon"; }
 
-    @ConfigItem(keyName = "resetBlueDragonsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = blueDragonsSettings, position = 1)
-    default Button resetBlueDragonsLocation() { return new Button(); }
 
     // Brine Rats
     @ConfigSection(position = POSITION_BRINE_RATS, name = "Brine Rats", closedByDefault = true, description = "Information to display for slayer task")
@@ -495,8 +460,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "brineRatsInfo", name = "Brine Rats information", description = "Create individual bullet points in overlay, one per line", section = brineRatsSettings, position = 0)
     default String brineRatsInfo() { return "BRING: Spade\n" + "Fairy ring (DKS)\n" + "Run a little North and enter Brine Rat Cavern"; }
 
-    @ConfigItem(keyName = "resetBrineRatsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = brineRatsSettings, position = 1)
-    default Button resetBrineRatsLocation() { return new Button(); }
 
     // Catablepon
     @ConfigSection(position = POSITION_CATABLEPON, name = "Catablepon", closedByDefault = true, description = "Information to display for slayer task")
@@ -505,8 +468,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "catableponInfo", name = "Catablepon information", description = "Create individual bullet points in overlay, one per line", section = catableponSettings, position = 0)
     default String catableponInfo() { return "Skull sceptre\n" + "3rd floor\n" + "Run NE"; }
 
-    @ConfigItem(keyName = "resetCatableponLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = catableponSettings, position = 1)
-    default Button resetCatableponLocation() { return new Button(); }
 
     // Cave Bugs
     @ConfigSection(position = POSITION_CAVE_BUGS, name = "Cave Bugs", closedByDefault = true, description = "Information to display for slayer task")
@@ -515,8 +476,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "caveBugsInfo", name = "Cave Bugs information", description = "Create individual bullet points in overlay, one per line", section = caveBugsSettings, position = 0)
     default String caveBugsInfo() { return DORGESHKAAN_DUNGEON; }
 
-    @ConfigItem(keyName = "resetCaveBugsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = caveBugsSettings, position = 1)
-    default Button resetCaveBugsLocation() { return new Button(); }
 
     // Cave Crawlers
     @ConfigSection(position = POSITION_CAVE_CRAWLERS, name = "Cave Crawlers", closedByDefault = true, description = "Information to display for slayer task")
@@ -525,8 +484,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "caveCrawlersInfo", name = "Cave Crawlers information", description = "Create individual bullet points in overlay, one per line", section = caveCrawlersSettings, position = 0)
     default String caveCrawlersInfo() { return FREMENNIK_SLAYER_CAVE; }
 
-    @ConfigItem(keyName = "resetCaveCrawlersLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = caveCrawlersSettings, position = 1)
-    default Button resetCaveCrawlersLocation() { return new Button(); }
 
     // Cave Horrors
     @ConfigSection(position = POSITION_CAVE_HORRORS, name = "Cave Horrors", closedByDefault = true, description = "Information to display for slayer task")
@@ -535,8 +492,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "caveHorrorsInfo", name = "Cave Horrors information", description = "Create individual bullet points in overlay, one per line", section = caveHorrorsSettings, position = 0)
     default String caveHorrorsInfo() { return "BRING: Witchwood icon\n" + MOS_LE_HARMLESS; }
 
-    @ConfigItem(keyName = "resetCaveHorrorsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = caveHorrorsSettings, position = 1)
-    default Button resetCaveHorrorsLocation() { return new Button(); }
 
     // Cave Slimes
     @ConfigSection(position = POSITION_CAVE_SLIMES, name = "Cave Slimes", closedByDefault = true, description = "Information to display for slayer task")
@@ -545,8 +500,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "caveSlimesInfo", name = "Cave Slimes information", description = "Create individual bullet points in overlay, one per line", section = caveSlimesSettings, position = 0)
     default String caveSlimesInfo() { return DORGESHKAAN_DUNGEON; }
 
-    @ConfigItem(keyName = "resetCaveSlimesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = caveSlimesSettings, position = 1)
-    default Button resetCaveSlimesLocation() { return new Button(); }
 
     // Cave Kraken
     @ConfigSection(position = POSITION_CAVE_KRAKEN, name = "Cave Kraken", closedByDefault = true, description = "Information to display for slayer task")
@@ -555,8 +508,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "caveKrakenInfo", name = "Cave Kraken information", description = "Create individual bullet points in overlay, one per line", section = caveKrakenSettings, position = 0)
     default String caveKrakenInfo() { return "Fairy ring (AKQ)"; }
 
-    @ConfigItem(keyName = "resetCaveKrakenLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = caveKrakenSettings, position = 1)
-    default Button resetCaveKrakenLocation() { return new Button(); }
 
     // Chaos Druids
     @ConfigSection(position = POSITION_CHAOS_DRUIDS, name = "Chaos Druids", closedByDefault = true, description = "Information to display for slayer task")
@@ -565,8 +516,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "chaosDruidsInfo", name = "Chaos Druids information", description = "Create individual bullet points in overlay, one per line", section = chaosDruidsSettings, position = 0)
     default String chaosDruidsInfo() { return "Edgeville dungeon (Wilderness)\n" + "Chaos druid tower (North of Ardougne)"; }
 
-    @ConfigItem(keyName = "resetChaosDruidsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = chaosDruidsSettings, position = 1)
-    default Button resetChaosDruidsLocation() { return new Button(); }
 
     // Cockatrice
     @ConfigSection(position = POSITION_COCKATRICE, name = "Cockatrice", closedByDefault = true, description = "Information to display for slayer task")
@@ -575,8 +524,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "cockatriceInfo", name = "Cockatrice information", description = "Create individual bullet points in overlay, one per line", section = cockatriceSettings, position = 0)
     default String cockatriceInfo() { return "BRING: Mirror shield\n" + FREMENNIK_SLAYER_CAVE; }
 
-    @ConfigItem(keyName = "resetCockatriceLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = cockatriceSettings, position = 1)
-    default Button resetCockatriceLocation() { return new Button(); }
 
     // Cows
     @ConfigSection(position = POSITION_COWS, name = "Cows", closedByDefault = true, description = "Information to display for slayer task")
@@ -585,8 +532,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "cowsInfo", name = "Cows information", description = "Create individual bullet points in overlay, one per line", section = cowsSettings, position = 0)
     default String cowsInfo() { return "Skill's necklace (crafting guild)"; }
 
-    @ConfigItem(keyName = "resetCowsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = cowsSettings, position = 1)
-    default Button resetCowsLocation() { return new Button(); }
 
     // Crabs
     @ConfigSection(position = POSITION_CRABS, name = "Crabs", closedByDefault = true, description = "Information to display for slayer task")
@@ -595,8 +540,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "crabsInfo", name = "Crabs information", description = "Create individual bullet points in overlay, one per line", section = crabsSettings, position = 0)
     default String crabsInfo() { return "Ammonite crab: Shores of fossil island\n" + "Sand crab: Minigame teleport (tithe farm) -> Run South to shore"; }
 
-    @ConfigItem(keyName = "resetCrabsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = crabsSettings, position = 1)
-    default Button resetCrabsLocation() { return new Button(); }
 
     // Crawling Hands
     @ConfigSection(position = POSITION_CRAWLING_HANDS, name = "Crawling Hands", closedByDefault = true, description = "Information to display for slayer task")
@@ -605,8 +548,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "crawlingHandsInfo", name = "Crawling Hands information", description = "Create individual bullet points in overlay, one per line", section = crawlingHandsSettings, position = 0)
     default String crawlingHandsInfo() { return SLAYER_TOWER + "\n" + "Bottom floor"; }
 
-    @ConfigItem(keyName = "resetCrawlingHandsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = crawlingHandsSettings, position = 1)
-    default Button resetCrawlingHandsLocation() { return new Button(); }
 
     // Crocodiles
     @ConfigSection(position = POSITION_CROCODILES, name = "Crocodiles", closedByDefault = true, description = "Information to display for slayer task")
@@ -615,8 +556,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "crocodilesInfo", name = "Crocodiles information", description = "Create individual bullet points in overlay, one per line", section = crocodilesSettings, position = 0)
     default String crocodilesInfo() { return "BRING: Waterskins\n" + "Desert amulet\n" + "Run West"; }
 
-    @ConfigItem(keyName = "resetCrocodilesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = crocodilesSettings, position = 1)
-    default Button resetCrocodilesLocation() { return new Button(); }
 
     // Custodian Stalkers
     @ConfigSection(position = POSITION_CUSTODIAN_STALKERS, name = "Custodian Stalkers", closedByDefault = true, description = "Information to display for slayer task")
@@ -625,8 +564,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "custodianStalkersInfo", name = "Custodian Stalkers information", description = "Create individual bullet points in overlay, one per line", section = custodianStalkersSettings, position = 0)
     default String custodianStalkersInfo() { return "REQ 59 agility: Fairy ring(AIS) -> Run West and North to Stalker Den\n" + "Fairy ring (BLS) -> Run South to Stalker Den"; }
 
-    @ConfigItem(keyName = "resetCustodianStalkersLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = custodianStalkersSettings, position = 1)
-    default Button resetCustodianStalkersLocation() { return new Button(); }
 
     // Dagannoths
     @ConfigSection(position = POSITION_DAGANNOTHS, name = "Dagannoths", closedByDefault = true, description = "Information to display for slayer task")
@@ -635,8 +572,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "dagannothsInfo", name = "Dagannoths information", description = "Create individual bullet points in overlay, one per line", section = dagannothsSettings, position = 0)
     default String dagannothsInfo() { return "Lighthouse: Fairy ring (ALP)\n" + "Catacombs of Kourend: Run South"; }
 
-    @ConfigItem(keyName = "resetDagannothsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = dagannothsSettings, position = 1)
-    default Button resetDagannothsLocation() { return new Button(); }
 
     // Dark Beasts
     @ConfigSection(position = POSITION_DARK_BEASTS, name = "Dark Beasts", closedByDefault = true, description = "Information to display for slayer task")
@@ -645,8 +580,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "darkBeastsInfo", name = "Dark Beasts information", description = "Create individual bullet points in overlay, one per line", section = darkBeastsSettings, position = 0)
     default String darkBeastsInfo() { return "Slayer ring (dark beasts)"; }
 
-    @ConfigItem(keyName = "resetDarkBeastsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = darkBeastsSettings, position = 1)
-    default Button resetDarkBeastsLocation() { return new Button(); }
 
     // Dark Warriors
     @ConfigSection(position = POSITION_DARK_WARRIORS, name = "Dark Warriors", closedByDefault = true, description = "Information to display for slayer task")
@@ -655,8 +588,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "darkWarriorsInfo", name = "Dark Warriors information", description = "Create individual bullet points in overlay, one per line", section = darkWarriorsSettings, position = 0)
     default String darkWarriorsInfo() { return "Burning amulet (Bandit camp) -> Run West, then South\n" + "Run west from Ferox Enclave"; }
 
-    @ConfigItem(keyName = "resetDarkWarriorsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = darkWarriorsSettings, position = 1)
-    default Button resetDarkWarriorsLocation() { return new Button(); }
 
     // Dogs
     @ConfigSection(position = POSITION_DOGS, name = "Dogs", closedByDefault = true, description = "Information to display for slayer task")
@@ -665,8 +596,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "dogsInfo", name = "Dogs information", description = "Create individual bullet points in overlay, one per line", section = dogsSettings, position = 0)
     default String dogsInfo() { return "Pharaoh's sceptre (2 - Jaleustrophos) -> Run South\n" + "Desert amulet -> Run West or South\n" + "Fairy ring (AKP) -> Run NE\n" + "Fairy ring (DLQ) -> Run South"; }
 
-    @ConfigItem(keyName = "resetDogsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = dogsSettings, position = 1)
-    default Button resetDogsLocation() { return new Button(); }
 
     // Drakes
     @ConfigSection(position = POSITION_DRAKES, name = "Drakes", closedByDefault = true, description = "Information to display for slayer task")
@@ -675,8 +604,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "drakesInfo", name = "Drakes information", description = "Create individual bullet points in overlay, one per line", section = drakesSettings, position = 0)
     default String drakesInfo() { return MOUNT_KARUULM; }
 
-    @ConfigItem(keyName = "resetDrakesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = drakesSettings, position = 1)
-    default Button resetDrakesLocation() { return new Button(); }
 
     // Dust Devils
     @ConfigSection(position = POSITION_DUST_DEVILS, name = "Dust Devils", closedByDefault = true, description = "Information to display for slayer task")
@@ -685,8 +612,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "dustDevilsInfo", name = "Dust Devils information", description = "Create individual bullet points in overlay, one per line", section = dustDevilsSettings, position = 0)
     default String dustDevilsInfo() { return "Catacombs of Kourend\n" + "Run East, then South"; }
 
-    @ConfigItem(keyName = "resetDustDevilsLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = dustDevilsSettings, position = 1)
-    default Button resetDustDevilsLocation() { return new Button(); }
 
     // Dwarves
     @ConfigSection(position = POSITION_DWARVES, name = "Dwarves", closedByDefault = true, description = "Information to display for slayer task")
@@ -695,8 +620,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Dwarves", name = "Dwarves information", description = "Create individual bullet points in overlay, one per line", section = dwarvesSettings, position = 0)
     default String dwarvesInfo() { return "Combat bracelet (Monastery) -> Run West\n" + "Falador teleport -> Run NE"; }
 
-    @ConfigItem(keyName = "resetDwarvesLocation", name = "Reset location to default", description = "Resets the saved location for this task to the default", section = dwarvesSettings, position = 1)
-    default Button resetDwarvesLocation() { return new Button(); }
 
     // Earth Warriors
     @ConfigSection(position = POSITION_EARTH_WARRIORS, name = "Earth Warriors", closedByDefault = true, description = "Information to display for slayer task")
@@ -705,10 +628,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Earth Warriors", name = "Earth Warriors information", description = "Create individual bullet points in overlay, one per line", section = earthWarriorsSettings, position = 0)
     default String earthWarriorsInfo() { return "Edgeville dungeon"; }
 
-    @ConfigItem(keyName = "resetEarthWarriorsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = earthWarriorsSettings, position = 1)
-    default Button resetEarthWarriorsLocation() { return new Button(); }
 
     // Elves
     @ConfigSection(position = POSITION_ELVES, name = "Elves", closedByDefault = true, description = "Information to display for slayer task")
@@ -717,10 +636,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Elves", name = "Elves information", description = "Create individual bullet points in overlay, one per line", section = elvesSettings, position = 0)
     default String elvesInfo() { return "Mourner HQ: Slayer ring (dark beasts)\n" + "Iorwerth dungeon: Teleport to Prifddinas"; }
 
-    @ConfigItem(keyName = "resetElvesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = elvesSettings, position = 1)
-    default Button resetElvesLocation() { return new Button(); }
 
     // Ents
     @ConfigSection(position = POSITION_ENTS, name = "Ents", closedByDefault = true, description = "Information to display for slayer task")
@@ -729,10 +644,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Ents", name = "Ents information", description = "Create individual bullet points in overlay, one per line", section = entsSettings, position = 0)
     default String entsInfo() { return "Wilderness: Ferox enclave -> Run NE\n" + "Skill' necklace (WC guild) -> Enter dungeon"; }
 
-    @ConfigItem(keyName = "resetEntsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = entsSettings, position = 1)
-    default Button resetEntsLocation() { return new Button(); }
 
     // Fever Spiders
     @ConfigSection(position = POSITION_FEVER_SPIDERS, name = "Fever Spiders", closedByDefault = true, description = "Information to display for slayer task")
@@ -741,10 +652,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Fever Spiders", name = "Fever Spiders information", description = "Create individual bullet points in overlay, one per line", section = feverSpidersSettings, position = 0)
     default String feverSpidersInfo() { return "Ectophial\n" + "Run North and talk to Pirate Pete to Braindeath island"; }
 
-    @ConfigItem(keyName = "resetFeverSpidersLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = feverSpidersSettings, position = 1)
-    default Button resetFeverSpidersLocation() { return new Button(); }
 
     // Fire Giants
     @ConfigSection(position = POSITION_FIRE_GIANTS, name = "Fire Giants", closedByDefault = true, description = "Information to display for slayer task")
@@ -753,10 +660,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Fire Giants", name = "Fire Giants information", description = "Create individual bullet points in overlay, one per line", section = fireGiantsSettings, position = 0)
     default String fireGiantsInfo() { return "Catacombs of Kourend: Run West\n" + STRONGHOLD_SLAYER_CAVE; }
 
-    @ConfigItem(keyName = "resetFireGiantsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = fireGiantsSettings, position = 1)
-    default Button resetFireGiantsLocation() { return new Button(); }
 
     // Flesh Crawlers
     @ConfigSection(position = POSITION_FLESH_CRAWLERS, name = "Flesh Crawlers", closedByDefault = true, description = "Information to display for slayer task")
@@ -765,22 +668,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Flesh Crawlers", name = "Flesh Crawlers information", description = "Create individual bullet points in overlay, one per line", section = fleshCrawlersSettings, position = 0)
     default String fleshCrawlersInfo() { return "Skull sceptre\n" + "2nd floor\n" + "Run SE"; }
 
-    @ConfigItem(keyName = "resetFleshCrawlersLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = fleshCrawlersSettings, position = 1)
-    default Button resetFleshCrawlersLocation() { return new Button(); }
-
     // Fossil Island Wyvern
     @ConfigSection(position = POSITION_FOSSIL_ISLAND_WYVERN, name = "Fossil Island Wyvern", closedByDefault = true, description = "Information to display for slayer task")
     String fossilIslandWyvernSettings = "fossilIslandWyvern";
 
     @ConfigItem(keyName = "Fossil Island Wyvern", name = "Fossil Island Wyvern information", description = "Create individual bullet points in overlay, one per line", section = fossilIslandWyvernSettings, position = 0)
     default String fossilIslandWyvernInfo() { return "BRING: Elemental/ancient wyvern/dragonfire shield\n" + "Digsite pendent (Fossil island) -> Magic mushtree (4) -> Run South to cave"; }
-
-    @ConfigItem(keyName = "resetFossilIslandWyvernLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = fossilIslandWyvernSettings, position = 1)
-    default Button resetFossilIslandWyvernLocation() { return new Button(); }
 
     // Frost Dragons
     @ConfigSection(position = POSITION_FROST_DRAGONS, name = "Frost Dragons", closedByDefault = true, description = "Information to display for slayer task")
@@ -789,22 +682,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Frost Dragons", name = "Frost Dragons information", description = "Create individual bullet points in overlay, one per line", section = frostDragonsSettings, position = 0)
     default String frostDragonsInfo() { return "Fairy ring (DLP)"; }
 
-    @ConfigItem(keyName = "resetFrostDragonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = frostDragonsSettings, position = 1)
-    default Button resetFrostDragonsLocation() { return new Button(); }
-
     // Gargoyles
     @ConfigSection(position = POSITION_GARGOYLES, name = "Gargoyles", closedByDefault = true, description = "Information to display for slayer task")
     String gargoylesSettings = "gargoyles";
 
     @ConfigItem(keyName = "Gargoyles", name = "Gargoyles information", description = "Create individual bullet points in overlay, one per line", section = gargoylesSettings, position = 0)
     default String gargoylesInfo() { return "BRING: Rock/grantie hammer\n" + SLAYER_TOWER + "\n" + "Top floor or basement"; }
-
-    @ConfigItem(keyName = "resetGargoylesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = gargoylesSettings, position = 1)
-    default Button resetGargoylesLocation() { return new Button(); }
 
     // Ghosts
     @ConfigSection(position = POSITION_GHOSTS, name = "Ghosts", closedByDefault = true, description = "Information to display for slayer task")
@@ -813,22 +696,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Ghosts", name = "Ghosts information", description = "Create individual bullet points in overlay, one per line", section = ghostsSettings, position = 0)
     default String ghostsInfo() { return "Catacombs of Kourend\n" + "Run East, then North"; }
 
-    @ConfigItem(keyName = "resetGhostsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = ghostsSettings, position = 1)
-    default Button resetGhostsLocation() { return new Button(); }
-
     // Ghouls
     @ConfigSection(position = POSITION_GHOULS, name = "Ghouls", closedByDefault = true, description = "Information to display for slayer task")
     String ghoulsSettings = "ghouls";
 
     @ConfigItem(keyName = "Ghouls", name = "Ghouls information", description = "Create individual bullet points in overlay, one per line", section = ghoulsSettings, position = 0)
     default String ghoulsInfo() { return "Salve graveyard teleport\n" + "Fairy ring (CKS)"; }
-
-    @ConfigItem(keyName = "resetGhoulsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = ghoulsSettings, position = 1)
-    default Button resetGhoulsLocation() { return new Button(); }
 
     // Goblins
     @ConfigSection(position = POSITION_GOBLINS, name = "Goblins", closedByDefault = true, description = "Information to display for slayer task")
@@ -837,22 +710,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Goblins", name = "Goblins information", description = "Create individual bullet points in overlay, one per line", section = goblinsSettings, position = 0)
     default String goblinsInfo() { return "Lumbridge teleport\n" + "Run East across river"; }
 
-    @ConfigItem(keyName = "resetGoblinsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = goblinsSettings, position = 1)
-    default Button resetGoblinsLocation() { return new Button(); }
-
     // Greater Demons
     @ConfigSection(position = POSITION_GREATER_DEMONS, name = "Greater Demons", closedByDefault = true, description = "Information to display for slayer task")
     String greaterDemonsSettings = "greaterDemons";
 
     @ConfigItem(keyName = "Greater Demons", name = "Greater Demons information", description = "Create individual bullet points in overlay, one per line", section = greaterDemonsSettings, position = 0)
     default String greaterDemonsInfo() { return "Tormented demons: Guthixian temple teleport - alternatively (Remember sapphire lantern) Games necklace (Tears of Guthix)\n" + CHASM_OF_FIRE; }
-
-    @ConfigItem(keyName = "resetGreaterDemonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = greaterDemonsSettings, position = 1)
-    default Button resetGreaterDemonsLocation() { return new Button(); }
 
     // Green Dragons
     @ConfigSection(position = POSITION_GREEN_DRAGONS, name = "Green Dragons", closedByDefault = true, description = "Information to display for slayer task")
@@ -861,22 +724,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Green Dragons", name = "Green Dragons information", description = "Create individual bullet points in overlay, one per line", section = greenDragonsSettings, position = 0)
     default String greenDragonsInfo() { return "Ferox enclave -> run North\n" + "Wilderness slayer cave"; }
 
-    @ConfigItem(keyName = "resetGreenDragonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = greenDragonsSettings, position = 1)
-    default Button resetGreenDragonsLocation() { return new Button(); }
-
     // Gryphons
     @ConfigSection(position = POSITION_GRYPHONS, name = "Gryphons", closedByDefault = true, description = "Information to display for slayer task")
     String gryphonsSettings = "gryphons";
 
     @ConfigItem(keyName = "Gryphons", name = "Gryphons information", description = "Create individual bullet points in overlay, one per line", section = gryphonsSettings, position = 0)
     default String gryphonsInfo() { return "Fairy ring (CJQ)\n" + "Run North"; }
-
-    @ConfigItem(keyName = "resetGryphonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = gryphonsSettings, position = 1)
-    default Button resetGryphonsLocation() { return new Button(); }
 
     // Harpie Bug Swarms
     @ConfigSection(position = POSITION_HARPIE_BUG_SWARMS, name = "Harpie Bug Swarms", closedByDefault = true, description = "Information to display for slayer task")
@@ -885,22 +738,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Harpie Bug Swarms", name = "Harpie Bug Swarms information", description = "Create individual bullet points in overlay, one per line", section = harpieBugSwarmsSettings, position = 0)
     default String harpieBugSwarmsInfo() { return "Colossal worm quetzal site -> Run SE\n" + "Fairy ring (AJP) -> Run SE"; }
 
-    @ConfigItem(keyName = "resetHarpieBugSwarmsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = harpieBugSwarmsSettings, position = 1)
-    default Button resetHarpieBugSwarmsLocation() { return new Button(); }
-
     // Hellhounds
     @ConfigSection(position = POSITION_HELLHOUNDS, name = "Hellhounds", closedByDefault = true, description = "Information to display for slayer task")
     String hellhoundsSettings = "hellhounds";
 
     @ConfigItem(keyName = "Hellhounds", name = "Hellhounds information", description = "Create individual bullet points in overlay, one per line", section = hellhoundsSettings, position = 0)
     default String hellhoundsInfo() { return STRONGHOLD_SLAYER_CAVE + "Run South"; }
-
-    @ConfigItem(keyName = "resetHellhoundsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = hellhoundsSettings, position = 1)
-    default Button resetHellhoundsLocation() { return new Button(); }
 
     // Hill Giants
     @ConfigSection(position = POSITION_HILL_GIANTS, name = "Hill Giants", closedByDefault = true, description = "Information to display for slayer task")
@@ -909,22 +752,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Hill Giants", name = "Hill Giants information", description = "Create individual bullet points in overlay, one per line", section = hillGiantsSettings, position = 0)
     default String hillGiantsInfo() { return "Catacombs of Kourend: Run North"; }
 
-    @ConfigItem(keyName = "resetHillGiantsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = hillGiantsSettings, position = 1)
-    default Button resetHillGiantsLocation() { return new Button(); }
-
     // Hobgoblins
     @ConfigSection(position = POSITION_HOBGOBLINS, name = "Hobgoblins", closedByDefault = true, description = "Information to display for slayer task")
     String hobgoblinsSettings = "hobgoblins";
 
     @ConfigItem(keyName = "Hobgoblins", name = "Hobgoblins information", description = "Create individual bullet points in overlay, one per line", section = hobgoblinsSettings, position = 0)
     default String hobgoblinsInfo() { return "Fairy ring (AKR)\n" + "Run North"; }
-
-    @ConfigItem(keyName = "resetHobgoblinsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = hobgoblinsSettings, position = 1)
-    default Button resetHobgoblinsLocation() { return new Button(); }
 
     // Hydras
     @ConfigSection(position = POSITION_HYDRAS, name = "Hydras", closedByDefault = true, description = "Information to display for slayer task")
@@ -933,22 +766,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Hydras", name = "Hydras information", description = "Create individual bullet points in overlay, one per line", section = hydrasSettings, position = 0)
     default String hydrasInfo() { return MOUNT_KARUULM; }
 
-    @ConfigItem(keyName = "resetHydrasLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = hydrasSettings, position = 1)
-    default Button resetHydrasLocation() { return new Button(); }
-
     // Icefiends
     @ConfigSection(position = POSITION_ICEFIENDS, name = "Icefiends", closedByDefault = true, description = "Information to display for slayer task")
     String icefiendsSettings = "icefiends";
 
     @ConfigItem(keyName = "Icefiends", name = "Icefiends information", description = "Create individual bullet points in overlay, one per line", section = icefiendsSettings, position = 0)
     default String icefiendsInfo() { return "Combat bracelet (Monastery)"; }
-
-    @ConfigItem(keyName = "resetIcefiendsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = icefiendsSettings, position = 1)
-    default Button resetIcefiendsLocation() { return new Button(); }
 
     // Ice Giants
     @ConfigSection(position = POSITION_ICE_GIANTS, name = "Ice Giants", closedByDefault = true, description = "Information to display for slayer task")
@@ -957,22 +780,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Ice Giants", name = "Ice Giants information", description = "Create individual bullet points in overlay, one per line", section = iceGiantsSettings, position = 0)
     default String iceGiantsInfo() { return "Giantsoul amulet\n" + ASGARNIAN_DUNGEON + " -> Take shortcut West or run North, then East"; }
 
-    @ConfigItem(keyName = "resetIceGiantsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = iceGiantsSettings, position = 1)
-    default Button resetIceGiantsLocation() { return new Button(); }
-
     // Ice Warriors
     @ConfigSection(position = POSITION_ICE_WARRIORS, name = "Ice Warriors", closedByDefault = true, description = "Information to display for slayer task")
     String iceWarriorsSettings = "iceWarriors";
 
     @ConfigItem(keyName = "Ice Warriors", name = "Ice Warriors information", description = "Create individual bullet points in overlay, one per line", section = iceWarriorsSettings, position = 0)
     default String iceWarriorsInfo() { return "Giantsoul amulet\n" + ASGARNIAN_DUNGEON + " -> Run North, then East"; }
-
-    @ConfigItem(keyName = "resetIceWarriorsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = iceWarriorsSettings, position = 1)
-    default Button resetIceWarriorsLocation() { return new Button(); }
 
     // Infernal Mages
     @ConfigSection(position = POSITION_INFERNAL_MAGES, name = "Infernal Mages", closedByDefault = true, description = "Information to display for slayer task")
@@ -981,22 +794,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Infernal Mages", name = "Infernal Mages information", description = "Create individual bullet points in overlay, one per line", section = infernalMagesSettings, position = 0)
     default String infernalMagesInfo() { return SLAYER_TOWER + "\n" + "1st floor"; }
 
-    @ConfigItem(keyName = "resetInfernalMagesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = infernalMagesSettings, position = 1)
-    default Button resetInfernalMagesLocation() { return new Button(); }
-
     // Jellies
     @ConfigSection(position = POSITION_JELLIES, name = "Jellies", closedByDefault = true, description = "Information to display for slayer task")
     String jelliesSettings = "jellies";
 
     @ConfigItem(keyName = "Jellies", name = "Jellies information", description = "Create individual bullet points in overlay, one per line", section = jelliesSettings, position = 0)
     default String jelliesInfo() { return "Catacombs of Kourend: Run East, then South (continue or then East and then North)"; }
-
-    @ConfigItem(keyName = "resetJelliesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = jelliesSettings, position = 1)
-    default Button resetJelliesLocation() { return new Button(); }
 
     // Jungle Horrors
     @ConfigSection(position = POSITION_JUNGLE_HORRORS, name = "Jungle Horrors", closedByDefault = true, description = "Information to display for slayer task")
@@ -1005,22 +808,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Jungle Horrors", name = "Jungle Horrors information", description = "Create individual bullet points in overlay, one per line", section = jungleHorrorsSettings, position = 0)
     default String jungleHorrorsInfo() { return MOS_LE_HARMLESS; }
 
-    @ConfigItem(keyName = "resetJungleHorrorsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = jungleHorrorsSettings, position = 1)
-    default Button resetJungleHorrorsLocation() { return new Button(); }
-
     // Kalphites
     @ConfigSection(position = POSITION_KALPHITES, name = "Kalphites", closedByDefault = true, description = "Information to display for slayer task")
     String kalphitesSettings = "kalphites";
 
     @ConfigItem(keyName = "Kalphites", name = "Kalphites information", description = "Create individual bullet points in overlay, one per line", section = kalphitesSettings, position = 0)
     default String kalphitesInfo() { return "Desert amulet 4\n" + "Fairy ring (BIQ)"; }
-
-    @ConfigItem(keyName = "resetKalphitesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = kalphitesSettings, position = 1)
-    default Button resetKalphitesLocation() { return new Button(); }
 
     // Killerwatts
     @ConfigSection(position = POSITION_KILLERWATTS, name = "Killerwatts", closedByDefault = true, description = "Information to display for slayer task")
@@ -1029,22 +822,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Killerwatts", name = "Killerwatts information", description = "Create individual bullet points in overlay, one per line", section = killerwattsSettings, position = 0)
     default String killerwattsInfo() { return "Top of Draynor manor (portal machine)"; }
 
-    @ConfigItem(keyName = "resetKillerwattsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = killerwattsSettings, position = 1)
-    default Button resetKillerwattsLocation() { return new Button(); }
-
     // Kurasks
     @ConfigSection(position = POSITION_KURASKS, name = "Kurasks", closedByDefault = true, description = "Information to display for slayer task")
     String kurasksSettings = "kurasks";
 
     @ConfigItem(keyName = "Kurasks", name = "Kurasks information", description = "Create individual bullet points in overlay, one per line", section = kurasksSettings, position = 0)
     default String kurasksInfo() { return "BRING: Leaf-bladed weapons or broad ammunition\n" + "Iorwerth dungeon\n" + FREMENNIK_SLAYER_CAVE; }
-
-    @ConfigItem(keyName = "resetKurasksLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = kurasksSettings, position = 1)
-    default Button resetKurasksLocation() { return new Button(); }
 
     // Lava Dragons
     @ConfigSection(position = POSITION_LAVA_DRAGONS, name = "Lava Dragons", closedByDefault = true, description = "Information to display for slayer task")
@@ -1053,22 +836,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Lava Dragons", name = "Lava Dragons information", description = "Create individual bullet points in overlay, one per line", section = lavaDragonsSettings, position = 0)
     default String lavaDragonsInfo() { return "Revenant cave teleport -> Run East\n" + "Annakarl teleport -> Run SW"; }
 
-    @ConfigItem(keyName = "resetLavaDragonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = lavaDragonsSettings, position = 1)
-    default Button resetLavaDragonsLocation() { return new Button(); }
-
     // Lesser Demons
     @ConfigSection(position = POSITION_LESSER_DEMONS, name = "Lesser Demons", closedByDefault = true, description = "Information to display for slayer task")
     String lesserDemonsSettings = "lesserDemons";
 
     @ConfigItem(keyName = "Lesser Demons", name = "Lesser Demons information", description = "Create individual bullet points in overlay, one per line", section = lesserDemonsSettings, position = 0)
     default String lesserDemonsInfo() { return CHASM_OF_FIRE; }
-
-    @ConfigItem(keyName = "resetLesserDemonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = lesserDemonsSettings, position = 1)
-    default Button resetLesserDemonsLocation() { return new Button(); }
 
     // Lesser Nagua
     @ConfigSection(position = POSITION_LESSER_NAGUA, name = "Lesser Nagua", closedByDefault = true, description = "Information to display for slayer task")
@@ -1077,22 +850,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Lesser Nagua", name = "Lesser Nagua information", description = "Create individual bullet points in overlay, one per line", section = lesserNaguaSettings, position = 0)
     default String lesserNaguaInfo() { return "Cam Torum teleport (calcified moth or quetzal)\n" + "Run North to Moons\n" + "Run through SW"; }
 
-    @ConfigItem(keyName = "resetLesserNaguaLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = lesserNaguaSettings, position = 1)
-    default Button resetLesserNaguaLocation() { return new Button(); }
-
     // Lizardmen
     @ConfigSection(position = POSITION_LIZARDMEN, name = "Lizardmen Shamans", closedByDefault = true, description = "Information to display for slayer task")
     String lizardmenSettings = "lizardmen";
 
     @ConfigItem(keyName = "Lizardmen", name = "Lizardmen information", description = "Create individual bullet points in overlay, one per line", section = lizardmenSettings, position = 0)
     default String lizardmenInfo() { return "Skills necklace (farming guild) OR fairy ring (CLR)\n" + "Run South to Lizardman Temple"; }
-
-    @ConfigItem(keyName = "resetLizardmenLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = lizardmenSettings, position = 1)
-    default Button resetLizardmenLocation() { return new Button(); }
 
     // Lizards
     @ConfigSection(position = POSITION_LIZARDS, name = "Lizards", closedByDefault = true, description = "Information to display for slayer task")
@@ -1101,22 +864,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Lizards", name = "Lizards information", description = "Create individual bullet points in overlay, one per line", section = lizardsSettings, position = 0)
     default String lizardsInfo() { return MOUNT_KARUULM + "\n" + "Run East up the stairs,then South"; }
 
-    @ConfigItem(keyName = "resetLizardsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = lizardsSettings, position = 1)
-    default Button resetLizardsLocation() { return new Button(); }
-
     // Magic Axes
     @ConfigSection(position = POSITION_MAGIC_AXES, name = "Magic Axes", closedByDefault = true, description = "Information to display for slayer task")
     String magicAxesSettings = "magicAxes";
 
     @ConfigItem(keyName = "Magic Axes", name = "Magic Axes information", description = "Create individual bullet points in overlay, one per line", section = magicAxesSettings, position = 0)
     default String magicAxesInfo() { return "Taverley dungeon"; }
-
-    @ConfigItem(keyName = "resetMagicAxesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = magicAxesSettings, position = 1)
-    default Button resetMagicAxesLocation() { return new Button(); }
 
     // Mammoth
     @ConfigSection(position = POSITION_MAMMOTH, name = "Mammoth", closedByDefault = true, description = "Information to display for slayer task")
@@ -1125,22 +878,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Mammoth", name = "Mammoth information", description = "Create individual bullet points in overlay, one per line", section = mammothSettings, position = 0)
     default String mammothInfo() { return "Teleport to Ferox enclave\n" + "Run SE"; }
 
-    @ConfigItem(keyName = "resetMammothLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = mammothSettings, position = 1)
-    default Button resetMammothLocation() { return new Button(); }
-
     // Metal Dragons
     @ConfigSection(position = POSITION_METAL_DRAGONS, name = "Metal Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String metalDragonsSettings = "metalDragons";
 
     @ConfigItem(keyName = "Metal Dragons", name = "Metal Dragons information", description = "Create individual bullet points in overlay, one per line", section = metalDragonsSettings, position = 0)
     default String metalDragonsInfo() { return "Placeholder"; }
-
-    @ConfigItem(keyName = "resetMetalDragonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = metalDragonsSettings, position = 1)
-    default Button resetMetalDragonsLocation() { return new Button(); }
 
     // Minotaurs
     @ConfigSection(position = POSITION_MINOTAURS, name = "Minotaurs", closedByDefault = true, description = "Information to display for slayer task")
@@ -1149,22 +892,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Minotaurs", name = "Minotaurs information", description = "Create individual bullet points in overlay, one per line", section = minotaursSettings, position = 0)
     default String minotaursInfo() { return "Skull sceptre\n" + "1st floor"; }
 
-    @ConfigItem(keyName = "resetMinotaursLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = minotaursSettings, position = 1)
-    default Button resetMinotaursLocation() { return new Button(); }
-
     // Mogres
     @ConfigSection(position = POSITION_MOGRES, name = "Mogres", closedByDefault = true, description = "Information to display for slayer task")
     String mogresSettings = "mogres";
 
     @ConfigItem(keyName = "Mogres", name = "Mogres information", description = "Create individual bullet points in overlay, one per line", section = mogresSettings, position = 0)
     default String mogresInfo() { return "BRING: Fishing explosives\n" + "Fairy ring (AIQ)"; }
-
-    @ConfigItem(keyName = "resetMogresLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = mogresSettings, position = 1)
-    default Button resetMogresLocation() { return new Button(); }
 
     // Molanisks
     @ConfigSection(position = POSITION_MOLANISKS, name = "Molanisks", closedByDefault = true, description = "Information to display for slayer task")
@@ -1173,22 +906,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Molanisks", name = "Molanisks information", description = "Create individual bullet points in overlay, one per line", section = molanisksSettings, position = 0)
     default String molanisksInfo() { return DORGESHKAAN_DUNGEON; }
 
-    @ConfigItem(keyName = "resetMolanisksLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = molanisksSettings, position = 1)
-    default Button resetMolanisksLocation() { return new Button(); }
-
     // Monkeys
     @ConfigSection(position = POSITION_MONKEYS, name = "Monkeys", closedByDefault = true, description = "Information to display for slayer task")
     String monkeysSettings = "monkeys";
 
     @ConfigItem(keyName = "Monkeys", name = "Monkeys information", description = "Create individual bullet points in overlay, one per line", section = monkeysSettings, position = 0)
     default String monkeysInfo() { return "Fairy ring (CKR)"; }
-
-    @ConfigItem(keyName = "resetMonkeysLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = monkeysSettings, position = 1)
-    default Button resetMonkeysLocation() { return new Button(); }
 
     // Moss Giants
     @ConfigSection(position = POSITION_MOSS_GIANTS, name = "Moss Giants", closedByDefault = true, description = "Information to display for slayer task")
@@ -1197,22 +920,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Moss Giants", name = "Moss Giants information", description = "Create individual bullet points in overlay, one per line", section = mossGiantsSettings, position = 0)
     default String mossGiantsInfo() { return "Catacombs of Kourend: Run East"; }
 
-    @ConfigItem(keyName = "resetMossGiantsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = mossGiantsSettings, position = 1)
-    default Button resetMossGiantsLocation() { return new Button(); }
-
     // Nechryael
     @ConfigSection(position = POSITION_NECHRYAEL, name = "Nechryael", closedByDefault = true, description = "Information to display for slayer task")
     String nechryaelSettings = "nechryael";
 
     @ConfigItem(keyName = "Nechryael", name = "Nechryael information", description = "Create individual bullet points in overlay, one per line", section = nechryaelSettings, position = 0)
     default String nechryaelInfo() { return "Catacombs of Kourend: Run North, then East"; }
-
-    @ConfigItem(keyName = "resetNechryaelLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = nechryaelSettings, position = 1)
-    default Button resetNechryaelLocation() { return new Button(); }
 
     // Ogres
     @ConfigSection(position = POSITION_OGRES, name = "Ogres", closedByDefault = true, description = "Information to display for slayer task")
@@ -1221,22 +934,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Ogres", name = "Ogres information", description = "Create individual bullet points in overlay, one per line", section = ogresSettings, position = 0)
     default String ogresInfo() { return "Ring of duelling (Castle wars)\n" + "Run East"; }
 
-    @ConfigItem(keyName = "resetOgresLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = ogresSettings, position = 1)
-    default Button resetOgresLocation() { return new Button(); }
-
     // Otherworldly Beings
     @ConfigSection(position = POSITION_OTHERWORLDLY_BEINGS, name = "Otherworldly Beings", closedByDefault = true, description = "Information to display for slayer task")
     String otherworldlyBeingsSettings = "otherworldlyBeings";
 
     @ConfigItem(keyName = "Otherworldly Beings", name = "Otherworldly Beings information", description = "Create individual bullet points in overlay, one per line", section = otherworldlyBeingsSettings, position = 0)
     default String otherworldlyBeingsInfo() { return "Teleport to Zanaris\n" + "Run North, then SW"; }
-
-    @ConfigItem(keyName = "resetOtherworldlyBeingsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = otherworldlyBeingsSettings, position = 1)
-    default Button resetOtherworldlyBeingsLocation() { return new Button(); }
 
     // Pirates
     @ConfigSection(position = POSITION_PIRATES, name = "Pirates", closedByDefault = true, description = "Information to display for slayer task")
@@ -1245,22 +948,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Pirates", name = "Pirates information", description = "Create individual bullet points in overlay, one per line", section = piratesSettings, position = 0)
     default String piratesInfo() { return ASGARNIAN_DUNGEON + " -> Run North"; }
 
-    @ConfigItem(keyName = "resetPiratesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = piratesSettings, position = 1)
-    default Button resetPiratesLocation() { return new Button(); }
-
     // Pyrefiends
     @ConfigSection(position = POSITION_PYREFIENDS, name = "Pyrefiends", closedByDefault = true, description = "Information to display for slayer task")
     String pyrefiendsSettings = "pyrefiends";
 
     @ConfigItem(keyName = "Pyrefiends", name = "Pyrefiends information", description = "Create individual bullet points in overlay, one per line", section = pyrefiendsSettings, position = 0)
     default String pyrefiendsInfo() { return "Fairy ring (BJP)\n" + "Run South"; }
-
-    @ConfigItem(keyName = "resetPyrefiendsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = pyrefiendsSettings, position = 1)
-    default Button resetPyrefiendsLocation() { return new Button(); }
 
     // Rats
     @ConfigSection(position = POSITION_RATS, name = "Rats", closedByDefault = true, description = "Information to display for slayer task")
@@ -1269,22 +962,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Rats", name = "Rats information", description = "Create individual bullet points in overlay, one per line", section = ratsSettings, position = 0)
     default String ratsInfo() { return "Scurrius: Teleport to Varrock -> Run NE and enter sewers -> Run East\n" + "Normal rats: Fairy ring (BLS) -> Run East"; }
 
-    @ConfigItem(keyName = "resetRatsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = ratsSettings, position = 1)
-    default Button resetRatsLocation() { return new Button(); }
-
     // Red Dragons
     @ConfigSection(position = POSITION_RED_DRAGONS, name = "Red Dragons", closedByDefault = true, description = "Information to display for slayer task")
     String redDragonsSettings = "redDragons";
 
     @ConfigItem(keyName = "Red Dragons", name = "Red Dragons information", description = "Create individual bullet points in overlay, one per line", section = redDragonsSettings, position = 0)
     default String redDragonsInfo() { return "Placeholder"; }
-
-    @ConfigItem(keyName = "resetRedDragonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = redDragonsSettings, position = 1)
-    default Button resetRedDragonsLocation() { return new Button(); }
 
     // Revenants
     @ConfigSection(position = POSITION_REVENANTS, name = "Revenants", closedByDefault = true, description = "Information to display for slayer task")
@@ -1293,22 +976,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Revenants", name = "Revenants information", description = "Create individual bullet points in overlay, one per line", section = revenantsSettings, position = 0)
     default String revenantsInfo() { return "Revenant cave teleport"; }
 
-    @ConfigItem(keyName = "resetRevenantsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = revenantsSettings, position = 1)
-    default Button resetRevenantsLocation() { return new Button(); }
-
     // Rockslugs
     @ConfigSection(position = POSITION_ROCKSLUGS, name = "Rockslugs", closedByDefault = true, description = "Information to display for slayer task")
     String rockslugsSettings = "rockslugs";
 
     @ConfigItem(keyName = "Rockslugs", name = "Rockslugs information", description = "Create individual bullet points in overlay, one per line", section = rockslugsSettings, position = 0)
     default String rockslugsInfo() { return "BRING: Bag of salt\n" + FREMENNIK_SLAYER_CAVE; }
-
-    @ConfigItem(keyName = "resetRockslugsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = rockslugsSettings, position = 1)
-    default Button resetRockslugsLocation() { return new Button(); }
 
     // Rogues
     @ConfigSection(position = POSITION_ROGUES, name = "Rogues", closedByDefault = true, description = "Information to display for slayer task")
@@ -1317,22 +990,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Rogues", name = "Rogues information", description = "Create individual bullet points in overlay, one per line", section = roguesSettings, position = 0)
     default String roguesInfo() { return "Obelisk or Annakarl teleport to Rogue's castle"; }
 
-    @ConfigItem(keyName = "resetRoguesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = roguesSettings, position = 1)
-    default Button resetRoguesLocation() { return new Button(); }
-
     // Minions of scabaras
     @ConfigSection(position = POSITION_MINIONS_OF_SCABARAS, name = "Minions of scabaras", closedByDefault = true, description = "Information to display for slayer task")
     String minionsOfScabarasSettings = "minionsOfScabaras";
 
     @ConfigItem(keyName = "Minions of scabaras", name = "Minions of scabaras information", description = "Create individual bullet points in overlay, one per line", section = minionsOfScabarasSettings, position = 0)
     default String minionsOfScabarasInfo() { return "Pharaoh's sceptre (1 - Jalsavrah)\n" + "Fairy ring (AKP) -> Run North to Sophanem"; }
-
-    @ConfigItem(keyName = "resetMinionsOfScabarasLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = minionsOfScabarasSettings, position = 1)
-    default Button resetMinionsOfScabarasLocation() { return new Button(); }
 
     // Scorpions
     @ConfigSection(position = POSITION_SCORPIONS, name = "Scorpions", closedByDefault = true, description = "Information to display for slayer task")
@@ -1341,22 +1004,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Scorpions", name = "Scorpions information", description = "Create individual bullet points in overlay, one per line", section = scorpionsSettings, position = 0)
     default String scorpionsInfo() { return "Skills necklace (mining guild)"; }
 
-    @ConfigItem(keyName = "resetScorpionsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = scorpionsSettings, position = 1)
-    default Button resetScorpionsLocation() { return new Button(); }
-
     // Sea Snakes
     @ConfigSection(position = POSITION_SEA_SNAKES, name = "Sea Snakes", closedByDefault = true, description = "Information to display for slayer task")
     String seaSnakesSettings = "seaSnakes";
 
     @ConfigItem(keyName = "Sea Snakes", name = "Sea Snakes information", description = "Create individual bullet points in overlay, one per line", section = seaSnakesSettings, position = 0)
     default String seaSnakesInfo() { return "Fairy ring (CIP)\n" + "Run South to cave"; }
-
-    @ConfigItem(keyName = "resetSeaSnakesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = seaSnakesSettings, position = 1)
-    default Button resetSeaSnakesLocation() { return new Button(); }
 
     // Shades
     @ConfigSection(position = POSITION_SHADES, name = "Shades", closedByDefault = true, description = "Information to display for slayer task")
@@ -1365,22 +1018,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Shades", name = "Shades information", description = "Create individual bullet points in overlay, one per line", section = shadesSettings, position = 0)
     default String shadesInfo() { return "Catacombs of Kourend: Run all the way West"; }
 
-    @ConfigItem(keyName = "resetShadesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = shadesSettings, position = 1)
-    default Button resetShadesLocation() { return new Button(); }
-
     // Shadow Warriors
     @ConfigSection(position = POSITION_SHADOW_WARRIORS, name = "Shadow Warriors", closedByDefault = true, description = "Information to display for slayer task")
     String shadowWarriorsSettings = "shadowWarriors";
 
     @ConfigItem(keyName = "Shadow Warriors", name = "Shadow Warriors information", description = "Create individual bullet points in overlay, one per line", section = shadowWarriorsSettings, position = 0)
     default String shadowWarriorsInfo() { return "Fairy ring (BLR)\n" + "Run into Legend's Guild and enter dungeon"; }
-
-    @ConfigItem(keyName = "resetShadowWarriorsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = shadowWarriorsSettings, position = 1)
-    default Button resetShadowWarriorsLocation() { return new Button(); }
 
     // Skeletal Wyverns
     @ConfigSection(position = POSITION_SKELETAL_WYVERNS, name = "Skeletal Wyverns", closedByDefault = true, description = "Information to display for slayer task")
@@ -1389,22 +1032,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Skeletal Wyverns", name = "Skeletal Wyverns information", description = "Create individual bullet points in overlay, one per line", section = skeletalWyvernsSettings, position = 0)
     default String skeletalWyvernsInfo() { return ASGARNIAN_DUNGEON + " -> Run North, then East, then South\n" + "(optional) go upstairs to safespot"; }
 
-    @ConfigItem(keyName = "resetSkeletalWyvernsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = skeletalWyvernsSettings, position = 1)
-    default Button resetSkeletalWyvernsLocation() { return new Button(); }
-
     // Skeletons
     @ConfigSection(position = POSITION_SKELETONS, name = "Skeletons", closedByDefault = true, description = "Information to display for slayer task")
     String skeletonsSettings = "skeletons";
 
     @ConfigItem(keyName = "Skeletons", name = "Skeletons information", description = "Create individual bullet points in overlay, one per line", section = skeletonsSettings, position = 0)
     default String skeletonsInfo() { return "Catacombs of Kourend: Run West\n" + "Digsite pendent (digsite) -> Run South and use rope on winch"; }
-
-    @ConfigItem(keyName = "resetSkeletonsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = skeletonsSettings, position = 1)
-    default Button resetSkeletonsLocation() { return new Button(); }
 
     // Smoke Devils
     @ConfigSection(position = POSITION_SMOKE_DEVILS, name = "Smoke Devils", closedByDefault = true, description = "Information to display for slayer task")
@@ -1413,22 +1046,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Smoke Devils", name = "Smoke Devils information", description = "Create individual bullet points in overlay, one per line", section = smokeDevilsSettings, position = 0)
     default String smokeDevilsInfo() { return "Fairy ring (BKP)\n" + "Run NE"; }
 
-    @ConfigItem(keyName = "resetSmokeDevilsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = smokeDevilsSettings, position = 1)
-    default Button resetSmokeDevilsLocation() { return new Button(); }
-
     // Sourhogs
     @ConfigSection(position = POSITION_SOURHOGS, name = "Sourhogs", closedByDefault = true, description = "Information to display for slayer task")
     String sourhogsSettings = "sourhogs";
 
     @ConfigItem(keyName = "Sourhogs", name = "Sourhogs information", description = "Create individual bullet points in overlay, one per line", section = sourhogsSettings, position = 0)
     default String sourhogsInfo() { return "Sourhog cave (East of Draynor Manor)"; }
-
-    @ConfigItem(keyName = "resetSourhogsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = sourhogsSettings, position = 1)
-    default Button resetSourhogsLocation() { return new Button(); }
 
     // Spiders
     @ConfigSection(position = POSITION_SPIDERS, name = "Spiders", closedByDefault = true, description = "Information to display for slayer task")
@@ -1437,22 +1060,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Spiders", name = "Spiders information", description = "Create individual bullet points in overlay, one per line", section = spidersSettings, position = 0)
     default String spidersInfo() { return "Placeholder (fit to your needs araxytes/red spiders/bosses/..."; }
 
-    @ConfigItem(keyName = "resetSpidersLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = spidersSettings, position = 1)
-    default Button resetSpidersLocation() { return new Button(); }
-
     // Spiritual Creatures
     @ConfigSection(position = POSITION_SPIRITUAL_CREATURES, name = "Spiritual Creatures", closedByDefault = true, description = "Information to display for slayer task")
     String spiritualCreaturesSettings = "spiritualCreatures";
 
     @ConfigItem(keyName = "Spiritual Creatures", name = "Spiritual Creatures information", description = "Create individual bullet points in overlay, one per line", section = spiritualCreaturesSettings, position = 0)
     default String spiritualCreaturesInfo() { return GOD_WARS_DUNGEON; }
-
-    @ConfigItem(keyName = "resetSpiritualCreaturesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = spiritualCreaturesSettings, position = 1)
-    default Button resetSpiritualCreaturesLocation() { return new Button(); }
 
     // Suqahs
     @ConfigSection(position = POSITION_SUQAHS, name = "Suqahs", closedByDefault = true, description = "Information to display for slayer task")
@@ -1461,22 +1074,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Suqahs", name = "Suqahs information", description = "Create individual bullet points in overlay, one per line", section = suqahsSettings, position = 0)
     default String suqahsInfo() { return "Moonclan teleport"; }
 
-    @ConfigItem(keyName = "resetSuqahsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = suqahsSettings, position = 1)
-    default Button resetSuqahsLocation() { return new Button(); }
-
     // Terror Dogs
     @ConfigSection(position = POSITION_TERROR_DOGS, name = "Terror Dogs", closedByDefault = true, description = "Information to display for slayer task")
     String terrorDogsSettings = "terrorDogs";
 
     @ConfigItem(keyName = "Terror Dogs", name = "Terror Dogs information", description = "Create individual bullet points in overlay, one per line", section = terrorDogsSettings, position = 0)
     default String terrorDogsInfo() { return "Slayer ring (Tairn's Lair)"; }
-
-    @ConfigItem(keyName = "resetTerrorDogsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = terrorDogsSettings, position = 1)
-    default Button resetTerrorDogsLocation() { return new Button(); }
 
     // Trolls
     @ConfigSection(position = POSITION_TROLLS, name = "Trolls", closedByDefault = true, description = "Information to display for slayer task")
@@ -1485,22 +1088,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Trolls", name = "Trolls information", description = "Create individual bullet points in overlay, one per line", section = trollsSettings, position = 0)
     default String trollsInfo() { return "Fairy ring (BLS)\n" + "Run West, then North"; }
 
-    @ConfigItem(keyName = "resetTrollsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = trollsSettings, position = 1)
-    default Button resetTrollsLocation() { return new Button(); }
-
     // Turoth
     @ConfigSection(position = POSITION_TUROTH, name = "Turoth", closedByDefault = true, description = "Information to display for slayer task")
     String turothSettings = "turoth";
 
     @ConfigItem(keyName = "Turoth", name = "Turoth information", description = "Create individual bullet points in overlay, one per line", section = turothSettings, position = 0)
     default String turothInfo() { return "BRING: Leaf-bladed weapons or broad ammunition\n" + FREMENNIK_SLAYER_CAVE; }
-
-    @ConfigItem(keyName = "resetTurothLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = turothSettings, position = 1)
-    default Button resetTurothLocation() { return new Button(); }
 
     // TzHaar
     @ConfigSection(position = POSITION_TZHAAR, name = "TzHaar", closedByDefault = true, description = "Information to display for slayer task")
@@ -1509,22 +1102,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "TzHaar", name = "TzHaar information", description = "Create individual bullet points in overlay, one per line", section = tzHaarSettings, position = 0)
     default String tzHaarInfo() { return "Fairy ring (BLP)\n" + "Minigame teleport (TzHaar Fight Pit)"; }
 
-    @ConfigItem(keyName = "resetTzHaarLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = tzHaarSettings, position = 1)
-    default Button resetTzHaarLocation() { return new Button(); }
-
     // Vampyres
     @ConfigSection(position = POSITION_VAMPYRES, name = "Vampyres", closedByDefault = true, description = "Information to display for slayer task")
     String vampyresSettings = "vampyres";
 
     @ConfigItem(keyName = "Vampyres", name = "Vampyres information", description = "Create individual bullet points in overlay, one per line", section = vampyresSettings, position = 0)
     default String vampyresInfo() { return "Vyrewatch sentinel: Drakan's medallion (Darkmeyer)\n" + "Feral vampyres: Morytania legs 3 (Burgh) -> Run West"; }
-
-    @ConfigItem(keyName = "resetVampyresLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = vampyresSettings, position = 1)
-    default Button resetVampyresLocation() { return new Button(); }
 
     // Wall Beasts
     @ConfigSection(position = POSITION_WALL_BEASTS, name = "Wall Beasts", closedByDefault = true, description = "Information to display for slayer task")
@@ -1533,22 +1116,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Wall Beasts", name = "Wall Beasts information", description = "Create individual bullet points in overlay, one per line", section = wallBeastsSettings, position = 0)
     default String wallBeastsInfo() { return DORGESHKAAN_DUNGEON; }
 
-    @ConfigItem(keyName = "resetWallBeastsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = wallBeastsSettings, position = 1)
-    default Button resetWallBeastsLocation() { return new Button(); }
-
     // Warped Creatures
     @ConfigSection(position = POSITION_WARPED_CREATURES, name = "Warped Creatures", closedByDefault = true, description = "Information to display for slayer task")
     String warpedCreaturesSettings = "warpedCreatures";
 
     @ConfigItem(keyName = "Warped Creatures", name = "Warped Creatures information", description = "Create individual bullet points in overlay, one per line", section = warpedCreaturesSettings, position = 0)
     default String warpedCreaturesInfo() { return "Spirit tree (Poison waste)"; }
-
-    @ConfigItem(keyName = "resetWarpedCreaturesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = warpedCreaturesSettings, position = 1)
-    default Button resetWarpedCreaturesLocation() { return new Button(); }
 
     // Waterfiends
     @ConfigSection(position = POSITION_WATERFIENDS, name = "Waterfiends", closedByDefault = true, description = "Information to display for slayer task")
@@ -1557,22 +1130,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Waterfiends", name = "Waterfiends information", description = "Create individual bullet points in overlay, one per line", section = waterfiendsSettings, position = 0)
     default String waterfiendsInfo() { return "Ancient cavern: Games necklace (Barbarian outpost) -> Run South\n" + "Iorwerth dungeon: Run NW"; }
 
-    @ConfigItem(keyName = "resetWaterfiendsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = waterfiendsSettings, position = 1)
-    default Button resetWaterfiendsLocation() { return new Button(); }
-
     // Werewolves
     @ConfigSection(position = POSITION_WEREWOLVES, name = "Werewolves", closedByDefault = true, description = "Information to display for slayer task")
     String werewolvesSettings = "werewolves";
 
     @ConfigItem(keyName = "Werewolves", name = "Werewolves information", description = "Create individual bullet points in overlay, one per line", section = werewolvesSettings, position = 0)
     default String werewolvesInfo() { return GOD_WARS_DUNGEON; }
-
-    @ConfigItem(keyName = "resetWerewolvesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = werewolvesSettings, position = 1)
-    default Button resetWerewolvesLocation() { return new Button(); }
 
     // Wolves
     @ConfigSection(position = POSITION_WOLVES, name = "Wolves", closedByDefault = true, description = "Information to display for slayer task")
@@ -1581,22 +1144,12 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Wolves", name = "Wolves information", description = "Create individual bullet points in overlay, one per line", section = wolvesSettings, position = 0)
     default String wolvesInfo() { return "Royal seed pod OR Ring of duelling (Emir's arena) OR Amulet of Glory (Al kharid)\n" + "Glider to sindarpos"; }
 
-    @ConfigItem(keyName = "resetWolvesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = wolvesSettings, position = 1)
-    default Button resetWolvesLocation() { return new Button(); }
-
     // Wyrms
     @ConfigSection(position = POSITION_WYRMS, name = "Wyrms", closedByDefault = true, description = "Information to display for slayer task")
     String wyrmsSettings = "wyrms";
 
     @ConfigItem(keyName = "Wyrms", name = "Wyrms information", description = "Create individual bullet points in overlay, one per line", section = wyrmsSettings, position = 0)
     default String wyrmsInfo() { return MOUNT_KARUULM + "\n" + "Run West"; }
-
-    @ConfigItem(keyName = "resetWyrmsLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = wyrmsSettings, position = 1)
-    default Button resetWyrmsLocation() { return new Button(); }
 
     // Zombies
     @ConfigSection(position = POSITION_ZOMBIES, name = "Zombies", closedByDefault = true, description = "Information to display for slayer task")
@@ -1605,21 +1158,11 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "Zombies", name = "Zombies information", description = "Create individual bullet points in overlay, one per line", section = zombiesSettings, position = 0)
     default String zombiesInfo() { return ALICES_FARM; }
 
-    @ConfigItem(keyName = "resetZombiesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = zombiesSettings, position = 1)
-    default Button resetZombiesLocation() { return new Button(); }
-
     // Zygomites
     @ConfigSection(position = POSITION_ZYGOMITES, name = "Zygomites", closedByDefault = true, description = "Information to display for slayer task")
     String zygomitesSettings = "zygomites";
 
     @ConfigItem(keyName = "Zygomites", name = "Zygomites information", description = "Create individual bullet points in overlay, one per line", section = zygomitesSettings, position = 0)
     default String zygomitesInfo() { return "BRING: Fungicide spray and Dramen staff\n" + "Zanaris -> Run North"; }
-
-    @ConfigItem(keyName = "resetZygomitesLocation", name = "Reset location to default",
-            description = "Resets the saved location for this task to the default",
-            section = zygomitesSettings, position = 1)
-    default Button resetZygomitesLocation() { return new Button(); }
 }
 
