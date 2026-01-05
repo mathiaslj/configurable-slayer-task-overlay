@@ -220,7 +220,12 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
                 // Refresh current task if one is active
                 this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(taskName);
             }
+        }
 
+        // Handle location reset buttons
+        if (event.getKey().startsWith("reset") && event.getKey().endsWith("Location"))
+        {
+            handleLocationReset(event.getKey());
         }
 
         // Set a dummy task
@@ -600,5 +605,61 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
         }
 
         return result;
+    }
+
+    private String getTaskNameFromResetKey(String configKey)
+    {
+        // Remove "reset" prefix and "Location" suffix, then convert to task name
+        // Example: "resetAberrantSpectresLocation" -> "aberrantSpectres" -> "aberrant spectres"
+        String taskKey = configKey.substring(5, configKey.length() - 8); // Remove "reset" and "Location"
+
+        // Convert camelCase to space-separated lowercase
+        String taskName = taskKey.replaceAll("([A-Z])", " $1").trim().toLowerCase();
+
+        return taskName;
+    }
+
+    private void handleLocationReset(String configKey)
+    {
+        String taskName = getTaskNameFromResetKey(configKey);
+        resetTaskLocation(taskName);
+    }
+
+    private void resetTaskLocation(String taskName)
+    {
+        // Remove the saved location from config
+        String currentSaved = configManager.getConfiguration("configurable-slayer-task-overlay", "savedTaskLocations");
+        Map<String, WorldPoint> savedLocations = parseSavedLocations(currentSaved);
+
+        savedLocations.remove(taskName);
+
+        // Serialize back without this task
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, WorldPoint> entry : savedLocations.entrySet())
+        {
+            if (sb.length() > 0) sb.append(";");
+            WorldPoint wp = entry.getValue();
+            sb.append(entry.getKey())
+                    .append(":")
+                    .append(wp.getX()).append(",")
+                    .append(wp.getY()).append(",")
+                    .append(wp.getPlane());
+        }
+
+        configManager.setConfiguration("configurable-slayer-task-overlay", "savedTaskLocations", sb.toString());
+
+        // Rebuild tasks to load default location
+        slayerTaskRegistry.rebuildTasks();
+
+        // Refresh current task if it's the one being reset
+        if (currentSlayerTask != null && currentSlayerTask.getName().equalsIgnoreCase(taskName))
+        {
+            this.currentSlayerTask = slayerTaskRegistry.getSlayerTaskByNpcName(currentSlayerTask.getName());
+            updateWorldMapIcons();
+            updateShortestPath();
+        }
+
+        client.addChatMessage(ChatMessageType.GAMEMESSAGE, "",
+                "Reset location for " + taskName + " to default!", "");
     }
 }

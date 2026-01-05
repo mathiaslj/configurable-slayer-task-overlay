@@ -101,7 +101,7 @@ public class DungeonLocationRegistry {
                         new WorldPoint(2809, 9857, 0),
                         new WorldPoint(2977, 9664, 0)
                 ),
-                new WorldPoint(2882, 3387, 0) // Entrance on surface
+                new WorldPoint(2891, 3397, 0) // Entrance on surface
         ));
         ENTRANCES.add(new DungeonLocation(
                 "Taverley Dungeon Black Dragons floor",
@@ -109,7 +109,7 @@ public class DungeonLocationRegistry {
                         new WorldPoint(2882, 3387, 0), // Entrance on surface
                         new WorldPoint(2979, 9606, 0)
                 ),
-                new WorldPoint(2882, 3387, 0)
+                new WorldPoint(2891, 3397, 0)
         ));
         ENTRANCES.add(new DungeonLocation(
                 "Cerberus lair",
@@ -446,7 +446,7 @@ public class DungeonLocationRegistry {
                         new WorldPoint(1354, 9766, 0),
                         new WorldPoint(1402, 9703, 0)
                 ),
-                new WorldPoint(1317, 3364, 0) // Entrance on surface
+                new WorldPoint(1318, 3364, 0) // Entrance on surface
         ));
         ENTRANCES.add(new DungeonLocation(
                 "Stalker Den North",
