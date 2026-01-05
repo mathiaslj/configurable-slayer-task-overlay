@@ -468,7 +468,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String caveHorrorsSettings = "caveHorrors";
 
     @ConfigItem(keyName = "Cave Horrors", name = "Cave Horrors information", description = "Create individual bullet points in overlay, one per line", section = caveHorrorsSettings, position = 0)
-    default String caveHorrorsInfo() { return "BRING: Witchwood icon\n" + MOS_LE_HARMLESS; }
+    default String caveHorrorsInfo() { return "BRING: Witchwood icon\n" + MOS_LE_HARMLESS + "\nRanged safespot at marked location"; }
 
     // Cave Slimes
     @ConfigSection(position = POSITION_CAVE_SLIMES, name = "Cave Slimes", closedByDefault = true, description = "Information to display for slayer task")
@@ -671,7 +671,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String greaterDemonsSettings = "greaterDemons";
 
     @ConfigItem(keyName = "Greater Demons", name = "Greater Demons information", description = "Create individual bullet points in overlay, one per line", section = greaterDemonsSettings, position = 0)
-    default String greaterDemonsInfo() { return "Tormented demons: Guthixian temple teleport - alternatively (Remember sapphire lantern) Games necklace (Tears of Guthix)" + CHASM_OF_FIRE; }
+    default String greaterDemonsInfo() { return "Tormented demons: Guthixian temple teleport - alternatively (Remember sapphire lantern) Games necklace (Tears of Guthix)\n" + CHASM_OF_FIRE; }
 
     // Green Dragons
     @ConfigSection(position = POSITION_GREEN_DRAGONS, name = "Green Dragons", closedByDefault = true, description = "Information to display for slayer task")

@@ -400,6 +400,14 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
                 }
 
                 worldMapPointManager.add(new SlayerTaskWorldMapPoint(worldPoint));
+
+                // Check if this location is inside a dungeon
+                WorldPoint entrancePoint = DungeonLocationRegistry.getEntranceFor(worldPoint);
+                if (entrancePoint != null)
+                {
+                    // Add icon at the dungeon entrance as well
+                    worldMapPointManager.add(new SlayerTaskWorldMapPoint(entrancePoint));
+                }
             }
         }
     }
