@@ -66,7 +66,7 @@ public class SlayerTaskRegistry {
         // WorldPoint Edgeville_dungeon = new WorldPoint(3092, 3463, 0);
         // WorldPoint Karuulm_dungeon = new WorldPoint(1309, 3806, 0);
         // WorldPoint Asgarnian_dungeon = new WorldPoint(3009, 3149, 0);
-        WorldPoint Mourner_HQ = new WorldPoint(2543, 3322, 0);
+        // WorldPoint Mourner_HQ = new WorldPoint(2543, 3322, 0);
         // WorldPoint Braindeath_island = new WorldPoint(3678, 3532, 0);
         WorldPoint Chasm_of_fire = new WorldPoint(1436, 3671, 0);
         // WorldPoint Dorgeshkaan = new WorldPoint(3201, 3209, 0);
@@ -105,14 +105,14 @@ public class SlayerTaskRegistry {
         WorldPoint crocodilesLocation = savedLocations.getOrDefault("crocodiles", new WorldPoint(3358, 2921, 0));
         WorldPoint custodianStalkersLocation = savedLocations.getOrDefault("custodian stalkers", new WorldPoint(1393, 9742, 0));
         WorldPoint dagannothsLocation = savedLocations.getOrDefault("dagannoths", new WorldPoint(2508, 3640, 0));
-        WorldPoint darkBeastsLocation = savedLocations.getOrDefault("dark beasts", Mourner_HQ);
+        WorldPoint darkBeastsLocation = savedLocations.getOrDefault("dark beasts", new WorldPoint(1993, 4654, 0));
         WorldPoint darkWarriorsLocation = savedLocations.getOrDefault("dark warriors", new WorldPoint(3022, 3625, 0));
         WorldPoint dogsLocation = savedLocations.getOrDefault("dogs", new WorldPoint(3343, 2787, 0));
         WorldPoint drakesLocation = savedLocations.getOrDefault("drakes", new WorldPoint(1163, 10200, 0));
         WorldPoint dustDevilsLocation = savedLocations.getOrDefault("dust devils", new WorldPoint(1709, 10013, 0));
         WorldPoint dwarvesLocation = savedLocations.getOrDefault("dwarves", new WorldPoint(3021, 3455, 0));
         WorldPoint earthWarriorsLocation = savedLocations.getOrDefault("earth warriors", new WorldPoint(3123, 9991, 0));
-        WorldPoint elvesLocation = savedLocations.getOrDefault("elves", Mourner_HQ);
+        WorldPoint elvesLocation = savedLocations.getOrDefault("elves", new WorldPoint(2040, 4636, 0));
         WorldPoint entsLocation = savedLocations.getOrDefault("ents", new WorldPoint(3195, 3643, 0));
         WorldPoint feverSpidersLocation = savedLocations.getOrDefault("fever spiders", new WorldPoint(2150, 5096, 0));
         WorldPoint fireGiantsLocation = savedLocations.getOrDefault("fire giants", new WorldPoint(1626, 10057, 0));

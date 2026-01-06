@@ -188,6 +188,24 @@ public class DungeonLocationRegistry {
         ));
 
         ENTRANCES.add(new DungeonLocation(
+                "Dark beasts location",
+                WorldAreaUtils.fromCorners(
+                        new WorldPoint(1935, 4575, 0),
+                        new WorldPoint(2014, 4635, 0)
+                ),
+                new WorldPoint(2543, 3322, 0) // Entrance on surface
+        ));
+        ENTRANCES.add(new DungeonLocation(
+                "Mourner HQ",
+                WorldAreaUtils.fromCorners(
+                        new WorldPoint(2034, 4628, 0),
+                        new WorldPoint(2045, 4651, 0)
+                ),
+                new WorldPoint(2543, 3322, 0) // Entrance on surface
+        ));
+
+
+        ENTRANCES.add(new DungeonLocation(
                 "Braindeath Island",
                 WorldAreaUtils.fromCorners(
                         new WorldPoint(2110, 5182, 0),
