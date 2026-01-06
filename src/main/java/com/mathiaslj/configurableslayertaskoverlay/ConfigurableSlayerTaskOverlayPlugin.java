@@ -76,8 +76,8 @@ import java.util.List;
 @Slf4j
 @PluginDescriptor(
         name = "Configurable Slayer Task Overlay",
-        description = "Configure overlay info to display when receiving slayer task",
-        tags = {"slayer", "overlay", "task", "configurable"}
+        description = "Configure overlay and map locations to display when receiving slayer task",
+        tags = {"slayer", "overlay", "task", "configurable", "world icon", "shortest path"}
 )
 public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     private static final Pattern SLAYER_ASSIGN_MESSAGE = Pattern.compile("Your new task is to kill \\d+ (?<name>.+?)s?\\.");
