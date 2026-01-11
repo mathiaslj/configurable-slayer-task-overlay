@@ -423,6 +423,15 @@ public class DungeonLocationRegistry {
         ));
 
         ENTRANCES.add(new DungeonLocation(
+                "Digsite skeleton cave",
+                WorldAreaUtils.fromCorners(
+                        new WorldPoint(3360, 9768, 0),
+                        new WorldPoint(3387, 9737, 0)
+                ),
+                new WorldPoint(3352, 3416, 0) // Entrance on surface
+        ));
+
+        ENTRANCES.add(new DungeonLocation(
                 "Lumbridge dungeon",
                 WorldAreaUtils.fromCorners(
                         new WorldPoint(3144, 9602, 0),

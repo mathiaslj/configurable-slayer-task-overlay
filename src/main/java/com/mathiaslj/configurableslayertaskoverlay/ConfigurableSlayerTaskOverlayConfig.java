@@ -1283,7 +1283,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String skeletonsSettings = "skeletons";
 
     @ConfigItem(keyName = "Skeletons", name = "Skeletons information", description = "Create individual bullet points in overlay, one per line", section = skeletonsSettings, position = 0)
-    default String skeletonsInfo() { return "Catacombs of Kourend: Run West\n" + "Digsite pendent (digsite) -> Run South and use rope on winch"; }
+    default String skeletonsInfo() { return "BRING: Rope. Digsite pendent (digsite) -> Run South and use rope on winch\n" + "Catacombs of Kourend: Run West"; }
 
     @ConfigItem(keyName = "skeletonsDisableBox", name = "Disable information box", description = "Disable information box specifically for Skeletons", section = skeletonsSettings, position = 1)
     default boolean skeletonsDisableBox() { return false; }
@@ -1313,7 +1313,7 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String spidersSettings = "spiders";
 
     @ConfigItem(keyName = "Spiders", name = "Spiders information", description = "Create individual bullet points in overlay, one per line", section = spidersSettings, position = 0)
-    default String spidersInfo() { return "Placeholder (fit to your needs araxytes/red spiders/bosses/..."; }
+    default String spidersInfo() { return "Lumbridge teleport\n" + "Run West to HAM hideout"; }
 
     @ConfigItem(keyName = "spidersDisableBox", name = "Disable information box", description = "Disable information box specifically for Spiders", section = spidersSettings, position = 1)
     default boolean spidersDisableBox() { return false; }

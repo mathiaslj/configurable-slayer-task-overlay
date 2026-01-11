@@ -169,10 +169,10 @@ public class SlayerTaskRegistry {
         WorldPoint shadesLocation = savedLocations.getOrDefault("shades", new WorldPoint(1604, 10039, 0));
         WorldPoint shadowWarriorsLocation = savedLocations.getOrDefault("shadow warriors", new WorldPoint(2700, 9775, 0));
         WorldPoint skeletalWyvernsLocation = savedLocations.getOrDefault("skeletal wyverns", new WorldPoint(3063, 9548, 0));
-        WorldPoint skeletonsLocation = savedLocations.getOrDefault("skeletons", new WorldPoint(1639, 10045, 0));
+        WorldPoint skeletonsLocation = savedLocations.getOrDefault("skeletons", new WorldPoint(3372, 9746, 0));
         WorldPoint smokeDevilsLocation = savedLocations.getOrDefault("smoke devils", new WorldPoint(2400, 9435, 0));
         WorldPoint sourhogsLocation = savedLocations.getOrDefault("sourhogs", new WorldPoint(3167, 9696, 0));
-        WorldPoint spidersLocation = savedLocations.getOrDefault("spiders", new WorldPoint(3652, 3408, 0));
+        WorldPoint spidersLocation = savedLocations.getOrDefault("spiders", new WorldPoint(3165, 3246, 0));
         WorldPoint spiritualCreaturesLocation = savedLocations.getOrDefault("spiritual creatures", new WorldPoint(2867, 5304, 0));
         WorldPoint suqahsLocation = savedLocations.getOrDefault("suqahs", new WorldPoint(2110, 3934, 0));
         WorldPoint terrorDogsLocation = savedLocations.getOrDefault("terror dogs", new WorldPoint(3445, 3231, 0));
