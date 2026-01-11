@@ -28,6 +28,7 @@ import com.mathiaslj.configurableslayertaskoverlay.ConfigurableSlayerTaskOverlay
 import com.mathiaslj.configurableslayertaskoverlay.ConfigurableSlayerTaskOverlayPlugin;
 import com.mathiaslj.configurableslayertaskoverlay.models.NpcLocation;
 import com.mathiaslj.configurableslayertaskoverlay.models.SlayerTask;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.client.ui.overlay.OverlayPanel;
@@ -38,14 +39,19 @@ import javax.inject.Inject;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Color;
+import java.lang.reflect.Method;
 
+@Slf4j
 public class SlayerTaskOverlay extends OverlayPanel {
     private final Client client;
     private final ConfigurableSlayerTaskOverlayPlugin plugin;
     private final ConfigurableSlayerTaskOverlayConfig config;
 
     @Inject
-    public SlayerTaskOverlay(Client client, ConfigurableSlayerTaskOverlayPlugin ConfigurableSlayerTaskOverlayPlugin, ConfigurableSlayerTaskOverlayConfig config) {
+    public SlayerTaskOverlay(
+            Client client,
+            ConfigurableSlayerTaskOverlayPlugin ConfigurableSlayerTaskOverlayPlugin,
+            ConfigurableSlayerTaskOverlayConfig config) {
         this.client = client;
         this.plugin = ConfigurableSlayerTaskOverlayPlugin;
         this.config = config;
@@ -63,6 +69,11 @@ public class SlayerTaskOverlay extends OverlayPanel {
         SlayerTask task = plugin.getCurrentSlayerTask();
 
         if (task == null) {
+            return null;
+        }
+
+        // Check if overlay is disabled for this specific task
+        if (isOverlayDisabledForTask(task.getName())) {
             return null;
         }
 
@@ -97,5 +108,38 @@ public class SlayerTaskOverlay extends OverlayPanel {
         }
 
         return super.render(graphics);
+    }
+
+    private boolean isOverlayDisabledForTask(String taskName) {
+        String methodName = taskNameToDisableConfigKey(taskName);
+
+        try {
+            Method method = config.getClass().getMethod(methodName);
+            return (boolean) method.invoke(config);
+        } catch (Exception e) {
+            log.warn("Could not find disable box config for task: {} (method: {})", taskName, methodName, e);
+            return false; // Default to enabled if config not found
+        }
+    }
+
+    private String taskNameToDisableConfigKey(String taskName) {
+        // Convert "Aberrant spectres" -> "aberrantSpectresDisableBox"
+        String[] words = taskName.toLowerCase().split(" ");
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            if (i == 0) {
+                result.append(word);
+            } else {
+                result.append(Character.toUpperCase(word.charAt(0)));
+                if (word.length() > 1) {
+                    result.append(word.substring(1));
+                }
+            }
+        }
+
+        result.append("DisableBox");
+        return result.toString();
     }
 }
