@@ -1489,16 +1489,6 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
 
     // KONAR TASKS
 
-    // Karuulm slayer dungeon
-    @ConfigSection(position = POSITION_KARUULM, name = "Konar: Karuulm Slayer Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Karuulm slayer dungeon")
-    String karuulmSettings = "karuulm";
-
-    @ConfigItem(keyName = "Greater demons in Karuulm Slayer Dungeon", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = karuulmSettings, position = 0)
-    default String greaterDemonsInKaruulmSlayerDungeonInfo() { return MOUNT_KARUULM + "\nRun East and up the stairs" + "\nRun to West room"; }
-
-    @ConfigItem(keyName = "greaterDemonsInKaruulmSlayerDungeonBox", name = "Disable greater demons information box", description = "Disable information box specifically for Greater demons", section = karuulmSettings, position = 1)
-    default boolean greaterDemonsInKaruulmSlayerDungeonDisableBox() { return false; }
-
     // Abyss
     @ConfigSection(position = POSITION_ABYSS, name = "Konar: Abyss", closedByDefault = true, description = "Information to display for Konar slayer tasks in Abyss")
     String abyssSettings = "abyss";
@@ -1784,5 +1774,15 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
 
     @ConfigItem(keyName = "trollsInFremennikIslesDisableBox", name = "Disable information box", description = "Disable information box specifically for Trolls", section = fremennikIslesSettings, position = 1)
     default boolean trollsInFremennikIslesDisableBox() { return false; }
+
+    // Karuulm Slayer Dungeon
+    @ConfigSection(position = POSITION_KARUULM, name = "Konar: Karuulm Slayer Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Karuulm slayer dungeon")
+    String karuulmSettings = "karuulm";
+
+    @ConfigItem(keyName = "Greater demons in Karuulm Slayer Dungeon", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = karuulmSettings, position = 0)
+    default String greaterDemonsInKaruulmSlayerDungeonInfo() { return MOUNT_KARUULM + "\nRun East and up the stairs" + "\nRun to West room"; }
+
+    @ConfigItem(keyName = "greaterDemonsInKaruulmSlayerDungeonBox", name = "Disable greater demons information box", description = "Disable information box specifically for Greater demons", section = karuulmSettings, position = 1)
+    default boolean greaterDemonsInKaruulmSlayerDungeonDisableBox() { return false; }
 }
 
