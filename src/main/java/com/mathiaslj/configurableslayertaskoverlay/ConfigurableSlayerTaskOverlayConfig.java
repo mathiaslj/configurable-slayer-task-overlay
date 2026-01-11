@@ -165,6 +165,9 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     public static final int POSITION_ZOMBIES = BASE + 113;
     public static final int POSITION_ZYGOMITES = BASE + 114;
 
+    public static final int POSITION_KARUULM = BASE + 1000;
+    public static final int POSITION_KARUULM_GREATER_DEMONS = 10;
+
     // General settings
     @ConfigSection(
             position = 0,
@@ -1467,5 +1470,15 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
 
     @ConfigItem(keyName = "zygomitesDisableBox", name = "Disable information box", description = "Disable information box specifically for Zygomites", section = zygomitesSettings, position = 1)
     default boolean zygomitesDisableBox() { return false; }
+
+    // Karuulm slayer dungeon
+    @ConfigSection(position = POSITION_KARUULM, name = "Konar: Karuulm Slayer Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Karuulm slayer dungeon")
+    String karuulmSettings = "karuulm";
+
+    @ConfigItem(keyName = "Greater demons in Karuulm Slayer Dungeon", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = karuulmSettings, position = POSITION_KARUULM_GREATER_DEMONS)
+    default String greaterDemonsInKaruulmSlayerDungeonInfo() { return MOUNT_KARUULM + "\nRun East and up the stairs" + "\nRun to West room"; }
+
+    @ConfigItem(keyName = "greaterDemonsInKaruulmSlayerDungeonBox", name = "Disable greater demons information box", description = "Disable information box specifically for Greater demons", section = karuulmSettings, position = POSITION_KARUULM_GREATER_DEMONS + 1)
+    default boolean greaterDemonsInKaruulmSlayerDungeonDisableBox() { return false; }
 }
 
