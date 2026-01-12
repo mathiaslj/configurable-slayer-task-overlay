@@ -211,6 +211,14 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
         {
             updateShortestPath();
         }
+        if (event.getKey().endsWith("DisableBox"))
+        {
+            configManager.setConfiguration(
+                    "configurable-slayer-task-overlay",
+                    event.getKey(),
+                    event.getNewValue()
+            );
+        }
 
         if (currentSlayerTask != null)
         {
