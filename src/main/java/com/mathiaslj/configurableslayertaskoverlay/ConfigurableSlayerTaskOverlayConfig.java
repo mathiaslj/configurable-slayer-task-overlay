@@ -46,127 +46,143 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     String GOD_WARS_DUNGEON = "GWD: Ghommal's hilt or Trollheim teleport";
     String ALICES_FARM = "Ectophial\nRun West to Alice's farm";
 
-    public static final int BASE = 100;
+    public static final int BASE_MONSTERS = 1000;
+    public static final int BASE_LOCATIONS = 100;
 
     // Position constants
-    public static final int POSITION_ABERRANT_SPECTRES = BASE;
-    public static final int POSITION_ABYSSAL_DEMONS = BASE + 1;
-    public static final int POSITION_ANKOUS = BASE + 2;
-    public static final int POSITION_AQUANITES = BASE + 3;
-    public static final int POSITION_ARAXYTES = BASE + 4;
-    public static final int POSITION_AVIANSIE = BASE + 5;
-    public static final int POSITION_BANDITS = BASE + 6;
-    public static final int POSITION_BANSHEES = BASE + 7;
-    public static final int POSITION_BASILISKS = BASE + 8;
-    public static final int POSITION_BATS = BASE + 9;
-    public static final int POSITION_BEARS = BASE + 10;
-    public static final int POSITION_BIRDS = BASE + 11;
-    public static final int POSITION_BLACK_DEMONS = BASE + 12;
-    public static final int POSITION_BLACK_DRAGONS = BASE + 13;
-    public static final int POSITION_BLACK_KNIGHTS = BASE + 14;
-    public static final int POSITION_BLOODVELDS = BASE + 15;
-    public static final int POSITION_BLUE_DRAGONS = BASE + 16;
-    public static final int POSITION_BRINE_RATS = BASE + 17;
-    public static final int POSITION_CATABLEPON = BASE + 18;
-    public static final int POSITION_CAVE_BUGS = BASE + 19;
-    public static final int POSITION_CAVE_CRAWLERS = BASE + 20;
-    public static final int POSITION_CAVE_HORRORS = BASE + 21;
-    public static final int POSITION_CAVE_SLIMES = BASE + 22;
-    public static final int POSITION_CAVE_KRAKEN = BASE + 23;
-    public static final int POSITION_CHAOS_DRUIDS = BASE + 24;
-    public static final int POSITION_COCKATRICE = BASE + 25;
-    public static final int POSITION_COWS = BASE + 26;
-    public static final int POSITION_CRABS = BASE + 27;
-    public static final int POSITION_CRAWLING_HANDS = BASE + 28;
-    public static final int POSITION_CROCODILES = BASE + 29;
-    public static final int POSITION_CUSTODIAN_STALKERS = BASE + 30;
-    public static final int POSITION_DAGANNOTHS = BASE + 31;
-    public static final int POSITION_DARK_BEASTS = BASE + 32;
-    public static final int POSITION_DARK_WARRIORS = BASE + 33;
-    public static final int POSITION_DOGS = BASE + 34;
-    public static final int POSITION_DRAKES = BASE + 35;
-    public static final int POSITION_DUST_DEVILS = BASE + 36;
-    public static final int POSITION_DWARVES = BASE + 37;
-    public static final int POSITION_EARTH_WARRIORS = BASE + 38;
-    public static final int POSITION_ELVES = BASE + 39;
-    public static final int POSITION_ENTS = BASE + 40;
-    public static final int POSITION_FEVER_SPIDERS = BASE + 41;
-    public static final int POSITION_FIRE_GIANTS = BASE + 42;
-    public static final int POSITION_FLESH_CRAWLERS = BASE + 43;
-    public static final int POSITION_FOSSIL_ISLAND_WYVERN = BASE + 44;
-    public static final int POSITION_FROST_DRAGONS = BASE + 45;
-    public static final int POSITION_GARGOYLES = BASE + 46;
-    public static final int POSITION_GHOSTS = BASE + 47;
-    public static final int POSITION_GHOULS = BASE + 48;
-    public static final int POSITION_GOBLINS = BASE + 49;
-    public static final int POSITION_GREATER_DEMONS = BASE + 50;
-    public static final int POSITION_GREEN_DRAGONS = BASE + 51;
-    public static final int POSITION_GRYPHONS = BASE + 52;
-    public static final int POSITION_HARPIE_BUG_SWARMS = BASE + 53;
-    public static final int POSITION_HELLHOUNDS = BASE + 54;
-    public static final int POSITION_HILL_GIANTS = BASE + 55;
-    public static final int POSITION_HOBGOBLINS = BASE + 56;
-    public static final int POSITION_HYDRAS = BASE + 57;
-    public static final int POSITION_ICEFIENDS = BASE + 58;
-    public static final int POSITION_ICE_GIANTS = BASE + 59;
-    public static final int POSITION_ICE_WARRIORS = BASE + 60;
-    public static final int POSITION_INFERNAL_MAGES = BASE + 61;
-    public static final int POSITION_JELLIES = BASE + 62;
-    public static final int POSITION_JUNGLE_HORRORS = BASE + 63;
-    public static final int POSITION_KALPHITES = BASE + 64;
-    public static final int POSITION_KILLERWATTS = BASE + 65;
-    public static final int POSITION_KURASKS = BASE + 66;
-    public static final int POSITION_LAVA_DRAGONS = BASE + 67;
-    public static final int POSITION_LESSER_DEMONS = BASE + 68;
-    public static final int POSITION_LESSER_NAGUA = BASE + 69;
-    public static final int POSITION_LIZARDMEN = BASE + 70;
-    public static final int POSITION_LIZARDS = BASE + 71;
-    public static final int POSITION_MAGIC_AXES = BASE + 72;
-    public static final int POSITION_MAMMOTH = BASE + 73;
-    public static final int POSITION_METAL_DRAGONS = BASE + 74;
-    public static final int POSITION_MINIONS_OF_SCABARAS = BASE + 75;
-    public static final int POSITION_MINOTAURS = BASE + 76;
-    public static final int POSITION_MOGRES = BASE + 77;
-    public static final int POSITION_MOLANISKS = BASE + 78;
-    public static final int POSITION_MONKEYS = BASE + 79;
-    public static final int POSITION_MOSS_GIANTS = BASE + 80;
-    public static final int POSITION_NECHRYAEL = BASE + 81;
-    public static final int POSITION_OGRES = BASE + 82;
-    public static final int POSITION_OTHERWORLDLY_BEINGS = BASE + 83;
-    public static final int POSITION_PIRATES = BASE + 84;
-    public static final int POSITION_PYREFIENDS = BASE + 85;
-    public static final int POSITION_RATS = BASE + 86;
-    public static final int POSITION_RED_DRAGONS = BASE + 87;
-    public static final int POSITION_REVENANTS = BASE + 88;
-    public static final int POSITION_ROCKSLUGS = BASE + 89;
-    public static final int POSITION_ROGUES = BASE + 90;
-    public static final int POSITION_SCORPIONS = BASE + 91;
-    public static final int POSITION_SEA_SNAKES = BASE + 92;
-    public static final int POSITION_SHADES = BASE + 93;
-    public static final int POSITION_SHADOW_WARRIORS = BASE + 94;
-    public static final int POSITION_SKELETAL_WYVERNS = BASE + 95;
-    public static final int POSITION_SKELETONS = BASE + 96;
-    public static final int POSITION_SMOKE_DEVILS = BASE + 97;
-    public static final int POSITION_SOURHOGS = BASE + 98;
-    public static final int POSITION_SPIDERS = BASE + 99;
-    public static final int POSITION_SPIRITUAL_CREATURES = BASE + 100;
-    public static final int POSITION_SUQAHS = BASE + 101;
-    public static final int POSITION_TERROR_DOGS = BASE + 102;
-    public static final int POSITION_TROLLS = BASE + 103;
-    public static final int POSITION_TUROTH = BASE + 104;
-    public static final int POSITION_TZHAAR = BASE + 105;
-    public static final int POSITION_VAMPYRES = BASE + 106;
-    public static final int POSITION_WALL_BEASTS = BASE + 107;
-    public static final int POSITION_WARPED_CREATURES = BASE + 108;
-    public static final int POSITION_WATERFIENDS = BASE + 109;
-    public static final int POSITION_WEREWOLVES = BASE + 110;
-    public static final int POSITION_WOLVES = BASE + 111;
-    public static final int POSITION_WYRMS = BASE + 112;
-    public static final int POSITION_ZOMBIES = BASE + 113;
-    public static final int POSITION_ZYGOMITES = BASE + 114;
+    public static final int POSITION_ABERRANT_SPECTRES = BASE_MONSTERS;
+    public static final int POSITION_ABYSSAL_DEMONS = BASE_MONSTERS + 1;
+    public static final int POSITION_ANKOUS = BASE_MONSTERS + 2;
+    public static final int POSITION_AQUANITES = BASE_MONSTERS + 3;
+    public static final int POSITION_ARAXYTES = BASE_MONSTERS + 4;
+    public static final int POSITION_AVIANSIE = BASE_MONSTERS + 5;
+    public static final int POSITION_BANDITS = BASE_MONSTERS + 6;
+    public static final int POSITION_BANSHEES = BASE_MONSTERS + 7;
+    public static final int POSITION_BASILISKS = BASE_MONSTERS + 8;
+    public static final int POSITION_BATS = BASE_MONSTERS + 9;
+    public static final int POSITION_BEARS = BASE_MONSTERS + 10;
+    public static final int POSITION_BIRDS = BASE_MONSTERS + 11;
+    public static final int POSITION_BLACK_DEMONS = BASE_MONSTERS + 12;
+    public static final int POSITION_BLACK_DRAGONS = BASE_MONSTERS + 13;
+    public static final int POSITION_BLACK_KNIGHTS = BASE_MONSTERS + 14;
+    public static final int POSITION_BLOODVELDS = BASE_MONSTERS + 15;
+    public static final int POSITION_BLUE_DRAGONS = BASE_MONSTERS + 16;
+    public static final int POSITION_BRINE_RATS = BASE_MONSTERS + 17;
+    public static final int POSITION_CATABLEPON = BASE_MONSTERS + 18;
+    public static final int POSITION_CAVE_BUGS = BASE_MONSTERS + 19;
+    public static final int POSITION_CAVE_CRAWLERS = BASE_MONSTERS + 20;
+    public static final int POSITION_CAVE_HORRORS = BASE_MONSTERS + 21;
+    public static final int POSITION_CAVE_SLIMES = BASE_MONSTERS + 22;
+    public static final int POSITION_CAVE_KRAKEN = BASE_MONSTERS + 23;
+    public static final int POSITION_CHAOS_DRUIDS = BASE_MONSTERS + 24;
+    public static final int POSITION_COCKATRICE = BASE_MONSTERS + 25;
+    public static final int POSITION_COWS = BASE_MONSTERS + 26;
+    public static final int POSITION_CRABS = BASE_MONSTERS + 27;
+    public static final int POSITION_CRAWLING_HANDS = BASE_MONSTERS + 28;
+    public static final int POSITION_CROCODILES = BASE_MONSTERS + 29;
+    public static final int POSITION_CUSTODIAN_STALKERS = BASE_MONSTERS + 30;
+    public static final int POSITION_DAGANNOTHS = BASE_MONSTERS + 31;
+    public static final int POSITION_DARK_BEASTS = BASE_MONSTERS + 32;
+    public static final int POSITION_DARK_WARRIORS = BASE_MONSTERS + 33;
+    public static final int POSITION_DOGS = BASE_MONSTERS + 34;
+    public static final int POSITION_DRAKES = BASE_MONSTERS + 35;
+    public static final int POSITION_DUST_DEVILS = BASE_MONSTERS + 36;
+    public static final int POSITION_DWARVES = BASE_MONSTERS + 37;
+    public static final int POSITION_EARTH_WARRIORS = BASE_MONSTERS + 38;
+    public static final int POSITION_ELVES = BASE_MONSTERS + 39;
+    public static final int POSITION_ENTS = BASE_MONSTERS + 40;
+    public static final int POSITION_FEVER_SPIDERS = BASE_MONSTERS + 41;
+    public static final int POSITION_FIRE_GIANTS = BASE_MONSTERS + 42;
+    public static final int POSITION_FLESH_CRAWLERS = BASE_MONSTERS + 43;
+    public static final int POSITION_FOSSIL_ISLAND_WYVERN = BASE_MONSTERS + 44;
+    public static final int POSITION_FROST_DRAGONS = BASE_MONSTERS + 45;
+    public static final int POSITION_GARGOYLES = BASE_MONSTERS + 46;
+    public static final int POSITION_GHOSTS = BASE_MONSTERS + 47;
+    public static final int POSITION_GHOULS = BASE_MONSTERS + 48;
+    public static final int POSITION_GOBLINS = BASE_MONSTERS + 49;
+    public static final int POSITION_GREATER_DEMONS = BASE_MONSTERS + 50;
+    public static final int POSITION_GREEN_DRAGONS = BASE_MONSTERS + 51;
+    public static final int POSITION_GRYPHONS = BASE_MONSTERS + 52;
+    public static final int POSITION_HARPIE_BUG_SWARMS = BASE_MONSTERS + 53;
+    public static final int POSITION_HELLHOUNDS = BASE_MONSTERS + 54;
+    public static final int POSITION_HILL_GIANTS = BASE_MONSTERS + 55;
+    public static final int POSITION_HOBGOBLINS = BASE_MONSTERS + 56;
+    public static final int POSITION_HYDRAS = BASE_MONSTERS + 57;
+    public static final int POSITION_ICEFIENDS = BASE_MONSTERS + 58;
+    public static final int POSITION_ICE_GIANTS = BASE_MONSTERS + 59;
+    public static final int POSITION_ICE_WARRIORS = BASE_MONSTERS + 60;
+    public static final int POSITION_INFERNAL_MAGES = BASE_MONSTERS + 61;
+    public static final int POSITION_JELLIES = BASE_MONSTERS + 62;
+    public static final int POSITION_JUNGLE_HORRORS = BASE_MONSTERS + 63;
+    public static final int POSITION_KALPHITES = BASE_MONSTERS + 64;
+    public static final int POSITION_KILLERWATTS = BASE_MONSTERS + 65;
+    public static final int POSITION_KURASKS = BASE_MONSTERS + 66;
+    public static final int POSITION_LAVA_DRAGONS = BASE_MONSTERS + 67;
+    public static final int POSITION_LESSER_DEMONS = BASE_MONSTERS + 68;
+    public static final int POSITION_LESSER_NAGUA = BASE_MONSTERS + 69;
+    public static final int POSITION_LIZARDMEN = BASE_MONSTERS + 70;
+    public static final int POSITION_LIZARDS = BASE_MONSTERS + 71;
+    public static final int POSITION_MAGIC_AXES = BASE_MONSTERS + 72;
+    public static final int POSITION_MAMMOTH = BASE_MONSTERS + 73;
+    public static final int POSITION_METAL_DRAGONS = BASE_MONSTERS + 74;
+    public static final int POSITION_MINIONS_OF_SCABARAS = BASE_MONSTERS + 75;
+    public static final int POSITION_MINOTAURS = BASE_MONSTERS + 76;
+    public static final int POSITION_MOGRES = BASE_MONSTERS + 77;
+    public static final int POSITION_MOLANISKS = BASE_MONSTERS + 78;
+    public static final int POSITION_MONKEYS = BASE_MONSTERS + 79;
+    public static final int POSITION_MOSS_GIANTS = BASE_MONSTERS + 80;
+    public static final int POSITION_NECHRYAEL = BASE_MONSTERS + 81;
+    public static final int POSITION_OGRES = BASE_MONSTERS + 82;
+    public static final int POSITION_OTHERWORLDLY_BEINGS = BASE_MONSTERS + 83;
+    public static final int POSITION_PIRATES = BASE_MONSTERS + 84;
+    public static final int POSITION_PYREFIENDS = BASE_MONSTERS + 85;
+    public static final int POSITION_RATS = BASE_MONSTERS + 86;
+    public static final int POSITION_RED_DRAGONS = BASE_MONSTERS + 87;
+    public static final int POSITION_REVENANTS = BASE_MONSTERS + 88;
+    public static final int POSITION_ROCKSLUGS = BASE_MONSTERS + 89;
+    public static final int POSITION_ROGUES = BASE_MONSTERS + 90;
+    public static final int POSITION_SCORPIONS = BASE_MONSTERS + 91;
+    public static final int POSITION_SEA_SNAKES = BASE_MONSTERS + 92;
+    public static final int POSITION_SHADES = BASE_MONSTERS + 93;
+    public static final int POSITION_SHADOW_WARRIORS = BASE_MONSTERS + 94;
+    public static final int POSITION_SKELETAL_WYVERNS = BASE_MONSTERS + 95;
+    public static final int POSITION_SKELETONS = BASE_MONSTERS + 96;
+    public static final int POSITION_SMOKE_DEVILS = BASE_MONSTERS + 97;
+    public static final int POSITION_SOURHOGS = BASE_MONSTERS + 98;
+    public static final int POSITION_SPIDERS = BASE_MONSTERS + 99;
+    public static final int POSITION_SPIRITUAL_CREATURES = BASE_MONSTERS + 100;
+    public static final int POSITION_SUQAHS = BASE_MONSTERS + 101;
+    public static final int POSITION_TERROR_DOGS = BASE_MONSTERS + 102;
+    public static final int POSITION_TROLLS = BASE_MONSTERS + 103;
+    public static final int POSITION_TUROTH = BASE_MONSTERS + 104;
+    public static final int POSITION_TZHAAR = BASE_MONSTERS + 105;
+    public static final int POSITION_VAMPYRES = BASE_MONSTERS + 106;
+    public static final int POSITION_WALL_BEASTS = BASE_MONSTERS + 107;
+    public static final int POSITION_WARPED_CREATURES = BASE_MONSTERS + 108;
+    public static final int POSITION_WATERFIENDS = BASE_MONSTERS + 109;
+    public static final int POSITION_WEREWOLVES = BASE_MONSTERS + 110;
+    public static final int POSITION_WOLVES = BASE_MONSTERS + 111;
+    public static final int POSITION_WYRMS = BASE_MONSTERS + 112;
+    public static final int POSITION_ZOMBIES = BASE_MONSTERS + 113;
+    public static final int POSITION_ZYGOMITES = BASE_MONSTERS + 114;
 
-    public static final int POSITION_KARUULM = BASE + 1000;
-    public static final int POSITION_KARUULM_GREATER_DEMONS = 10;
+    public static final int POSITION_ABYSS = BASE_LOCATIONS + 10;
+    public static final int POSITION_ANCIENT_CAVERN = BASE_LOCATIONS + 20;
+    public static final int POSITION_ASGARNIAN_ICE_DUNGEON = BASE_LOCATIONS + 30;
+    public static final int POSITION_BATTLEFRONT = BASE_LOCATIONS + 40;
+    public static final int POSITION_BRIMHAVEN_DUNGEON = BASE_LOCATIONS + 50;
+    public static final int POSITION_BRINE_RAT_CAVERN = BASE_LOCATIONS + 60;
+    public static final int POSITION_CATACOMBS_OF_KOUREND = BASE_LOCATIONS + 70;
+    public static final int POSITION_CHARRED_DUNGEON = BASE_LOCATIONS + 80;
+    public static final int POSITION_CHASM_OF_FIRE = BASE_LOCATIONS + 90;
+    public static final int POSITION_CRYPT_OF_TONALI = BASE_LOCATIONS + 100;
+    public static final int POSITION_DARKMEYER = BASE_LOCATIONS + 110;
+    public static final int POSITION_DEATH_PLATEAU = BASE_LOCATIONS + 120;
+    public static final int POSITION_EVIL_CHICKENS_LAIR = BASE_LOCATIONS + 130;
+    public static final int POSITION_FORTHOS_DUNGEON = BASE_LOCATIONS + 140;
+    public static final int POSITION_FOSSIL_ISLAND = BASE_LOCATIONS + 150;
+    public static final int POSITION_FREMENNIK_ISLES = BASE_LOCATIONS + 160;
+    public static final int POSITION_KARUULM = BASE_LOCATIONS + 170;
 
     // General settings
     @ConfigSection(
@@ -1471,14 +1487,302 @@ public interface ConfigurableSlayerTaskOverlayConfig extends Config {
     @ConfigItem(keyName = "zygomitesDisableBox", name = "Disable information box", description = "Disable information box specifically for Zygomites", section = zygomitesSettings, position = 1)
     default boolean zygomitesDisableBox() { return false; }
 
+    // KONAR TASKS
+
     // Karuulm slayer dungeon
     @ConfigSection(position = POSITION_KARUULM, name = "Konar: Karuulm Slayer Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Karuulm slayer dungeon")
     String karuulmSettings = "karuulm";
 
-    @ConfigItem(keyName = "Greater demons in Karuulm Slayer Dungeon", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = karuulmSettings, position = POSITION_KARUULM_GREATER_DEMONS)
+    @ConfigItem(keyName = "Greater demons in Karuulm Slayer Dungeon", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = karuulmSettings, position = 0)
     default String greaterDemonsInKaruulmSlayerDungeonInfo() { return MOUNT_KARUULM + "\nRun East and up the stairs" + "\nRun to West room"; }
 
-    @ConfigItem(keyName = "greaterDemonsInKaruulmSlayerDungeonBox", name = "Disable greater demons information box", description = "Disable information box specifically for Greater demons", section = karuulmSettings, position = POSITION_KARUULM_GREATER_DEMONS + 1)
+    @ConfigItem(keyName = "greaterDemonsInKaruulmSlayerDungeonBox", name = "Disable greater demons information box", description = "Disable information box specifically for Greater demons", section = karuulmSettings, position = 1)
     default boolean greaterDemonsInKaruulmSlayerDungeonDisableBox() { return false; }
+
+    // Abyss
+    @ConfigSection(position = POSITION_ABYSS, name = "Konar: Abyss", closedByDefault = true, description = "Information to display for Konar slayer tasks in Abyss")
+    String abyssSettings = "abyss";
+
+    @ConfigItem(keyName = "Abyssal demons in Abyss", name = "Abyssal demons information", description = "Create individual bullet points in overlay, one per line", section = abyssSettings, position = 0)
+    default String abyssalDemonsInAbyssInfo() { return "Fairy ring (DIP) or Abyss teleport"; }
+
+    @ConfigItem(keyName = "abyssalDemonsInAbyssDisableBox", name = "Disable information box", description = "Disable information box specifically for Abyssal demons", section = abyssSettings, position = 1)
+    default boolean abyssalDemonsInAbyssDisableBox() { return false; }
+
+    // Ancient Cavern
+    @ConfigSection(position = POSITION_ANCIENT_CAVERN, name = "Konar: Ancient Cavern", closedByDefault = true, description = "Information to display for Konar slayer tasks in Ancient Cavern")
+    String ancientCavernSettings = "ancientCavern";
+
+    @ConfigItem(keyName = "Metal dragons in Ancient Cavern", name = "Metal dragons information", description = "Create individual bullet points in overlay, one per line", section = ancientCavernSettings, position = 0)
+    default String metalDragonsInAncientCavernInfo() { return "Games necklace (Barbarian Outpost)\nRun South"; }
+
+    @ConfigItem(keyName = "metalDragonsInAncientCavernDisableBox", name = "Disable information box", description = "Disable information box specifically for Metal dragons", section = ancientCavernSettings, position = 1)
+    default boolean metalDragonsInAncientCavernDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Waterfiends in Ancient Cavern", name = "Waterfiends information", description = "Create individual bullet points in overlay, one per line", section = ancientCavernSettings, position = 2)
+    default String waterfiendsInAncientCavernInfo() { return "Games necklace (Barbarian Outpost)\nRun South"; }
+
+    @ConfigItem(keyName = "waterfiendsInAncientCavernDisableBox", name = "Disable information box", description = "Disable information box specifically for Waterfiends", section = ancientCavernSettings, position = 3)
+    default boolean waterfiendsInAncientCavernDisableBox() { return false; }
+
+    // Asgarnian Ice Dungeon
+    @ConfigSection(position = POSITION_ASGARNIAN_ICE_DUNGEON, name = "Konar: Asgarnian Ice Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Asgarnian Ice Dungeon")
+    String asgarnianIceDungeonSettings = "asgarnianIceDungeon";
+
+    @ConfigItem(keyName = "Skeletal wyverns in Asgarnian Ice Dungeon", name = "Skeletal wyverns information", description = "Create individual bullet points in overlay, one per line", section = asgarnianIceDungeonSettings, position = 0)
+    default String skeletalWyvernsInAsgarnianIceDungeonInfo() { return ASGARNIAN_DUNGEON + " -> Run North, then East, then South\n(optional) go upstairs to safespot"; }
+
+    @ConfigItem(keyName = "skeletalWyvernsInAsgarnianIceDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Skeletal wyverns", section = asgarnianIceDungeonSettings, position = 1)
+    default boolean skeletalWyvernsInAsgarnianIceDungeonDisableBox() { return false; }
+
+    // Battlefront
+    @ConfigSection(position = POSITION_BATTLEFRONT, name = "Konar: Battlefront", closedByDefault = true, description = "Information to display for Konar slayer tasks in Battlefront")
+    String battlefrontSettings = "battlefront";
+
+    @ConfigItem(keyName = "Lizardmen in Battlefront", name = "Lizardmen information", description = "Create individual bullet points in overlay, one per line", section = battlefrontSettings, position = 0)
+    default String lizardmenInBattlefrontInfo() { return "Battlefront teleport"; }
+
+    @ConfigItem(keyName = "lizardmenInBattlefrontDisableBox", name = "Disable information box", description = "Disable information box specifically for Lizardmen", section = battlefrontSettings, position = 1)
+    default boolean lizardmenInBattlefrontDisableBox() { return false; }
+
+    // Brimhaven Dungeon
+    @ConfigSection(position = POSITION_BRIMHAVEN_DUNGEON, name = "Konar: Brimhaven Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Brimhaven Dungeon")
+    String brimhavenDungeonSettings = "brimhavenDungeon";
+
+    @ConfigItem(keyName = "Black demons in Brimhaven Dungeon", name = "Black demons information", description = "Create individual bullet points in overlay, one per line", section = brimhavenDungeonSettings, position = 0)
+    default String blackDemonsInBrimhavenDungeonInfo() { return "Brimhaven teleport"; }
+
+    @ConfigItem(keyName = "blackDemonsInBrimhavenDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Black demons", section = brimhavenDungeonSettings, position = 1)
+    default boolean blackDemonsInBrimhavenDungeonDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Fire giants in Brimhaven Dungeon", name = "Fire giants information", description = "Create individual bullet points in overlay, one per line", section = brimhavenDungeonSettings, position = 2)
+    default String fireGiantsInBrimhavenDungeonInfo() { return "Brimhaven teleport"; }
+
+    @ConfigItem(keyName = "fireGiantsInBrimhavenDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Fire giants", section = brimhavenDungeonSettings, position = 3)
+    default boolean fireGiantsInBrimhavenDungeonDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Greater demons in Brimhaven Dungeon", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = brimhavenDungeonSettings, position = 4)
+    default String greaterDemonsInBrimhavenDungeonInfo() { return "Brimhaven teleport"; }
+
+    @ConfigItem(keyName = "greaterDemonsInBrimhavenDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Greater demons", section = brimhavenDungeonSettings, position = 5)
+    default boolean greaterDemonsInBrimhavenDungeonDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Metal dragons in Brimhaven Dungeon", name = "Metal dragons information", description = "Create individual bullet points in overlay, one per line", section = brimhavenDungeonSettings, position = 6)
+    default String metalDragonsInBrimhavenDungeonInfo() { return "Brimhaven teleport"; }
+
+    @ConfigItem(keyName = "metalDragonsInBrimhavenDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Metal dragons", section = brimhavenDungeonSettings, position = 7)
+    default boolean metalDragonsInBrimhavenDungeonDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Red dragons in Brimhaven Dungeon", name = "Red dragons information", description = "Create individual bullet points in overlay, one per line", section = brimhavenDungeonSettings, position = 8)
+    default String redDragonsInBrimhavenDungeonInfo() { return "Brimhaven teleport"; }
+
+    @ConfigItem(keyName = "redDragonsInBrimhavenDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Red dragons", section = brimhavenDungeonSettings, position = 9)
+    default boolean redDragonsInBrimhavenDungeonDisableBox() { return false; }
+
+    // Brine Rat Cavern
+    @ConfigSection(position = POSITION_BRINE_RAT_CAVERN, name = "Konar: Brine Rat Cavern", closedByDefault = true, description = "Information to display for Konar slayer tasks in Brine Rat Cavern")
+    String brineRatCavernSettings = "brineRatCavern";
+
+    @ConfigItem(keyName = "Brine rats in Brine Rat Cavern", name = "Brine rats information", description = "Create individual bullet points in overlay, one per line", section = brineRatCavernSettings, position = 0)
+    default String brineRatsInBrineRatCavernInfo() { return "BRING: Spade\nFairy ring (DKS)\nRun a little North and enter Brine Rat Cavern"; }
+
+    @ConfigItem(keyName = "brineRatsInBrineRatCavernDisableBox", name = "Disable information box", description = "Disable information box specifically for Brine rats", section = brineRatCavernSettings, position = 1)
+    default boolean brineRatsInBrineRatCavernDisableBox() { return false; }
+
+    // Catacombs of Kourend
+    @ConfigSection(position = POSITION_CATACOMBS_OF_KOUREND, name = "Konar: Catacombs of Kourend", closedByDefault = true, description = "Information to display for Konar slayer tasks in Catacombs of Kourend")
+    String catacombsOfKourendSettings = "catacombs";
+
+    @ConfigItem(keyName = "Aberrant spectres in Catacombs of Kourend", name = "Aberrant spectres information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 0)
+    default String aberrantSpectresInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "aberrantSpectresInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Aberrant spectres", section = catacombsOfKourendSettings, position = 1)
+    default boolean aberrantSpectresInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Abyssal demons in Catacombs of Kourend", name = "Abyssal demons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 2)
+    default String abyssalDemonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend\nRun North"; }
+
+    @ConfigItem(keyName = "abyssalDemonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Abyssal demons", section = catacombsOfKourendSettings, position = 3)
+    default boolean abyssalDemonsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Ankous in Catacombs of Kourend", name = "Ankous information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 4)
+    default String ankousInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "ankousInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Ankous", section = catacombsOfKourendSettings, position = 5)
+    default boolean ankousInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Black demons in Catacombs of Kourend", name = "Black demons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 6)
+    default String blackDemonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "blackDemonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Black demons", section = catacombsOfKourendSettings, position = 7)
+    default boolean blackDemonsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Black dragons in Catacombs of Kourend", name = "Black dragons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 8)
+    default String blackDragonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "blackDragonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Black dragons", section = catacombsOfKourendSettings, position = 9)
+    default boolean blackDragonsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Bloodvelds in Catacombs of Kourend", name = "Bloodvelds information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 10)
+    default String bloodveldsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "bloodveldsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Bloodvelds", section = catacombsOfKourendSettings, position = 11)
+    default boolean bloodveldsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Blue dragons in Catacombs of Kourend", name = "Blue dragons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 12)
+    default String blueDragonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "blueDragonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Blue dragons", section = catacombsOfKourendSettings, position = 13)
+    default boolean blueDragonsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Dagannoths in Catacombs of Kourend", name = "Dagannoths information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 14)
+    default String dagannothsInCatacombsOfKourendInfo() { return "Catacombs of Kourend: Run South"; }
+
+    @ConfigItem(keyName = "dagannothsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Dagannoths", section = catacombsOfKourendSettings, position = 15)
+    default boolean dagannothsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Dust devils in Catacombs of Kourend", name = "Dust devils information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 16)
+    default String dustDevilsInCatacombsOfKourendInfo() { return "Catacombs of Kourend\nRun East, then South"; }
+
+    @ConfigItem(keyName = "dustDevilsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Dust devils", section = catacombsOfKourendSettings, position = 17)
+    default boolean dustDevilsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Fire giants in Catacombs of Kourend", name = "Fire giants information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 18)
+    default String fireGiantsInCatacombsOfKourendInfo() { return "Catacombs of Kourend: Run West"; }
+
+    @ConfigItem(keyName = "fireGiantsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Fire giants", section = catacombsOfKourendSettings, position = 19)
+    default boolean fireGiantsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Greater demons in Catacombs of Kourend", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 20)
+    default String greaterDemonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "greaterDemonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Greater demons", section = catacombsOfKourendSettings, position = 21)
+    default boolean greaterDemonsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Hellhounds in Catacombs of Kourend", name = "Hellhounds information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 22)
+    default String hellhoundsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "hellhoundsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Hellhounds", section = catacombsOfKourendSettings, position = 23)
+    default boolean hellhoundsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Jellies in Catacombs of Kourend", name = "Jellies information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 24)
+    default String jelliesInCatacombsOfKourendInfo() { return "Catacombs of Kourend: Run East, then South (continue or then East and then North)"; }
+
+    @ConfigItem(keyName = "jelliesInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Jellies", section = catacombsOfKourendSettings, position = 25)
+    default boolean jelliesInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Metal dragons in Catacombs of Kourend", name = "Metal dragons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 26)
+    default String metalDragonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "metalDragonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Metal dragons", section = catacombsOfKourendSettings, position = 27)
+    default boolean metalDragonsInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Nechryael in Catacombs of Kourend", name = "Nechryael information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 28)
+    default String nechryaelInCatacombsOfKourendInfo() { return "Catacombs of Kourend: Run North, then East"; }
+
+    @ConfigItem(keyName = "nechryaelInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Nechryael", section = catacombsOfKourendSettings, position = 29)
+    default boolean nechryaelInCatacombsOfKourendDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Red dragons in Catacombs of Kourend", name = "Red dragons information", description = "Create individual bullet points in overlay, one per line", section = catacombsOfKourendSettings, position = 30)
+    default String redDragonsInCatacombsOfKourendInfo() { return "Catacombs of Kourend"; }
+
+    @ConfigItem(keyName = "redDragonsInCatacombsOfKourendDisableBox", name = "Disable information box", description = "Disable information box specifically for Red dragons", section = catacombsOfKourendSettings, position = 31)
+    default boolean redDragonsInCatacombsOfKourendDisableBox() { return false; }
+
+    // Charred Dungeon
+    @ConfigSection(position = POSITION_CHARRED_DUNGEON, name = "Konar: Charred Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Charred Dungeon")
+    String charredDungeonSettings = "charredDungeon";
+
+    @ConfigItem(keyName = "Wyrms in Charred Dungeon", name = "Wyrms information", description = "Create individual bullet points in overlay, one per line", section = charredDungeonSettings, position = 0)
+    default String wyrmsInCharredDungeonInfo() { return "Charred Dungeon"; }
+
+    @ConfigItem(keyName = "wyrmsInCharredDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Wyrms", section = charredDungeonSettings, position = 1)
+    default boolean wyrmsInCharredDungeonDisableBox() { return false; }
+
+    // Chasm of Fire
+    @ConfigSection(position = POSITION_CHASM_OF_FIRE, name = "Konar: Chasm of Fire", closedByDefault = true, description = "Information to display for Konar slayer tasks in Chasm of Fire")
+    String chasmOfFireSettings = "chasmOfFire";
+
+    @ConfigItem(keyName = "Black demons in Chasm of Fire", name = "Black demons information", description = "Create individual bullet points in overlay, one per line", section = chasmOfFireSettings, position = 0)
+    default String blackDemonsInChasmOfFireInfo() { return CHASM_OF_FIRE; }
+
+    @ConfigItem(keyName = "blackDemonsInChasmOfFireDisableBox", name = "Disable information box", description = "Disable information box specifically for Black demons", section = chasmOfFireSettings, position = 1)
+    default boolean blackDemonsInChasmOfFireDisableBox() { return false; }
+
+    @ConfigItem(keyName = "Greater demons in Chasm of Fire", name = "Greater demons information", description = "Create individual bullet points in overlay, one per line", section = chasmOfFireSettings, position = 2)
+    default String greaterDemonsInChasmOfFireInfo() { return CHASM_OF_FIRE; }
+
+    @ConfigItem(keyName = "greaterDemonsInChasmOfFireDisableBox", name = "Disable information box", description = "Disable information box specifically for Greater demons", section = chasmOfFireSettings, position = 3)
+    default boolean greaterDemonsInChasmOfFireDisableBox() { return false; }
+
+    // Crypt of Tonali
+    @ConfigSection(position = POSITION_CRYPT_OF_TONALI, name = "Konar: Crypt of Tonali", closedByDefault = true, description = "Information to display for Konar slayer tasks in Crypt of Tonali")
+    String cryptOfTonaliSettings = "cryptOfTonali";
+
+    @ConfigItem(keyName = "Lesser nagua in Crypt of Tonali", name = "Lesser nagua information", description = "Create individual bullet points in overlay, one per line", section = cryptOfTonaliSettings, position = 0)
+    default String lesserNaguaInCryptOfTonaliInfo() { return "Crypt of Tonali"; }
+
+    @ConfigItem(keyName = "lesserNaguaInCryptOfTonaliDisableBox", name = "Disable information box", description = "Disable information box specifically for Lesser nagua", section = cryptOfTonaliSettings, position = 1)
+    default boolean lesserNaguaInCryptOfTonaliDisableBox() { return false; }
+
+    // Darkmeyer
+    @ConfigSection(position = POSITION_DARKMEYER, name = "Konar: Darkmeyer", closedByDefault = true, description = "Information to display for Konar slayer tasks in Darkmeyer")
+    String darkmeyerSettings = "darkmeyer";
+
+    @ConfigItem(keyName = "Vampyres in Darkmeyer", name = "Vampyres information", description = "Create individual bullet points in overlay, one per line", section = darkmeyerSettings, position = 0)
+    default String vampyresInDarkmeyerInfo() { return "Drakan's medallion (Darkmeyer)"; }
+
+    @ConfigItem(keyName = "vampyresInDarkmeyerDisableBox", name = "Disable information box", description = "Disable information box specifically for Vampyres", section = darkmeyerSettings, position = 1)
+    default boolean vampyresInDarkmeyerDisableBox() { return false; }
+
+    // Death Plateau
+    @ConfigSection(position = POSITION_DEATH_PLATEAU, name = "Konar: Death Plateau", closedByDefault = true, description = "Information to display for Konar slayer tasks in Death Plateau")
+    String deathPlateauSettings = "deathPlateau";
+
+    @ConfigItem(keyName = "Trolls in Death Plateau", name = "Trolls information", description = "Create individual bullet points in overlay, one per line", section = deathPlateauSettings, position = 0)
+    default String trollsInDeathPlateauInfo() { return "Death Plateau"; }
+
+    @ConfigItem(keyName = "trollsInDeathPlateauDisableBox", name = "Disable information box", description = "Disable information box specifically for Trolls", section = deathPlateauSettings, position = 1)
+    default boolean trollsInDeathPlateauDisableBox() { return false; }
+
+    // Evil Chicken's Lair
+    @ConfigSection(position = POSITION_EVIL_CHICKENS_LAIR, name = "Konar: Evil Chicken's Lair", closedByDefault = true, description = "Information to display for Konar slayer tasks in Evil Chicken's Lair")
+    String evilChickensLairSettings = "evilChickensLair";
+
+    @ConfigItem(keyName = "Black dragons in Evil Chicken's Lair", name = "Black dragons information", description = "Create individual bullet points in overlay, one per line", section = evilChickensLairSettings, position = 0)
+    default String blackDragonsInEvilChickensLairInfo() { return "Evil Chicken's Lair"; }
+
+    @ConfigItem(keyName = "blackDragonsInEvilChickensLairDisableBox", name = "Disable information box", description = "Disable information box specifically for Black dragons", section = evilChickensLairSettings, position = 1)
+    default boolean blackDragonsInEvilChickensLairDisableBox() { return false; }
+
+    // Forthos Dungeon
+    @ConfigSection(position = POSITION_FORTHOS_DUNGEON, name = "Konar: Forthos Dungeon", closedByDefault = true, description = "Information to display for Konar slayer tasks in Forthos Dungeon")
+    String forthosDungeonSettings = "forthosDungeon";
+
+    @ConfigItem(keyName = "Red dragons in Forthos Dungeon", name = "Red dragons information", description = "Create individual bullet points in overlay, one per line", section = forthosDungeonSettings, position = 0)
+    default String redDragonsInForthosDungeonInfo() { return "Forthos Dungeon"; }
+
+    @ConfigItem(keyName = "redDragonsInForthosDungeonDisableBox", name = "Disable information box", description = "Disable information box specifically for Red dragons", section = forthosDungeonSettings, position = 1)
+    default boolean redDragonsInForthosDungeonDisableBox() { return false; }
+
+    // Fossil Island
+    @ConfigSection(position = POSITION_FOSSIL_ISLAND, name = "Konar: Fossil Island", closedByDefault = true, description = "Information to display for Konar slayer tasks in Fossil Island")
+    String fossilIslandSettings = "fossilIsland";
+
+    @ConfigItem(keyName = "Zygomites in Fossil Island", name = "Zygomites information", description = "Create individual bullet points in overlay, one per line", section = fossilIslandSettings, position = 0)
+    default String zygomitesInFossilIslandInfo() { return "BRING: Fungicide spray and Dramen staff\nDigsite pendent (Fossil island)"; }
+
+    @ConfigItem(keyName = "zygomitesInFossilIslandDisableBox", name = "Disable information box", description = "Disable information box specifically for Zygomites", section = fossilIslandSettings, position = 1)
+    default boolean zygomitesInFossilIslandDisableBox() { return false; }
+
+    // Fremennik Isles
+    @ConfigSection(position = POSITION_FREMENNIK_ISLES, name = "Konar: Fremennik Isles", closedByDefault = true, description = "Information to display for Konar slayer tasks in Fremennik Isles")
+    String fremennikIslesSettings = "fremennikIsles";
+
+    @ConfigItem(keyName = "Trolls in Fremennik Isles", name = "Trolls information", description = "Create individual bullet points in overlay, one per line", section = fremennikIslesSettings, position = 0)
+    default String trollsInFremennikIslesInfo() { return "Fremennik Isles"; }
+
+    @ConfigItem(keyName = "trollsInFremennikIslesDisableBox", name = "Disable information box", description = "Disable information box specifically for Trolls", section = fremennikIslesSettings, position = 1)
+    default boolean trollsInFremennikIslesDisableBox() { return false; }
 }
 
