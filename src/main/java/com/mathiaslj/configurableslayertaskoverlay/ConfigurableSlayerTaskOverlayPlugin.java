@@ -84,7 +84,9 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     private static final Pattern SLAYER_CURRENT_MESSAGE = Pattern.compile(".*still hunting (?<name>.+?)s?[,;].*");
     private static final Pattern SLAYER_CURRENT_CHAT_MESSAGE = Pattern.compile("You're assigned to kill (?<name>.+?)s?[,;] only \\d+ more to go\\.");
 
-    private static final Pattern KONAR_CHAT_PATTERN = Pattern.compile(".+ bring(?:ing)? balance to (?:\\d+ )?(?<name>.+?)s?(?:,|;|in).+");
+    private static final Pattern KONAR_SLAYER_ASSIGN_MESSAGE = Pattern.compile("You are to bring balance to \\d+ (?<name>.+?) in (?<location>.+?)\\.");
+    private static final Pattern KONAR_SLAYER_CURRENT_MESSAGE = Pattern.compile("You're still hunting (?<name>.+?) in (?:the )?(?<location>.+?)s?[,;].*");
+    private static final Pattern KONAR_SLAYER_CURRENT_CHAT_MESSAGE = Pattern.compile("You're assigned to kill (?<name>.+?) in (?:the )?(?<location>.+?)s?[,;] only \\d+ more to go\\.");
 
     private final Set<NPC> targets = new HashSet<>();
 
@@ -494,13 +496,19 @@ public class ConfigurableSlayerTaskOverlayPlugin extends Plugin {
     }
 
     private String getTaskName(String npcText) {
-        Pattern[] patterns = {SLAYER_ASSIGN_MESSAGE, SLAYER_CURRENT_MESSAGE, SLAYER_CURRENT_CHAT_MESSAGE,
-                KONAR_CHAT_PATTERN};
+        Pattern[] patterns = {
+                KONAR_SLAYER_ASSIGN_MESSAGE, KONAR_SLAYER_CURRENT_MESSAGE, KONAR_SLAYER_CURRENT_CHAT_MESSAGE,
+                SLAYER_ASSIGN_MESSAGE, SLAYER_CURRENT_MESSAGE, SLAYER_CURRENT_CHAT_MESSAGE
+                };
 
         for (Pattern pattern : patterns) {
             Matcher matcher = pattern.matcher(npcText);
 
             if (matcher.find()) {
+                String locationMatch = matcher.group("location");
+                if (locationMatch != null) {
+                    return matcher.group("name") + " in " + locationMatch;
+                }
                 return matcher.group("name");
             }
         }

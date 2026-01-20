@@ -189,6 +189,8 @@ public class SlayerTaskRegistry {
         WorldPoint zombiesLocation = savedLocations.getOrDefault("zombies", Alices_farm);
         WorldPoint zygomitesLocation = savedLocations.getOrDefault("zygomites", new WorldPoint(2417, 4465, 0));
 
+        WorldPoint karuulmGreaterDemonsLocation = savedLocations.getOrDefault("greater demons karuulm slayer dungeon", new WorldPoint(1128, 10164, 0));
+
         tasks = Map.ofEntries(
                 Map.entry("aberrant spectres", new SlayerTask("Aberrant spectres", List.of(NpcID.SLAYER_ABBERANT_SPECTRE_1),
                         Collections.singletonList(aberrantSpectresLocation),
@@ -763,6 +765,11 @@ public class SlayerTaskRegistry {
                 Map.entry("zygomites", new SlayerTask("Zygomites", List.of(1),
                         Collections.singletonList(zygomitesLocation),
                         createNpcLocationsFromWorldPoint("Zygomites", zygomitesLocation, config.zygomitesInfo().split("\n"))
+                )),
+
+                Map.entry("greater demons in karuulm slayer dungeon", new SlayerTask("Greater demons in Karuulm Slayer Dungeon", List.of(1),
+                        Collections.singletonList(karuulmGreaterDemonsLocation),
+                        createNpcLocationsFromWorldPoint("Greater demons in Karuulm Slayer Dungeon", karuulmGreaterDemonsLocation, config.greaterDemonsInKaruulmSlayerDungeonInfo().split("\n"))
                 ))
         );
     }
